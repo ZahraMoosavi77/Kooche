@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
+    "leaflet": "^1.9.4",
+    "supabase": "^1.99.5"
+  }
+}
