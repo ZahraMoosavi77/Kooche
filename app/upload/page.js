@@ -1,6 +1,6 @@
 "use client"
-
-import { supabase } from "@/index";
+import { uuidv4 } from "uuid";
+import {supabase} from "../../lib/supabase"
 import { useState } from "react"
 
 export default function upload() {
