@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useMap } from "react-leaflet";
 import L from "leaflet";
-import {MarkerContext} from "@/context/map/mapContext";
+import { MarkerContext } from "@/context/map/mapContext";
 import Marker from "@/components/elements/map/Marker";
-import SetView from "@/components/elements/map/SetView";
+// import SetView from "@/components/elements/map/SetView";
 
 const MarkersContainer = () => {
   const game_list = useContext(MarkerContext);

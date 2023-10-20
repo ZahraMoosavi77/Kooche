@@ -1,14 +1,14 @@
-'use client'
-import { useCallback, useContext, useEffect, useState } from "react";
-import {ActionMarkerContext} from "@/context/map/mapContext";
-
+"use client";
+import { useCallback, useContext, useState } from "react";
+import { ActionMarkerContext } from "@/context/map/mapContext";
+import Image from "next/image";
 
 const MapSearch = () => {
   const [searchTerms, setSearchTerms] = useState({
     gameTerm: "",
     platformTerm: "All",
   });
-  const [platformsList, setPlatformsList] = useState([]);
+  // const [platformsList, setPlatformsList] = useState([]);
   const [gameList, setGameList] = useState([]);
 
   const setMarkerList = useContext(ActionMarkerContext);
@@ -61,37 +61,49 @@ const MapSearch = () => {
 
   return (
     <div className={"flex"}>
-      <div className={"text-gray-950 w-full"}>
-        <form id={"search_form"}>
-          <input
-            type="text"
-            name={"gameName"}
-            value={gameTerm}
-            onChange={({ target }) => handleChange(target)}
-            className={"w-4/6 rounded-xl py-1.5 px-3"}
-            placeholder={"نام بازی"}
-          />
-          <select
-            name="platforms"
-            onChange={({ target }) => handleChange(target)}
-            className={"mx-3 h-full"}
-          >
-            <option value="All">All</option>
-            {platformsList.map(({ name }, index) => (
-              <option key={index} value={name}>
-                {name}
-              </option>
-            ))}
-          </select>
-          <button
-            type="submit"
-            className={"bg-white"}
-            onClick={(e) => handleClick(e)}
-          >
-            جست و جو
-          </button>
-        </form>
+      {/*<div className={"text-gray-950 w-full"}>*/}
+      <form id="search_form" className="ml-4">
+        <input
+          type="text"
+          name={"gameName"}
+          value={gameTerm}
+          onChange={({ target }) => handleChange(target)}
+          className={
+            "rounded-xl text-gray-500 py-[11px] px-3 bg-gray-200 w-[380px]"
+          }
+          placeholder={"جستجو"}
+        />
+        {/*<select*/}
+        {/*  name="platforms"*/}
+        {/*  onChange={({ target }) => handleChange(target)}*/}
+        {/*  className={"mx-3 h-full"}*/}
+        {/*>*/}
+        {/*  <option value="All">All</option>*/}
+        {/*  {platformsList.map(({ name }, index) => (*/}
+        {/*    <option key={index} value={name}>*/}
+        {/*      {name}*/}
+        {/*    </option>*/}
+        {/*  ))}*/}
+        {/*</select>*/}
+        {/*<button*/}
+        {/*  type="submit"*/}
+        {/*  className={"bg-white"}*/}
+        {/*  onClick={(e) => handleClick(e)}*/}
+        {/*>*/}
+        {/*  جست و جو*/}
+        {/*</button>*/}
+      </form>
+      <div className="flex items-center rounded-xl border-2 border-primary text-primary px-4 py-2 font-semibold">
+        <Image
+          src="images/map/filter.svg"
+          alt="Filter Icon"
+          width={24}
+          height={24}
+          className="ml-2"
+        />
+        فیلتر
       </div>
+      {/*</div>*/}
     </div>
   );
 };
