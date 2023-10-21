@@ -6,19 +6,28 @@ import SubTitleNewPage from '@/components/elements/SubTitleNewPage'
 import { infoGame } from '@/constants/constantNewPage'
 import { infoSale } from '@/constants/constantNewPage'
 import { infoSeller } from '@/constants/constantNewPage'
+import TextNewPage from '@/components/elements/TextNewPage'
 export default function page() {
   return (
-    <div className='flex flex-col justify-center items-center p-12'>
-    <RegisterAd/>
-    <TitleNewPage text={infoGame.INFOGAMETITLE}/>
-    <TitleNewPage text={infoSeller.INFOSELLERTITLE}/>
-    <TitleNewPage text={infoSale.INFOSALETITLE}/>
-    <SubTitleNewPage text={infoGame.INFOGAMESUBTITLE}/>
-    <SubTitleNewPage text={infoSeller.INFOSELLERSUBTITLE}/>
-    <SubTitleNewPage text={infoSale.INFOSALESUBTITLE}/>
+    <div className='flex flex-col justify-center items-center mt-30'>
+      <div className='items-start'>
+        <RegisterAd />
+        <TitleNewPage text={infoGame.INFOGAMETITLE} />
+        <SubTitleNewPage text={infoGame.INFOGAMESUBTITLE} />
+        <TitleNewPage text={infoSeller.INFOSELLERTITLE} />
+        <TitleNewPage text={infoSale.INFOSALETITLE} />
+        <div className='flex  items-center '>
+        <TextNewPage text={infoGame.GAMEDESCRIPTION}/>
+        <Optional />
+        
+        </div>
+        <SubTitleNewPage text={infoSeller.INFOSELLERSUBTITLE} />
+        <SubTitleNewPage text={infoSale.INFOSALESUBTITLE} />
+       
+        <Optional />
 
-    <Optional/>
-    <Optional/>
+      </div>
+
     </div>
   )
 }

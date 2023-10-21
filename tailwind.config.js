@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      spacing: {
+        '30': '7.5rem',
+      }
       
     },
 
@@ -80,7 +83,8 @@ module.exports = {
       "peyda-medium":"PeydaMedium",
       "peyda-semibold":"PeydaSemiBold",
       "peyda-bold":"PeydaBold",
-    }
+    },
+   
 
   },
   plugins: [],
