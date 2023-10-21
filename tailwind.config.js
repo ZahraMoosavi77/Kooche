@@ -67,10 +67,12 @@ module.exports = {
     },
 
     lineHeight:{
-      "leading-1":"1.8rem",
-      "leading-2":"1.35rem",
-      "leading-3":"2.025rem",
-      
+      "leading-1":"1.35rem",
+      "leading-2":"1.75rem",
+      "leading-3":"1.8rem",
+      "leading-4":"2.025rem",
+      "leading-5":"2.1rem"
+    
     }
   },
   plugins: [],
