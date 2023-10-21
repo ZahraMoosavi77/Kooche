@@ -1,7 +1,7 @@
-import React from 'react'
+import { OPTIONAL } from "@/constants/constantNewPage"
 
 export default function Optional() {
   return (
-    <div>Optional</div>
+    <div>{OPTIONAL}</div>
   )
 }
