@@ -1,5 +1,3 @@
-import { useMemo } from "react";
-
 export const OPTIONAL = "(اختیاری)";
 export const CANCEL = "انصراف";
 export const REGISTERADVERTISE = "ثبت آگهی";
@@ -23,7 +21,8 @@ export const infoSeller = {
 
 export const infoSale = {
   INFOSALETITLE: "مشخصات فروش",
-  INFOSALESUBTITLE: "در این بخش مشخص کنید مایل به فروش، تبادل یا هر دو مورد هستید.",
+  INFOSALESUBTITLE:
+    "در این بخش مشخص کنید مایل به فروش، تبادل یا هر دو مورد هستید.",
   SALEGAME: "فروش بازی",
   PRICEGAME: "قیمت بازی",
   EXCHANGEGAME: "تبادل با بازی های دیگر",
