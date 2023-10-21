@@ -49,6 +49,7 @@ module.exports = {
       "accent-error":"#C30000",
       "accent-success":"#00BA88",
       "accent-warning":"#F4B740",
+      "accent-error-text":"#FFE5E5"
     },
     fontSize: {
       "scales-6xlarge": "4rem",
@@ -63,7 +64,24 @@ module.exports = {
       "scales-caption": "0.75rem",
       "scales-small": "0.875rem",
       "scales-tiny": "0.625rem",
+    },
+
+    lineHeight:{
+      "leading-1":"1.35rem",
+      "leading-2":"1.75rem",
+      "leading-3":"1.8rem",
+      "leading-4":"2.025rem",
+      "leading-5":"2.1rem"
+    
+    },
+
+    fontFamily:{
+      "peyda-regular":"PeydaRegular",
+      "peyda-medium":"PeydaMedium",
+      "peyda-semibold":"PeydaSemiBold",
+      "peyda-bold":"PeydaBpld",
     }
+
   },
   plugins: [],
 }
