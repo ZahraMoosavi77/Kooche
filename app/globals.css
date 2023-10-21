@@ -4,19 +4,19 @@
 
 @font-face {
   font-family: PeydaRegular;
-  src: url('../assets/font/PeydaWebFaNum-Regular.woff2');
+  src: url('../asset/font/PeydaWebFaNum-Regular.woff2');
 }
 @font-face {
   font-family: PeydaMedium;
-  src: url('../assets/font/PeydaWebFaNum-Medium.woff2');
+  src: url('../asset/font/PeydaWebFaNum-Medium.woff2');
 }
 @font-face {
   font-family: PeydaSemiBold;
-  src: url('../assets/font/PeydaWebFaNum-SemiBold.woff2');
+  src: url('../asset/font/PeydaWebFaNum-SemiBold.woff2');
 }
 @font-face {
   font-family: PeydaBold;
-  src: url('../assets/font/PeydaWebFaNum-Bold.woff2');
+  src: url('../asset/font/PeydaWebFaNum-Bold.woff2');
 }
 
 
