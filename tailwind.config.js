@@ -71,6 +71,7 @@ module.exports = {
       "leading-2":"1.75rem",
       "leading-3":"1.8rem",
       "leading-4":"2.025rem",
+      "leading-5":"2.1rem"
     
     }
   },
