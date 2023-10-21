@@ -73,7 +73,15 @@ module.exports = {
       "leading-4":"2.025rem",
       "leading-5":"2.1rem"
     
+    },
+
+    fontFamily:{
+      "peyda-regular":"PeydaRegular",
+      "peyda-medium":"PeydaMedium",
+      "peyda-semibold":"PeydaSemiBold",
+      "peyda-bold":"PeydaBpld",
     }
+
   },
   plugins: [],
 }
