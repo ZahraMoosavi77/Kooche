@@ -7,6 +7,7 @@ import { infoGame } from '@/constants/constantNewPage'
 import { infoSale } from '@/constants/constantNewPage'
 import { infoSeller } from '@/constants/constantNewPage'
 import TextNewPage from '@/components/elements/TextNewPage'
+import AddImage from '@/components/elements/AddImage'
 export default function page() {
   return (
     <div className='flex flex-col justify-center items-center mt-30'>
@@ -23,8 +24,8 @@ export default function page() {
         </div>
         <SubTitleNewPage text={infoSeller.INFOSELLERSUBTITLE} />
         <SubTitleNewPage text={infoSale.INFOSALESUBTITLE} />
-       
-        <Optional />
+          
+       <AddImage/>
 
       </div>
 

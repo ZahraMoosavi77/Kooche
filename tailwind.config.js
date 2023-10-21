@@ -9,9 +9,13 @@ module.exports = {
     extend: {
       spacing: {
         '30': '7.5rem',
-      }
+      },
+      borderWidth: {
+       
+        '1': '1px',
       
     },
+  },
 
     screens: {
       "xs": "320px",
