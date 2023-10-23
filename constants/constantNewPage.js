@@ -15,6 +15,7 @@ export const infoSeller = {
   INFOSELLERTITLE: "اطلاعات فروشنده",
   INFOSELLERSUBTITLE: "اطلاعات فردی که فروشنده این بازی هست را وارد کنید.",
   SELLERNAME: "اسم  فروشنده",
+  SELLERUNITED:"استان",
   SELLERCITY: "شهر",
   SELLERPHONE: "شماره تماس",
 };
