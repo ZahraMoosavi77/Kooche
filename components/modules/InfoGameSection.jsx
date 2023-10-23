@@ -6,6 +6,7 @@ import { REGISTERADVERTISE, infoGame } from '@/constants/constantNewPage'
 import TitleNewPage from '@/components/elements/TitleNewPage'
 import Optional from '@/components/elements/Optional'
 import TextNewPage from '@/components/elements/TextNewPage'
+import TextAreaNewPage from '../elements/TextAreaNewPage'
 
 
 export default function InfoGameSection() {
@@ -17,26 +18,22 @@ export default function InfoGameSection() {
             </div>
             <div>
 
-                <TextFieldNewPage  label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
+                <TextFieldNewPage type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
             </div>
 
             <div>
-                <TextFieldNewPage label={<div className='flex  '>
+                <TextFieldNewPage  label={<div className='flex  '>
                     <TextNewPage specialClass={'pr-3'} text={infoGame.GAMECONSOLE} />
                     <Optional />
                 </div>} />
             </div>
-            <div>
-                <TextFieldNewPage label={<div className='flex  '>
+            <div >
+                <TextAreaNewPage label={<div className='flex  '>
                     <TextNewPage specialClass={'pr-3'} text={infoGame.GAMEDESCRIPTION} type={'textarea'} />
                     <Optional />
                 </div>} />
 
             </div>
-
-
-
-
             <TextNewPage text={infoGame.GAMEIMAGES} />
             <AddImage />
         </div>
