@@ -29,3 +29,7 @@ export const infoSale = {
   EXCHANGEGAME: "تبادل با بازی های دیگر",
   PREFEREDEXCHANGEGAME: "بازی هایی که باآنها تعویض میکنم",
 };
+
+export const consoleCategory = ['پی اس 5', 'پی اس 4', 'ایکس باکس','نینتندو','کامپیوتر']
+  
+

@@ -7,6 +7,8 @@ import TitleNewPage from '@/components/elements/TitleNewPage'
 import Optional from '@/components/elements/Optional'
 import TextNewPage from '@/components/elements/TextNewPage'
 import TextAreaNewPage from '../elements/TextAreaNewPage'
+import SelectOptionsNewPage from '../elements/SelectOptionsNewPage'
+import { consoleCategory } from '@/constants/constantNewPage'
 
 
 export default function InfoGameSection() {
@@ -22,7 +24,7 @@ export default function InfoGameSection() {
             </div>
 
             <div>
-                <TextFieldNewPage  label={<div className='flex  '>
+                <SelectOptionsNewPage optionsGroup={consoleCategory} label={<div className='flex  '>
                     <TextNewPage specialClass={'pr-3'} text={infoGame.GAMECONSOLE} />
                     <Optional />
                 </div>} />
