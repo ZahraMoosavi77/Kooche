@@ -5,6 +5,7 @@ import RegisterAdButton from '@/components/elements/RegisterAdButton'
 import InfoGameSection from '@/components/modules/InfoGameSection'
 import InfoSellerSection from '@/components/modules/InfoSellerSection'
 import InfoSaleSection from '@/components/modules/InfoSaleSection'
+import { REGISTERADVERTISE } from '@/constants/constantNewPage'
 export default function page() {
   return (
     <div className='flex flex-col justify-center items-center mt-30 mb-10 '>

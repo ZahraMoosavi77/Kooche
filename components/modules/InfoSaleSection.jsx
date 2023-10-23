@@ -1,3 +1,5 @@
+'use client'
+
 import Optional from '@/components/elements/Optional'
 import RegisterAd from '@/components/elements/RegisterAd'
 import TitleNewPage from '@/components/elements/TitleNewPage'
@@ -15,8 +17,10 @@ import RegisterAdButton from '@/components/elements/RegisterAdButton'
 import InfoGameSection from '@/components/modules/InfoGameSection'
 import TextFieldNewPage from '@/components/elements/TextFieldNewPage'
 import InfoSellerSection from '@/components/modules/InfoSellerSection'
+import { useState } from 'react'
 
 export default function () {
+    const [c,setc]= useState(false)
     return (
         <div className=' flex flex-col gap-4'>
             <TitleNewPage text={infoSale.INFOSALETITLE} />
