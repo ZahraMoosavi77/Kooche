@@ -7,6 +7,7 @@ export { useGlobalContext };
 
 // Supabase Create Client
 
+import {supabase} from '@/supabase/configs'
 
 // Supabase Export
 
