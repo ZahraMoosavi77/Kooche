@@ -31,5 +31,13 @@ export const infoSale = {
 };
 
 export const consoleCategory = ['پی اس 5', 'پی اس 4', 'ایکس باکس','نینتندو','کامپیوتر']
-  
+export const CHOOSEUNITED = "استان خود را انتخاب کنید";
+export const SEARCHUNITED = "استان دلخواه خود را سرچ کنید";
+export const CHOOSECITY = "شهر خود را انتخاب کنید";
+export const SEARCHCITY = " شهر دلخواه خود را سرچ کنید";
+export const CHOOSECONSOLE = " کنسول خود را انتخاب کنید.";
+export const SEARCHCONSOLE = "کنسول دلخواه خود را سرچ کنید";
 
+
+export const UNITEDS = ["اصفهان", " تهران","اصفهان", " تهران","اصفهان", " تهران"];
+export const CITIES =  ["اصفهان", " تهران"];

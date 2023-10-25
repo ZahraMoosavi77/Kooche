@@ -9,7 +9,8 @@ import TextNewPage from '@/components/elements/TextNewPage'
 import TextAreaNewPage from '../elements/TextAreaNewPage'
 import SelectOptionsNewPage from '../elements/SelectOptionsNewPage'
 import { consoleCategory } from '@/constants/constantNewPage'
-
+import { CHOOSECONSOLE } from '@/constants/constantNewPage'
+import {SEARCHCONSOLE} from '@/constants/constantNewPage'
 
 export default function InfoGameSection() {
     return (
@@ -24,7 +25,7 @@ export default function InfoGameSection() {
             </div>
 
             <div>
-                <SelectOptionsNewPage optionsGroup={consoleCategory} label={<div className='flex  '>
+                <SelectOptionsNewPage defualtValue={CHOOSECONSOLE} placeholderSearch={SEARCHCONSOLE} optionsGroup={consoleCategory} label={<div className='flex  '>
                     <TextNewPage specialClass={'pr-3'} text={infoGame.GAMECONSOLE} />
                     <Optional />
                 </div>} />
