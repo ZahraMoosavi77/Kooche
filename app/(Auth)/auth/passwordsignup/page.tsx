@@ -1,20 +1,9 @@
 "use client";
-import Form from "@/components/Form";
-import Input from "@/components/Input";
+import { Form, Input, useGlobalContext, Button, supabase } from "@/index";
 import Image from "next/image";
 import React, { useState } from "react";
-import { createClient } from "@supabase/supabase-js";
-import { useGlobalContext } from "@/context/AuthContext";
-import Button from "@/components/Button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
-const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxY3R3am51bnR4aWlmY215bGl5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY5NzUzNTEwMywiZXhwIjoyMDEzMTExMTAzfQ.O3YnA0zn-VExOzwa49KB6L9oE3achQSOM3HPumHbOMQ";
-
-const supabaseUrl = "https://rqctwjnuntxiifcmyliy.supabase.co";
-
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 const page = () => {
   const router = useRouter();
@@ -49,10 +38,10 @@ const page = () => {
   };
 
   const firstIcon = (
-    <Image src={"/Lock.svg"} width={24} height={24} alt="lock icon" />
+    <Image src={"/images/auth/Lock.svg"} width={24} height={24} alt="lock icon" />
   );
   const firstIcon2 = (
-    <Image src={"/Lock.svg"} width={24} height={24} alt="lock icon" />
+    <Image src={"/images/auth/Lock.svg"} width={24} height={24} alt="lock icon" />
   );
   return (
     <Form
@@ -87,7 +76,7 @@ const page = () => {
         <Button
           onClickHandler={onSubmitHandler}
           text="بعدی"
-          src="Arrow_Left_LG.svg"
+          src="/images/auth/Arrow_Left_LG.svg"
           alt="Arrow Left"
           iconHeight={24}
           iconWidth={24}

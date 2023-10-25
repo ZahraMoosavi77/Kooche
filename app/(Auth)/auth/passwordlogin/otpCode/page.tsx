@@ -1,9 +1,6 @@
 "use client";
-import Form from "@/components/Form";
-import Input from "@/components/Input";
-import Image from "next/image";
+import { Form,Input, Button } from "@/index";
 import React from "react";
-import Button from "@/components/Button";
 import Link from "next/link";
 
 const page = () => {
@@ -26,7 +23,7 @@ const page = () => {
         <Button
           onClickHandler={() => console.log("ok")}
           text="بعدی"
-          src="Arrow_Left_LG.svg"
+          src="/images/auth/Arrow_Left_LG.svg"
           alt="Arrow Left"
           iconHeight={24}
           iconWidth={24}

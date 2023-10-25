@@ -1,20 +1,12 @@
 "use client";
-import { createClient } from "@supabase/supabase-js";
+import { supabase, Form, Input, Button, useGlobalContext } from "@/index";
 import React, { useEffect, useState } from "react";
-import Form from "@/components/Form";
-import Input from "@/components/Input";
-import Button from "@/components/Button";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useGlobalContext } from "@/context/AuthContext";
+
 
 const emailReg = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
-const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxY3R3am51bnR4aWlmY215bGl5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY5NzUzNTEwMywiZXhwIjoyMDEzMTExMTAzfQ.O3YnA0zn-VExOzwa49KB6L9oE3achQSOM3HPumHbOMQ";
-const supabaseUrl = "https://rqctwjnuntxiifcmyliy.supabase.co";
-
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 const page = () => {
   let { setMail } = useGlobalContext();
