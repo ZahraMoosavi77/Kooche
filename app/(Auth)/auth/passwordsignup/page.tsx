@@ -57,7 +57,7 @@ const page = () => {
           label="رمز عبور"
           onInputHandler={onInputHandler}
           value={value}
-          className="min-w-[300px] font-peyda-semibold text-scales-default bg-transparent outline-none"
+          className="min-w-[300px] share-inputs"
         />
       </div>
       <div>
@@ -69,7 +69,7 @@ const page = () => {
           id="password"
           onInputHandler={onConfirmHandler}
           value={confirm}
-          className="min-w-[300px] font-peyda-semibold text-scales-default bg-transparent outline-none"
+          className="min-w-[300px] share-inputs"
         />
       </div>
       <div className="flex flex-row-reverse w-full justify-between items-center">
@@ -80,10 +80,10 @@ const page = () => {
           alt="Arrow Left"
           iconHeight={24}
           iconWidth={24}
-          className="w-9/12 flex justify-center px-4 py-2 gap-2 rounded-[12px] bg-primary font-peyda-semibold text-scales-default leading-5 text-white"
+          className="w-9/12share-buttons"
         />
         <Link href={"#"}>
-          <span className="w-3/12 block ms-5 text-scales-default font-peyda-semibold text-gray-800">
+          <span className="back-button">
             قبلی
           </span>
         </Link>

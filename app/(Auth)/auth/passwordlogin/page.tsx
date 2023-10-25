@@ -19,7 +19,7 @@ const page = () => {
   };
 
   const onSubmitHandler = async () => {
-    const { data,error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email: mail,
       password: value,
     });
@@ -28,16 +28,25 @@ const page = () => {
     } else {
       setIsLoggedIn(true);
       console.log(data);
-      
     }
   };
 
   const firstIcon = (
-    <Image src={"/images/auth/Lock.svg"} width={24} height={24} alt="lock icon" />
+    <Image
+      src={"/images/auth/Lock.svg"}
+      width={24}
+      height={24}
+      alt="lock icon"
+    />
   );
 
   const secondIcon = (
-    <Image src={"/images/auth/Show.svg"} width={24} height={24} alt="hide icon" />
+    <Image
+      src={"/images/auth/Show.svg"}
+      width={24}
+      height={24}
+      alt="hide icon"
+    />
   );
 
   return (
@@ -52,7 +61,7 @@ const page = () => {
           id="password"
           value={value}
           onInputHandler={onInputHandler}
-          className="min-w-[300px] font-peyda-semibold text-scales-default bg-transparent outline-none"
+          className="min-w-[300px] share-inputs"
         />
       </div>
       <Button
@@ -62,7 +71,7 @@ const page = () => {
         alt="Arrow Left"
         iconHeight={24}
         iconWidth={24}
-        className="w-full flex justify-center px-4 py-2 gap-2 rounded-[12px] bg-primary font-peyda-semibold text-scales-default leading-5 text-white"
+        className="w-full share-buttons"
       />
       <Link href={"#"}>
         <span className=" block mx-2 text-scales-default font-peyda-semibold text-primary">

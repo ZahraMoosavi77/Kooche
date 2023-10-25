@@ -4,9 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-
 const emailReg = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-
 
 const page = () => {
   let { setMail } = useGlobalContext();
@@ -69,13 +67,14 @@ const page = () => {
           type="email"
           id="email"
           onInputHandler={onInputHandler}
-          className="w-11/12 font-peyda-semibold text-scales-default bg-transparent outline-none "
+          className="w-11/12 share-inputs "
         />
       </div>
-
+      w-9/12 flex justify-center px-4 py-2 gap-2 rounded-[12px] bg-primary
+      font-peyda-semibold text-scales-default leading-5 text-white
       <Button
         text="بعدی"
-        className="w-full flex justify-center px-4 py-2 gap-2 rounded-[12px] bg-primary font-peyda-semiboldb text-scales-default leading-5 text-white "
+        className="w-full share-buttons "
         src="/images/auth/Arrow_Left_LG.svg"
         alt="arrow left"
         iconHeight={24}
