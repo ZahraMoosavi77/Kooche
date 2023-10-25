@@ -27,7 +27,7 @@ export default function InfoSellerSection() {
             </div>
             <div className='flex flex-col gap-2'>
                 <div className='flex justify-between gap-6'>
-                    <div className='w-full'>
+                    <div className='w-full relative'>
                         <SelectOptionsNewPage defualtValue={CHOOSEUNITED} optionsGroup={UNITEDS} placeholderSearch={SEARCHUNITED} label={<div className='flex  items-center '>
                             <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERUNITED} type={'text'} />
 
@@ -35,7 +35,7 @@ export default function InfoSellerSection() {
                       
 
                     </div>
-                    <div className='w-full'>
+                    <div className='w-full relative'>
                         <SelectOptionsNewPage defualtValue={CHOOSECITY} optionsGroup={CITIES} placeholderSearch={SEARCHCITY} label={<div className='flex  items-center '>
                             <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERCITY} type={'text'} />
                         </div>} />

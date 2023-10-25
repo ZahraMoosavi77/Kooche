@@ -14,7 +14,7 @@ import {SEARCHCONSOLE} from '@/constants/constantNewPage'
 
 export default function InfoGameSection() {
     return (
-        <div className=' flex flex-col gap-4'>
+        <div className=' flex flex-col gap-4 '>
             <div className=' flex flex-col gap-2'>
                 <TitleNewPage text={infoGame.INFOGAMETITLE} />
                 <SubTitleNewPage text={infoGame.INFOGAMESUBTITLE} />
@@ -24,7 +24,7 @@ export default function InfoGameSection() {
                 <TextFieldNewPage type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
             </div>
 
-            <div>
+            <div  className='relative'>
                 <SelectOptionsNewPage defualtValue={CHOOSECONSOLE} placeholderSearch={SEARCHCONSOLE} optionsGroup={consoleCategory} label={<div className='flex  '>
                     <TextNewPage specialClass={'pr-3'} text={infoGame.GAMECONSOLE} />
                     <Optional />
