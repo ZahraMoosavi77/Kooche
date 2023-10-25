@@ -13,7 +13,6 @@ const page = () => {
   const router = useRouter();
   const [isSignedUp, setIsSignedUp] = useState<boolean>(false);
   const [allUsers, setAllUsers] = useState<any[]>([]);
-
   const [value, setValue] = useState<string>("");
 
   const [isValidate, setIsValidate] = useState(false);
@@ -70,13 +69,13 @@ const page = () => {
           type="email"
           id="email"
           onInputHandler={onInputHandler}
-          className="w-11/12 font-psm text-base bg-transparent outline-none "
+          className="w-11/12 font-peyda-semibold text-scales-default bg-transparent outline-none "
         />
       </div>
 
       <Button
         text="بعدی"
-        className="w-full flex justify-center px-4 py-2 gap-2 rounded-[12px] bg-[#6D21E9] font-psb text-base leading-7 text-white "
+        className="w-full flex justify-center px-4 py-2 gap-2 rounded-[12px] bg-primary font-peyda-semiboldb text-scales-default leading-5 text-white "
         src="/images/auth/Arrow_Left_LG.svg"
         alt="arrow left"
         iconHeight={24}

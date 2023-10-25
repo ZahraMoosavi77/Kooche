@@ -52,7 +52,7 @@ const page = () => {
           id="password"
           value={value}
           onInputHandler={onInputHandler}
-          className="min-w-[300px] font-psm text-base bg-transparent outline-none"
+          className="min-w-[300px] font-peyda-semibold text-scales-default bg-transparent outline-none"
         />
       </div>
       <Button
@@ -62,10 +62,10 @@ const page = () => {
         alt="Arrow Left"
         iconHeight={24}
         iconWidth={24}
-        className="w-full flex justify-center px-4 py-2 gap-2 rounded-[12px] bg-[#6D21E9] font-psb text-base leading-7 text-white"
+        className="w-full flex justify-center px-4 py-2 gap-2 rounded-[12px] bg-primary font-peyda-semibold text-scales-default leading-5 text-white"
       />
       <Link href={"#"}>
-        <span className=" block mx-2 text-base font-psb text-[#6D21E9]">
+        <span className=" block mx-2 text-scales-default font-peyda-semibold text-primary">
           فراموشی رمز عبور
         </span>
       </Link>

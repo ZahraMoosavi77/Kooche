@@ -40,7 +40,7 @@ const Input = (props) => {
 
   return (
     <div>
-      <span className="block text-gray-900 font-pm mb-2.5">{label}</span>
+      <span className="block text-gray-900 font-peyda-medium mb-2.5">{label}</span>
       {finalElement}
     </div>
   );
