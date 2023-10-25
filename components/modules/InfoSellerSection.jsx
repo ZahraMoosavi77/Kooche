@@ -6,6 +6,7 @@ import { REGISTERADVERTISE, infoGame, infoSeller } from '@/constants/constantNew
 import TitleNewPage from '../elements/TitleNewPage'
 import Optional from '@/components/elements/Optional'
 import TextNewPage from '../elements/TextNewPage'
+import MapNewPage from '../elements/MapNewPage'
 
 
 
@@ -19,30 +20,38 @@ export default function InfoSellerSection() {
             </div>
             <div>
                 <TextFieldNewPage label={<div className='flex  items-center '>
-                    <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERNAME} type={'textarea'} />
+                    <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERNAME} type={'text'} />
                 </div>} />
             </div>
-            <div>
-            <TextFieldNewPage label={<div className='flex  items-center '>
-                <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERUNITED} type={'textarea'} />
-                <Optional />
-            </div>} />
+            <div className='flex flex-col gap-2'>
+                <div className='flex justify-between gap-6'>
+                    <div className='w-full'>
+                        <TextFieldNewPage label={<div className='flex  items-center '>
+                            <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERUNITED} type={'text'} />
 
+                        </div>} />
+
+                    </div>
+                    <div className='w-full'>
+                        <TextFieldNewPage label={<div className='flex  items-center '>
+                            <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERCITY} type={'text'} />
+                        </div>} />
+
+                    </div>
+                </div>
+
+                <MapNewPage />
             </div>
+
+
+
             <div>
-                  <TextFieldNewPage label={<div className='flex  items-center '>
-                <TextNewPage  specialClass={'pr-3'} text={infoSeller.SELLERCITY} type={'textarea'} />
-            </div>} />
+                <TextFieldNewPage label={<div className='flex  items-center '>
+                    <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERPHONE} type={'text'} />
 
+
+                </div>} />
             </div>
-          
-             <div>
-             <TextFieldNewPage label={<div className='flex  items-center '>
-                <TextNewPage  specialClass={'pr-3'} text={infoSeller.SELLERPHONE} type={'textarea'} />
-              
-
-            </div>} />
-             </div>
         </div>
     )
 }
