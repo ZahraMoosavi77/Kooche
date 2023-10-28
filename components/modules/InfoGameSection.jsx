@@ -17,13 +17,19 @@ import { supabase } from '@/lib/supabase'
 
 export default function InfoGameSection() {
     const [platforms , setPlatforms] = useState('')
-    useEffect(async () => {
-
+    const getData= async () =>{
         let { data, error } = await supabase
             .from('platforms')
             .select('name')
          setPlatforms(data);
          console.log(platforms);
+
+    }
+    useEffect( () => {
+        getData()
+        console.log('platforms',platforms);
+
+        
     }, [])
     return (
         <div className=' flex flex-col gap-4 '>
