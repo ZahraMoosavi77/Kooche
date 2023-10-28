@@ -31,7 +31,7 @@ export default function () {
                     <TextNewPage text={infoSale.SALEGAME} />
 
                 </div>
-                <TextFieldNewPage label={<div className='flex  items-center  '>
+                <TextFieldNewPage name={'price'} label={<div className='flex  items-center  '>
                     <TextNewPage specialClass={'pr-3'} text={infoSale.PRICEGAME} type={'textarea'} />
                 </div>} />
 

@@ -21,17 +21,17 @@ export default function InfoGameSection() {
             </div>
             <div>
 
-                <TextFieldNewPage type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
+                <TextFieldNewPage name={'name'} type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
             </div>
 
             <div  className='relative'>
-                <SelectOptionsNewPage defualtValue={CHOOSECONSOLE} placeholderSearch={SEARCHCONSOLE} optionsGroup={consoleCategory} label={<div className='flex  '>
+                <SelectOptionsNewPage name={'catId'} defualtValue={CHOOSECONSOLE} placeholderSearch={SEARCHCONSOLE} optionsGroup={consoleCategory} label={<div className='flex  '>
                     <TextNewPage specialClass={'pr-3'} text={infoGame.GAMECONSOLE} />
                     <Optional />
                 </div>} />
             </div>
             <div >
-                <TextAreaNewPage label={<div className='flex  '>
+                <TextAreaNewPage name={'moreInfo'} label={<div className='flex  '>
                     <TextNewPage specialClass={'pr-3'} text={infoGame.GAMEDESCRIPTION} type={'textarea'} />
                     <Optional />
                 </div>} />

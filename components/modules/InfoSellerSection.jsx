@@ -21,7 +21,7 @@ export default function InfoSellerSection() {
                 <SubTitleNewPage text={infoSeller.INFOSELLERSUBTITLE} />
             </div>
             <div>
-                <TextFieldNewPage label={<div className='flex  items-center '>
+                <TextFieldNewPage name={'sellername'} label={<div className='flex  items-center '>
                     <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERNAME} type={'text'} />
                 </div>} />
             </div>
@@ -50,7 +50,7 @@ export default function InfoSellerSection() {
 
             <div>
                 <TextFieldNewPage label={<div className='flex  items-center '>
-                    <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERPHONE} type={'text'} />
+                    <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERPHONE} type={'number'} />
 
 
                 </div>} />

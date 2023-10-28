@@ -2,15 +2,17 @@
 import down from '../../asset/icons/Down.svg'
 import Image from 'next/image'
 import Search from '../../asset/icons/Serarch.svg'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { NewContext } from '@/context/NewPageContext'
 
 
-export default function SelectOptionsNewPage({ label,optionsGroup,placeholderSearch,defualtValue }) {
+export default function SelectOptionsNewPage({ label,optionsGroup,placeholderSearch,name }) {
     const [inputValue, setInputValue] =useState("");
     const [selected, setSelected] = useState("");
-    const [isOpen,setIsOpen] = useState(false)
+    const [isOpen,setIsOpen] = useState(false);
+    const {insertData}= useContext(NewContext)
 
-
+    insertData[name] = inputValue
     return (
         <>
             <label>{label}</label>
@@ -23,7 +25,7 @@ export default function SelectOptionsNewPage({ label,optionsGroup,placeholderSea
                     {/* <Image src={Search} width={20} height={20} alt='search' color='blue' className='text-primary' /> */}
                     <input value={inputValue} onChange={(e)=>setInputValue(e.target.value)} type="text"placeholder={placeholderSearch} className='placeholder:text-primary-200 font-peyda-medium w-full outline-none p-2 '  />
                 </div>
-                {optionsGroup.map((item)=>{return  <li onClick={
+                {optionsGroup.map((item)=>{return  <li  onClick={
                     ()=>{
                         if( item !== selected) setSelected(item ); setIsOpen(false); setInputValue("")
                     }
