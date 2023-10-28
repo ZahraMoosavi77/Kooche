@@ -8,11 +8,9 @@ import InfoSellerSection from '@/components/modules/InfoSellerSection'
 import InfoSaleSection from '@/components/modules/InfoSaleSection'
 import { REGISTERADVERTISE } from '@/constants/constantNewPage'
 import { NewContext } from "@/context/NewPageContext"
-import { useState } from 'react'
+
 export default function page() {
-   const [inputValueNameGame, setInputValueNameGame] = useState("");
-   const [inputValueName, setInputValueName] = useState("")
-   const [inputValue, setInputValue] = useState("")
+   
    const insertData = {
     name: '', platformId: '', cityId: '', unitedId: '', locId:'', statusId: '', price: '', moreInfo: '', data: ''
     , exchange: '', preferedExchange: '',

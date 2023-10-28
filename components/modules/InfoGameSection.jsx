@@ -1,3 +1,4 @@
+'use client'
 import AddImage from '@/components/elements/AddImage'
 import ShowImage from '@/components/elements/ShowImage'
 import TextFieldNewPage from '@/components/elements/TextFieldNewPage'
@@ -10,9 +11,20 @@ import TextAreaNewPage from '../elements/TextAreaNewPage'
 import SelectOptionsNewPage from '../elements/SelectOptionsNewPage'
 import { consoleCategory } from '@/constants/constantNewPage'
 import { CHOOSECONSOLE } from '@/constants/constantNewPage'
-import {SEARCHCONSOLE} from '@/constants/constantNewPage'
+import { SEARCHCONSOLE } from '@/constants/constantNewPage'
+import { useEffect, useState } from 'react'
+import { supabase } from '@/lib/supabase'
 
 export default function InfoGameSection() {
+    const [platforms , setPlatforms] = useState('')
+    useEffect(async () => {
+
+        let { data, error } = await supabase
+            .from('platforms')
+            .select('name')
+         setPlatforms(data);
+         console.log(platforms);
+    }, [])
     return (
         <div className=' flex flex-col gap-4 '>
             <div className=' flex flex-col gap-2'>
@@ -24,12 +36,12 @@ export default function InfoGameSection() {
                 <TextFieldNewPage name={'name'} type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
             </div>
 
-            <div  className='relative'>
-                <SelectOptionsNewPage name={'catId'} defualtValue={CHOOSECONSOLE} placeholderSearch={SEARCHCONSOLE} optionsGroup={consoleCategory} label={<div className='flex  '>
+            {/* <div className='relative'>
+                <SelectOptionsNewPage name={'catId'} defualtValue={CHOOSECONSOLE} placeholderSearch={SEARCHCONSOLE} optionsGroup={platforms} label={<div className='flex  '>
                     <TextNewPage specialClass={'pr-3'} text={infoGame.GAMECONSOLE} />
                     <Optional />
                 </div>} />
-            </div>
+            </div> */}
             <div >
                 <TextAreaNewPage name={'moreInfo'} label={<div className='flex  '>
                     <TextNewPage specialClass={'pr-3'} text={infoGame.GAMEDESCRIPTION} type={'textarea'} />

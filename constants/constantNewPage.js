@@ -30,6 +30,8 @@ export const infoSale = {
   PREFEREDEXCHANGEGAME: "بازی هایی که باآنها تعویض میکنم",
 };
 
+
+
 export const consoleCategory = ['پی اس 5', 'پی اس 4', 'ایکس باکس','نینتندو','کامپیوتر']
 export const CHOOSEUNITED = "استان خود را انتخاب کنید";
 export const SEARCHUNITED = "استان دلخواه خود را سرچ کنید";
