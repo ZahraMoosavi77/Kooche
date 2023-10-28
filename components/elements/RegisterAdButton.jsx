@@ -7,11 +7,12 @@ export default function RegisterAdButton({ text }) {
   const {insertData} = useContext(NewContext);
   // const {name} = useContext(InsertData)
   const handelInsertData = async () => {
-    console.log(insertData.price);
+    const {name , price, moreInfo, platformId} = insertData;
+    console.log('platformId',platformId);
     const { data, error } = await supabase
       .from('games')
       .insert([
-        { name:insertData.name, price: insertData.price, moreInfo: insertData.moreInfo },
+        {name:name , price:price, platformId:platformId},
       ])
       .select()
 

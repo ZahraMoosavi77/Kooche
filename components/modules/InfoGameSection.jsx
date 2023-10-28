@@ -16,18 +16,18 @@ import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
 
 export default function InfoGameSection() {
-    const [platforms , setPlatforms] = useState('')
+    const [platforms , setPlatforms] = useState([])
     const getData= async () =>{
         let { data, error } = await supabase
             .from('platforms')
-            .select('name')
+            .select('*')
          setPlatforms(data);
-         console.log(platforms);
+      
 
     }
     useEffect( () => {
         getData()
-        console.log('platforms',platforms);
+  
 
         
     }, [])
@@ -42,12 +42,12 @@ export default function InfoGameSection() {
                 <TextFieldNewPage name={'name'} type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
             </div>
 
-            {/* <div className='relative'>
-                <SelectOptionsNewPage name={'catId'} defualtValue={CHOOSECONSOLE} placeholderSearch={SEARCHCONSOLE} optionsGroup={platforms} label={<div className='flex  '>
+            <div className='relative'>
+                <SelectOptionsNewPage column={'platformId'} defualtValue={CHOOSECONSOLE} placeholderSearch={SEARCHCONSOLE} optionsGroup={platforms} label={<div className='flex  '>
                     <TextNewPage specialClass={'pr-3'} text={infoGame.GAMECONSOLE} />
                     <Optional />
                 </div>} />
-            </div> */}
+            </div>
             <div >
                 <TextAreaNewPage name={'moreInfo'} label={<div className='flex  '>
                     <TextNewPage specialClass={'pr-3'} text={infoGame.GAMEDESCRIPTION} type={'textarea'} />
