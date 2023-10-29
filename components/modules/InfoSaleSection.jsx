@@ -43,7 +43,7 @@ export default function () {
                 </div>
             </div>
             <div>
-                <div onClick={() =>{ setIsExchange(!isExchange);setIsSale(false); `${isExchange ? false : insertData.exchange = true}`;console.log(insertData);}} className='flex items-center gap-2 mb-2'>
+                <div onClick={() =>{ setIsExchange(!isExchange);setIsSale(false); `${isExchange ? insertData.exchange = false : true }`;console.log(insertData);}} className='flex items-center gap-2 mb-2'>
                     <CheckBox checked = {isExchange} />
                     <TextNewPage text={infoSale.EXCHANGEGAME} />
                 </div>

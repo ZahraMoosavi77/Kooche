@@ -7,6 +7,8 @@ export default function TextAreaNewPage({ type,label,name }) {
   const [inputValue, setInputValue] = useState('')
   const handelInput = (e)=>{
     setInputValue(e.target.value);
+    console.log(insertData);
+    console.log(insertData[name]);
 }
 
 

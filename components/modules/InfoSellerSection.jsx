@@ -32,6 +32,7 @@ export default function InfoSellerSection() {
             .from('provinces')
             .select('*')
         setProvinces(provinces);
+        console.log(provinces);
       
 
 
@@ -65,7 +66,7 @@ export default function InfoSellerSection() {
 
                     </div>
                     <div className='w-full relative'>
-                        <SelectOptionsNewPage column={'cityId'}  optionsGroup={relatedCities} placeholderSearch={SEARCHCITY} label={<div className='flex  items-center '>
+                        <SelectOptionsNewPage column={'cityId'}  optionsGroup={cities} placeholderSearch={SEARCHCITY} label={<div className='flex  items-center '>
                             <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERCITY} type={'text'} />
                         </div>} />
 
@@ -78,11 +79,16 @@ export default function InfoSellerSection() {
 
 
             <div>
-                <TextFieldNewPage label={<div className='flex  items-center '>
+                <TextFieldNewPage name={'phoneNumber'} label={<div className='flex  items-center '>
                     <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERPHONE} type={'number'} />
 
 
                 </div>} />
+                <div className='flex  items-center '>
+                    <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERPHONE} type={'number'} />
+
+
+                </div>
             </div>
         </div>
     )

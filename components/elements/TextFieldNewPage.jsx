@@ -1,28 +1,36 @@
 'use client'
 import { NewContext } from "@/context/NewPageContext"
-import { useContext, useState } from "react"
-import { InsertData } from "@/context/NewPageContext2"
+import { useContext, useEffect, useState } from "react"
+import { REGex } from "@/constants/constantNewPage"
 // import { InputValue } from "@/context/NewPageContext2"
 // import { InputValueAction } from "@/context/NewPageContext2"
 
 export default function TextField({ type,label,name }) {
 
- // const {inputValue} = useContext(InputValue);
-  // const {setInputValue} = useContext(InputValueAction)
-  // const {name} = useContext(InsertData);
 
 
-
-
-  const [inputValue, setInputValue] = useState('')
+  const { setValidPhoneNumber} =useContext(NewContext);
+  const [inputValue, setInputValue] = useState('');
   const {insertData}= useContext(NewContext);
   
-  //const {inputValue,setInputValue} = useContext(NewContext);
+ 
   const handelInput = (e)=>{
       setInputValue(e.target.value);
       insertData[name] = inputValue.trim();
+      console.log(insertData);
       
   }
+  
+  useEffect(()=>{
+    if(name === 'phoneNumber') {
+    const result =REGex.test(inputValue)
+    if(result) setValidPhoneNumber(true);
+    else setValidPhoneNumber(false)
+  }
+   
+
+},[inputValue])
+  
   
   insertData[name] = inputValue
   return (

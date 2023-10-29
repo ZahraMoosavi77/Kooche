@@ -15,7 +15,9 @@ export default function SelectOptionsNewPage({ label,optionsGroup,placeholderSea
     const {insertData}= useContext(NewContext)
     const {relatedCities} = useContext(NewContext);
     
-    insertData[column] = selected.id
+    insertData[column] = selected.id;
+        console.log(column,insertData[column]);
+        console.log(typeof(insertData[column]));
     return (
         <>
             <label>{label}</label>
