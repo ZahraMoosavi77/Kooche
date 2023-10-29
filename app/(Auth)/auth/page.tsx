@@ -1,6 +1,6 @@
 "use client";
 import { supabase, Form, Input, Button, UseGlobalContext } from "@/index";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -11,21 +11,27 @@ const page = () => {
   const router = useRouter();
   const [allUsers, setAllUsers] = useState<any[]>([]);
   const [value, setValue] = useState<string>("");
-
   const [isValidate, setIsValidate] = useState(false);
+  const alarmDiv = useRef(null);
 
   const onInputHandler = (e) => {
     setValue(e.target.value);
-    if (emailReg.test(value)) {
+    if (emailReg.test(e.target.value)) {
       setIsValidate(true);
-      setMail(value);
     } else setIsValidate(false);
   };
 
-  const onSubmitHandler = () => {
-    if (checkUserHandler()) router.push("auth/passwordlogin");
-    else router.push("auth/passwordsignup");
-  };
+  const onSubmitHandler = useCallback(() => {
+    if (isValidate) {
+      if (checkUserHandler()) {
+        router.push("auth/passwordlogin");
+        setMail(value);
+      } else router.push("auth/passwordsignup");
+      alarmDiv.current.style.display = "none";
+    } else {
+      alarmDiv.current.style.display = "flex";
+    }
+  }, [value]);
 
   const checkUserHandler = () => {
     return (
@@ -42,7 +48,6 @@ const page = () => {
         error,
       } = await supabase.auth.admin.listUsers();
       setAllUsers(users);
-      if (error) console.log(error);
     };
 
     getAllUsers();
@@ -62,11 +67,23 @@ const page = () => {
           firstIcon={firstIcon}
           label="ایمیل"
           element="input"
-          type="email"
+          type="text"
           id="email"
           onInputHandler={onInputHandler}
           className="w-11/12 share-inputs "
         />
+        <div
+          ref={alarmDiv}
+          className="hidden gap-1 items-center text-accent-error m-1 font-peyda-regular text-scales-default"
+        >
+          <Image
+            src="/images/Auth/Circle_Warning.svg"
+            width={24}
+            height={24}
+            alt="circle warning"
+          />
+          <span>ایمیل معتبر نیست</span>
+        </div>
       </div>
 
       <Button
@@ -76,7 +93,7 @@ const page = () => {
         alt="arrow left"
         iconHeight={24}
         iconWidth={24}
-        onClickHandler={() => isValidate && onSubmitHandler()}
+        onClickHandler={onSubmitHandler}
       />
     </Form>
   );
