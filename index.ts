@@ -7,7 +7,7 @@ export { useGlobalContext };
 
 // Supabase Create Client
 
-import {supabase} from '@/supabase/configs'
+import { supabase } from "@/supabase/configs";
 
 // Supabase Export
 
@@ -15,8 +15,8 @@ export { supabase };
 
 // Elements Imports
 
-import { Button } from "@/components/elements/Button";
-import { Input } from "@/components/elements/Input";
+import Button from "@/components/elements/Button";
+import Input from "@/components/elements/Input";
 
 // Elements Export
 
@@ -24,7 +24,7 @@ export { Button, Input };
 
 // Modules Imports
 
-import { Form } from "@/components/modules/Form";
+import Form from "@/components/modules/Form";
 
 // Modules Export
 

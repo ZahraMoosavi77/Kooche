@@ -2,10 +2,13 @@
 
 import { createContext, useContext, useState } from "react";
 
-const AuthContext = createContext({
-  mail: "",
-  isLoggedIn: false,
-  id: "",
+const AuthContext = createContext<any>({
+  // mail: "",
+  // isLoggedIn: false,
+  // id: "",
+  // setMail,
+  // setIsLoggedIn,
+  // setId,
   // token: '',
   // userInfos: null,
   // login: () => {},

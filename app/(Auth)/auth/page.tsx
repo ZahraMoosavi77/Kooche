@@ -1,6 +1,6 @@
 "use client";
 import { supabase, Form, Input, Button, useGlobalContext } from "@/index";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -62,7 +62,7 @@ const page = () => {
       <div>
         <Input
           firstIcon={firstIcon}
-          label="ورود یا ثبت‌نام"
+          label="ایمیل"
           element="input"
           type="email"
           id="email"
@@ -70,8 +70,7 @@ const page = () => {
           className="w-11/12 share-inputs "
         />
       </div>
-      w-9/12 flex justify-center px-4 py-2 gap-2 rounded-[12px] bg-primary
-      font-peyda-semibold text-scales-default leading-5 text-white
+
       <Button
         text="بعدی"
         className="w-full share-buttons "

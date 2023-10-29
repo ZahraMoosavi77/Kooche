@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      
+
     },
 
     screens: {
@@ -22,34 +22,35 @@ module.exports = {
       'xl': '1280px',
       // => @media (min-width: 1280px) { ... }
     },
-    colors:{
-      "white":"#FFFFFF",
-      "gradient":"linear-gradient(to bottom right, red, yellow)",
-      "gray-200":"#EDEDED",
-      "gray-300":"#E2E3E4",
-      "gray-400":"#C6C7C8",
-      "gray-500":"#8C9092",
-      "gray-600":"#707476",
-      "gray-700":"#555859",
-      "gray-800":"#3A3C3D",
-      "gray-900":"#1E1F20",
-      "primary":"#6D21E9",
-      "primary-50":"#F0E9FD",
-      "primary-100":"#E2D3FB",
-      "primary-150":"#D3BCF8",
-      "primary-200":"#C5A6F6",
-      "primary-300":"#A77AF2",
-      "primary-400":"#8A4DED",
-      "primary-600":"#571ABA",
-      "primary-700":"#41148C",
-      "primary-800":"#2C0D5D",
-      "primary-850":"#210A46",
-      "primary-900":"#16072F",
-      "accent-dark":"#0F152E",
-      "accent-error":"#C30000",
-      "accent-success":"#00BA88",
-      "accent-warning":"#F4B740",
-      "accent-error-text":"#FFE5E5"
+    colors: {
+      "white": "#FFFFFF",
+      "gradient": "linear-gradient(to bottom right, red, yellow)",
+      "gray-200": "#EDEDED",
+      "gray-300": "#E2E3E4",
+      "gray-400": "#C6C7C8",
+      "gray-500": "#8C9092",
+      "gray-600": "#707476",
+      "gray-700": "#555859",
+      "gray-800": "#3A3C3D",
+      "gray-900": "#1E1F20",
+      "primary": "#6D21E9",
+      "primary-50": "#F0E9FD",
+      "primary-100": "#E2D3FB",
+      "primary-150": "#D3BCF8",
+      "primary-200": "#C5A6F6",
+      "primary-300": "#A77AF2",
+      "primary-400": "#8A4DED",
+      "primary-600": "#571ABA",
+      "primary-700": "#41148C",
+      "primary-800": "#2C0D5D",
+      "primary-850": "#210A46",
+      "primary-900": "#16072F",
+      "accent-dark": "#0F152E",
+      "accent-error": "#C30000",
+      "accent-success": "#00BA88",
+      "accent-warning": "#F4B740",
+      "accent-error-text": "#FFE5E5",
+      'transparent': 'transparent'
     },
     fontSize: {
       "scales-6xlarge": "4rem",
@@ -66,20 +67,20 @@ module.exports = {
       "scales-tiny": "0.625rem",
     },
 
-    lineHeight:{
-      "leading-1":"1.35rem",
-      "leading-2":"1.75rem",
-      "leading-3":"1.8rem",
-      "leading-4":"2.025rem",
-      "leading-5":"2.1rem"
-    
+    lineHeight: {
+      "leading-1": "1.35rem",
+      "leading-2": "1.75rem",
+      "leading-3": "1.8rem",
+      "leading-4": "2.025rem",
+      "leading-5": "2.1rem"
+
     },
 
-    fontFamily:{
-      "peyda-regular":"PeydaRegular",
-      "peyda-medium":"PeydaMedium",
-      "peyda-semibold":"PeydaSemiBold",
-      "peyda-bold":"PeydaBpld",
+    fontFamily: {
+      "peyda-regular": "PeydaRegular",
+      "peyda-medium": "PeydaMedium",
+      "peyda-semibold": "PeydaSemiBold",
+      "peyda-bold": "PeydaBold",
     }
 
   },
