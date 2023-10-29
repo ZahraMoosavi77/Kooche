@@ -13,7 +13,8 @@ export default function SelectOptionsNewPage({ label,optionsGroup,placeholderSea
 
     const [isOpen,setIsOpen] = useState(false);
     const {insertData}= useContext(NewContext)
-
+    const {relatedCities} = useContext(NewContext);
+    
     insertData[column] = selected.id
     return (
         <>

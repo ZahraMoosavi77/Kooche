@@ -1,3 +1,4 @@
+'use client'
 import AddImage from '@/components/elements/AddImage'
 import ShowImage from '@/components/elements/ShowImage'
 import TextFieldNewPage from '@/components/elements/TextFieldNewPage'
@@ -8,12 +9,40 @@ import Optional from '@/components/elements/Optional'
 import TextNewPage from '../elements/TextNewPage'
 import MapNewPage from '../elements/MapNewPage'
 import SelectOptionsNewPage from '../elements/SelectOptionsNewPage'
-import { UNITEDS , CITIES } from '@/constants/constantNewPage'
-import {SEARCHCITY,SEARCHUNITED} from '@/constants/constantNewPage'
-
-
-
+import { UNITEDS, CITIES } from '@/constants/constantNewPage'
+import { SEARCHCITY, SEARCHUNITED } from '@/constants/constantNewPage'
+import { useState, useEffect , useContext } from 'react'
+import { supabase } from '@/lib/supabase'
+import { NewContext } from '@/context/NewPageContext'
 export default function InfoSellerSection() {
+    const [cities, setCities] = useState([]);
+    const [provinces, setProvinces] = useState([]);
+    const {relatedCities} = useContext(NewContext);
+    const getData = async () => {
+        let { data, error } = await supabase
+            .from('cities')
+            .select('*')
+        setCities(data);
+        
+
+
+    }
+    const getDataProvince = async () => {
+        let { data: provinces, error } = await supabase
+            .from('provinces')
+            .select('*')
+        setProvinces(provinces);
+      
+
+
+    }
+    useEffect(() => {
+        getData();
+        getDataProvince();
+
+
+
+    }, [])
     return (
         <div className=' flex flex-col gap-4'>
             <div className=' flex flex-col gap-1'>
@@ -28,15 +57,15 @@ export default function InfoSellerSection() {
             <div className='flex flex-col gap-2'>
                 <div className='flex justify-between gap-6'>
                     <div className='w-full relative'>
-                        <SelectOptionsNewPage defualtValue={CHOOSEUNITED} optionsGroup={UNITEDS} placeholderSearch={SEARCHUNITED} label={<div className='flex  items-center '>
+                        <SelectOptionsNewPage column={'provinceId'} optionsGroup={provinces} placeholderSearch={SEARCHUNITED} label={<div className='flex  items-center '>
                             <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERUNITED} type={'text'} />
 
                         </div>} />
-                      
+
 
                     </div>
                     <div className='w-full relative'>
-                        <SelectOptionsNewPage defualtValue={CHOOSECITY} optionsGroup={CITIES} placeholderSearch={SEARCHCITY} label={<div className='flex  items-center '>
+                        <SelectOptionsNewPage column={'cityId'}  optionsGroup={relatedCities} placeholderSearch={SEARCHCITY} label={<div className='flex  items-center '>
                             <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERCITY} type={'text'} />
                         </div>} />
 

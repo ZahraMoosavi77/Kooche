@@ -17,37 +17,42 @@ import RegisterAdButton from '@/components/elements/RegisterAdButton'
 import InfoGameSection from '@/components/modules/InfoGameSection'
 import TextFieldNewPage from '@/components/elements/TextFieldNewPage'
 import InfoSellerSection from '@/components/modules/InfoSellerSection'
-import { useState } from 'react'
-
+import { useState, useContext } from 'react'
+import { NewContext } from '@/context/NewPageContext'
 export default function () {
-    const [c,setc]= useState(false)
+    const { isSale } = useContext(NewContext);
+    const { isExchange } = useContext(NewContext);
+    const { setIsExchange } = useContext(NewContext);
+    const { setIsSale } = useContext(NewContext);
+    const {insertData} = useContext(NewContext);
+   
     return (
         <div className=' flex flex-col gap-4'>
             <TitleNewPage text={infoSale.INFOSALETITLE} />
             <SubTitleNewPage text={infoSale.INFOSALESUBTITLE} />
             <div >
-                <div className='flex items-center gap-2 mb-2'>
-                    <CheckBox />
+                <div onClick={() => {setIsSale(!isSale);setIsExchange(false); console.log(insertData);}} className='flex items-center gap-2 mb-2'>
+                    <CheckBox checked = {isSale} />
                     <TextNewPage text={infoSale.SALEGAME} />
 
                 </div>
-                <TextFieldNewPage name={'price'} label={<div className='flex  items-center  '>
-                    <TextNewPage specialClass={'pr-3'} text={infoSale.PRICEGAME} type={'textarea'} />
-                </div>} />
-
-            </div>
-
-            <div>
-
-                <div className='flex items-center gap-2 mb-2'>
-                    <CheckBox />
-                    <TextNewPage text={infoSale.EXCHANGEGAME} />
-
+                <div className={`${isSale ? 'block' : 'hidden'}`}>
+                    <TextFieldNewPage name={'price'}  label={<div className='flex  items-center  '>
+                        <TextNewPage specialClass={'pr-3'} text={infoSale.PRICEGAME} type={'textarea'} />
+                    </div>} />
                 </div>
-                <TextFieldNewPage label={<div className='flex  items-center '>
-                    <TextNewPage text={infoSale.PREFEREDEXCHANGEGAME} type={'textarea'} />
-                    <Optional />
-                </div>} />
+            </div>
+            <div>
+                <div onClick={() =>{ setIsExchange(!isExchange);setIsSale(false); `${isExchange ? false : insertData.exchange = true}`;console.log(insertData);}} className='flex items-center gap-2 mb-2'>
+                    <CheckBox checked = {isExchange} />
+                    <TextNewPage text={infoSale.EXCHANGEGAME} />
+                </div>
+                <div className={`${isExchange ? 'block' : 'hidden'}`}>
+                    <TextFieldNewPage name={'preferedExchange'} label={<div className='flex  items-center '>
+                        <TextNewPage specialClass={'pr-3'} text={infoSale.PREFEREDEXCHANGEGAME} type={'textarea'} />
+                        <Optional />
+                    </div>} />
+                </div>
             </div>
         </div>
     )

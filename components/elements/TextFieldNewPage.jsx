@@ -5,7 +5,7 @@ import { InsertData } from "@/context/NewPageContext2"
 // import { InputValue } from "@/context/NewPageContext2"
 // import { InputValueAction } from "@/context/NewPageContext2"
 
-export default function TextField({ type,value,label,name }) {
+export default function TextField({ type,label,name }) {
 
  // const {inputValue} = useContext(InputValue);
   // const {setInputValue} = useContext(InputValueAction)
@@ -15,14 +15,13 @@ export default function TextField({ type,value,label,name }) {
 
 
   const [inputValue, setInputValue] = useState('')
-  const {insertData}= useContext(NewContext)
+  const {insertData}= useContext(NewContext);
+  
   //const {inputValue,setInputValue} = useContext(NewContext);
   const handelInput = (e)=>{
       setInputValue(e.target.value);
-      // console.log(insertData[name]);
-      insertData[name] = inputValue;
-      console.log(insertData[name]);
-      console.log(insertData);
+      insertData[name] = inputValue.trim();
+      
   }
   
   insertData[name] = inputValue

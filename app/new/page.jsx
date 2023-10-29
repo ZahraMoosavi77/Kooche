@@ -8,15 +8,20 @@ import InfoSellerSection from '@/components/modules/InfoSellerSection'
 import InfoSaleSection from '@/components/modules/InfoSaleSection'
 import { REGISTERADVERTISE } from '@/constants/constantNewPage'
 import { NewContext } from "@/context/NewPageContext"
+import { useState } from 'react'
 
 export default function page() {
    
    const insertData = {
     name: '', platformId: '', cityId: '', unitedId: '', locId:'', statusId: '', price: '', moreInfo: '', data: ''
-    , exchange: '', preferedExchange: '',
+    , exchange: false, preferedExchange: '',
 };
+   const[isSale, setIsSale] = useState(false)
+   const[isExchange, setIsExchange] = useState(false)
+   const relatedCities =[];
+   const disable = false;
   return (
-    <NewContext.Provider value={{insertData}}>
+    <NewContext.Provider value={{insertData,relatedCities,disable, isSale,setIsSale,isExchange, setIsExchange}}>
 
   
     <div className='flex flex-col justify-center items-center mt-30 mb-10 '>
