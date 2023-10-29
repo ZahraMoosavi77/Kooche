@@ -29,7 +29,7 @@ export default function SelectOptionsNewPage({ label,optionsGroup,placeholderSea
                     <input value={inputValue} onChange={(e)=>setInputValue(e.target.value)} type="text"placeholder={placeholderSearch} className='placeholder:text-primary-200 font-peyda-medium w-full outline-none p-2 '  />
                 </div>
                 
-                {optionsGroup.map((item)=>{return  <li key={item.id} onClick={
+                {optionsGroup?.map((item)=>{return  <li key={item.id} onClick={
                     ()=>{
                         if( item.name !== selected.name) setSelected({name:item.name, id:item.id }); setIsOpen(false); setInputValue("")
                     }

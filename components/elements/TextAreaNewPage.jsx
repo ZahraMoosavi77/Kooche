@@ -10,7 +10,7 @@ export default function TextAreaNewPage({ type,label,name }) {
 }
 
 
-insertData[name] = inputValue
+insertData[name] = inputValue;
   return (
     <>
     <label>{label} </label>
