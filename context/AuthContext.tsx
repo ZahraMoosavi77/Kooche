@@ -3,12 +3,12 @@
 import { createContext, useContext, useState } from "react";
 
 const AuthContext = createContext<any>({
-  // mail: "",
-  // isLoggedIn: false,
-  // id: "",
-  // setMail,
-  // setIsLoggedIn,
-  // setId,
+  mail: "",
+  isLoggedIn: false,
+  id: "",
+  setMail: () => {},
+  setIsLoggedIn: () => {},
+  setId: () => {},
   // token: '',
   // userInfos: null,
   // login: () => {},
@@ -28,4 +28,4 @@ export const AuthContextProvider = ({ children }) => {
   );
 };
 
-export const useGlobalContext = () => useContext(AuthContext);
+export const UseGlobalContext = () => useContext(AuthContext);

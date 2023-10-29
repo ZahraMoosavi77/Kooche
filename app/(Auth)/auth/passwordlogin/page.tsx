@@ -1,11 +1,11 @@
 "use client";
-import { supabase, Form, Button, Input, useGlobalContext } from "@/index";
+import { supabase, Form, Button, Input, UseGlobalContext } from "@/index";
 import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
 
 const page = () => {
-  const { mail, setIsLoggedIn } = useGlobalContext();
+  const { mail, setIsLoggedIn } = UseGlobalContext();
   const [value, setValue] = useState("");
 
   // const getMainUser = async () => {

@@ -1,5 +1,5 @@
 "use client";
-import { supabase, Form, Input, Button, useGlobalContext } from "@/index";
+import { supabase, Form, Input, Button, UseGlobalContext } from "@/index";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -7,9 +7,8 @@ import { useRouter } from "next/navigation";
 const emailReg = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
 const page = () => {
-  let { setMail } = useGlobalContext();
+  const { setMail } = UseGlobalContext();
   const router = useRouter();
-  const [isSignedUp, setIsSignedUp] = useState<boolean>(false);
   const [allUsers, setAllUsers] = useState<any[]>([]);
   const [value, setValue] = useState<string>("");
 
@@ -17,16 +16,25 @@ const page = () => {
 
   const onInputHandler = (e) => {
     setValue(e.target.value);
-    setMail(e.target.value);
-    if (emailReg.test(value)) setIsValidate(true);
-    else setIsValidate(false);
+    if (emailReg.test(value)) {
+      setIsValidate(true);
+      setMail(value);
+    } else setIsValidate(false);
   };
 
   const onSubmitHandler = () => {
-    if (isSignedUp) router.push("loginOrSignup/passwordlogin");
-    else router.push("loginOrSignup/passwordsignup");
+    if (checkUserHandler()) router.push("auth/passwordlogin");
+    else router.push("auth/passwordsignup");
   };
 
+  const checkUserHandler = () => {
+    return (
+      allUsers.length !== 0 &&
+      allUsers.some(
+        (item) => item.email.toLocaleLowerCase() === value.toLocaleLowerCase()
+      )
+    );
+  };
   useEffect(() => {
     const getAllUsers = async () => {
       const {
@@ -34,21 +42,11 @@ const page = () => {
         error,
       } = await supabase.auth.admin.listUsers();
       setAllUsers(users);
+      if (error) console.log(error);
     };
 
     getAllUsers();
-
-    if (
-      allUsers &&
-      allUsers.some(
-        (item) => item.email.toLocaleLowerCase() === value.toLocaleLowerCase()
-      )
-    )
-      setIsSignedUp(true);
-    else {
-      setIsSignedUp(false);
-    }
-  }, [value]);
+  }, []);
 
   const firstIcon = (
     <Image src="/images/auth/Mail.svg" width={24} height={24} alt="mail icon" />

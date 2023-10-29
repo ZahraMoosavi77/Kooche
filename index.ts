@@ -1,9 +1,9 @@
 //import your components
 
 // Context Import
-import { useGlobalContext } from "./context/AuthContext";
+import { UseGlobalContext } from "./context/AuthContext";
 // Context Export
-export { useGlobalContext };
+export { UseGlobalContext };
 
 // Supabase Create Client
 

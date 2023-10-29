@@ -1,5 +1,5 @@
 "use client";
-import { Form, Input, useGlobalContext, Button, supabase } from "@/index";
+import { Form, Input, UseGlobalContext, Button, supabase } from "@/index";
 import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 const page = () => {
   const router = useRouter();
-  const { mail } = useGlobalContext();
+  const { mail } = UseGlobalContext();
   const [value, setValue] = useState("");
   const [confirm, setConfirm] = useState("");
 
@@ -30,7 +30,6 @@ const page = () => {
           },
         },
       });
-
       setConfirm("");
       setValue("");
       router.push("/");
@@ -38,10 +37,20 @@ const page = () => {
   };
 
   const firstIcon = (
-    <Image src={"/images/auth/Lock.svg"} width={24} height={24} alt="lock icon" />
+    <Image
+      src={"/images/auth/Lock.svg"}
+      width={24}
+      height={24}
+      alt="lock icon"
+    />
   );
   const firstIcon2 = (
-    <Image src={"/images/auth/Lock.svg"} width={24} height={24} alt="lock icon" />
+    <Image
+      src={"/images/auth/Lock.svg"}
+      width={24}
+      height={24}
+      alt="lock icon"
+    />
   );
   return (
     <Form
@@ -80,12 +89,10 @@ const page = () => {
           alt="Arrow Left"
           iconHeight={24}
           iconWidth={24}
-          className="w-9/12share-buttons"
+          className="w-9/12 share-buttons"
         />
         <Link href={"#"}>
-          <span className="back-button">
-            قبلی
-          </span>
+          <span className="back-button">قبلی</span>
         </Link>
       </div>
     </Form>
