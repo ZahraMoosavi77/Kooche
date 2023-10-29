@@ -14,6 +14,8 @@ import { CHOOSECONSOLE } from '@/constants/constantNewPage'
 import { SEARCHCONSOLE } from '@/constants/constantNewPage'
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
+import { TEXTHELPER } from '@/constants/constantNewPage'
+import TextHelper from '../elements/TextHelper'
 
 export default function InfoGameSection() {
     const [platforms , setPlatforms] = useState([])
@@ -40,6 +42,7 @@ export default function InfoGameSection() {
             <div>
 
                 <TextFieldNewPage name={'name'} type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
+                <TextHelper specialClass={'pr-3'} text={TEXTHELPER}/>
             </div>
 
             <div className='relative'>
