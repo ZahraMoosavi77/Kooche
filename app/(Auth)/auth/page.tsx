@@ -1,6 +1,6 @@
 "use client";
 import { supabase, Form, Input, Button, UseGlobalContext } from "@/index";
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -11,27 +11,23 @@ const page = () => {
   const router = useRouter();
   const [allUsers, setAllUsers] = useState<any[]>([]);
   const [value, setValue] = useState<string>("");
-  const [isValidate, setIsValidate] = useState(false);
-  const alarmDiv = useRef(null);
+  const [isValidate, setIsValidate] = useState<boolean | "-">("-");
 
   const onInputHandler = (e) => {
-    setValue(e.target.value);
+    setValue((prev) => e.target.value);
+    setMail((prev) => e.target.value);
     if (emailReg.test(e.target.value)) {
-      setIsValidate(true);
-    } else setIsValidate(false);
+      setIsValidate((prev) => true);
+    } else setIsValidate((prev) => false);
   };
 
-  const onSubmitHandler = useCallback(() => {
-    if (isValidate) {
+  const onSubmitHandler = () => {
+    if (value && isValidate) {
       if (checkUserHandler()) {
         router.push("auth/passwordlogin");
-        setMail(value);
       } else router.push("auth/passwordsignup");
-      alarmDiv.current.style.display = "none";
-    } else {
-      alarmDiv.current.style.display = "flex";
-    }
-  }, [value]);
+    } else setIsValidate(false);
+  };
 
   const checkUserHandler = () => {
     return (
@@ -49,7 +45,6 @@ const page = () => {
       } = await supabase.auth.admin.listUsers();
       setAllUsers(users);
     };
-
     getAllUsers();
   }, []);
 
@@ -69,12 +64,15 @@ const page = () => {
           element="input"
           type="text"
           id="email"
+          value={value}
           onInputHandler={onInputHandler}
           className="w-11/12 share-inputs "
+          validation={isValidate}
         />
         <div
-          ref={alarmDiv}
-          className="hidden gap-1 items-center text-accent-error m-1 font-peyda-regular text-scales-default"
+          className={`${
+            isValidate ? "hidden" : "flex"
+          } gap-1 items-center text-accent-error m-1 font-peyda-regular text-scales-default`}
         >
           <Image
             src="/images/Auth/Circle_Warning.svg"

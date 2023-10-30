@@ -12,12 +12,17 @@ const Input = (props) => {
     placeholder,
     value,
     onInputHandler,
+    validation,
   } = props;
 
   const finalElement: React.ReactNode =
     element === "input" ? (
       <>
-        <div className="w-full flex gap-2 bg-gray-200 rounded-[12px] px-2.5 py-3">
+        <div
+          className={`w-full flex gap-2 ${
+            validation ? "bg-gray-200" : "bg-accent-error-text"
+          } rounded-[12px] px-2.5 py-3`}
+        >
           {firstIcon}
           <input
             type={type}
@@ -40,7 +45,9 @@ const Input = (props) => {
 
   return (
     <div>
-      <span className="block text-gray-900 font-peyda-medium mb-2.5">{label}</span>
+      <span className="block text-gray-900 font-peyda-medium mb-2.5">
+        {label}
+      </span>
       {finalElement}
     </div>
   );

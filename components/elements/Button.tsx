@@ -13,7 +13,9 @@ const Button = ({
   return (
     <button className={className} onClick={onClickHandler}>
       {text}
-      <Image alt={alt!} width={iconWidth} height={iconHeight} src={src!} />
+      {src && (
+        <Image alt={alt!} width={iconWidth} height={iconHeight} src={src!} />
+      )}
     </button>
   );
 };

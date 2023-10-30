@@ -1,7 +1,7 @@
 "use client";
 import { Form, Input, UseGlobalContext, Button, supabase } from "@/index";
 import Image from "next/image";
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -12,20 +12,22 @@ const page = () => {
   const { mail, setIsLoggedIn } = UseGlobalContext();
   const [value, setValue] = useState("");
   const [confirm, setConfirm] = useState("");
-  const passAlarm = useRef(null);
-  const confirmAlarm = useRef(null);
+  const [isValueValideted, setIsValueValideted] = useState<boolean | "-">("-");
+  const [isConfirmValideted, setIsConfirmValideted] = useState<boolean | "-">(
+    "-"
+  );
 
   const onInputHandler = (e) => {
     setValue(e.target.value.trim());
-    if (!passReg.test(e.target.value)) passAlarm.current.style.display = "flex";
-    else passAlarm.current.style.display = "none";
+    if (!passReg.test(e.target.value)) setIsValueValideted(false);
+    else setIsValueValideted(true);
   };
 
   const onConfirmHandler = (e) => {
     if (value !== e.target.value) {
-      confirmAlarm.current.style.display = "flex";
-    } else confirmAlarm.current.style.display = "none";
-    setConfirm(e.target.value.trim());
+      setIsConfirmValideted(false);
+    } else setIsConfirmValideted(true);
+    setConfirm((prev) => e.target.value.trim());
   };
 
   const onSubmitHandler = async () => {
@@ -33,13 +35,23 @@ const page = () => {
       const { data, error } = await supabase.auth.signUp({
         email: mail,
         password: value,
-        options: {},
+        options: {
+          data: {
+            password: value,
+            mail,
+          },
+        },
       });
       localStorage.setItem("user", JSON.stringify(data.user.id));
-      setIsLoggedIn(true);
+      console.log(error);
+
+      await setIsLoggedIn(true);
       setConfirm("");
       setValue("");
       router.push("/");
+    } else {
+      setIsConfirmValideted(false);
+      setIsValueValideted(false);
     }
   };
 
@@ -63,7 +75,7 @@ const page = () => {
   else
     return (
       <Form
-        title="ثبت‌نام"
+        title="ساخت رمز عبور"
         caption="برای حساب کاربری خود رمز عبور تعریف کنید و آن را در بخش بعد تکرار کنید"
       >
         <div>
@@ -76,10 +88,12 @@ const page = () => {
             onInputHandler={onInputHandler}
             value={value}
             className="min-w-[300px] share-inputs"
+            validation={isValueValideted}
           />
           <div
-            ref={passAlarm}
-            className="hidden gap-1 items-center text-accent-error m-1 font-peyda-regular text-scales-default"
+            className={`${
+              isValueValideted ? "hidden" : "flex"
+            } gap-1 items-center text-accent-error m-1 font-peyda-regular text-scales-default`}
           >
             <Image
               src="/images/Auth/Circle_Warning.svg"
@@ -99,11 +113,13 @@ const page = () => {
             id="password"
             onInputHandler={onConfirmHandler}
             value={confirm}
-            className="min-w-[300px] share-inputs"
+            className={`min-w-[300px] share-inputs`}
+            validation={isConfirmValideted}
           />
           <div
-            ref={confirmAlarm}
-            className="hidden gap-1 items-center text-accent-error m-1 font-peyda-regular text-scales-default"
+            className={`${
+              isConfirmValideted ? "hidden" : "flex"
+            } gap-1 items-center text-accent-error m-1 font-peyda-regular text-scales-default`}
           >
             <Image
               src="/images/Auth/Circle_Warning.svg"
@@ -117,14 +133,10 @@ const page = () => {
         <div className="flex flex-row-reverse w-full justify-between items-center">
           <Button
             onClickHandler={onSubmitHandler}
-            text="بعدی"
-            src="/images/auth/Arrow_Left_LG.svg"
-            alt="Arrow Left"
-            iconHeight={24}
-            iconWidth={24}
+            text="تمام"
             className="w-9/12 share-buttons"
           />
-          <Link href={"#"}>
+          <Link href={"/auth"}>
             <span className="back-button">قبلی</span>
           </Link>
         </div>
