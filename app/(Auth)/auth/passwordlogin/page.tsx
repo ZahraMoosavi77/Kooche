@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 const passReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
   const { mail, setIsLoggedIn } = UseGlobalContext();
   const [value, setValue] = useState("");
@@ -130,4 +130,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const passReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
-const page = () => {
+const Page = () => {
   const [value, setValue] = useState("");
   const [confirm, setConfirm] = useState("");
   const router = useRouter();
@@ -133,4 +133,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

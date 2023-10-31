@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const otpReg = /^[0-9]{6}$/;
 
-const page = () => {
+const Page = () => {
   const { mail } = UseGlobalContext();
   const router = useRouter();
   const [value, setvalue] = useState("");
@@ -91,4 +91,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
