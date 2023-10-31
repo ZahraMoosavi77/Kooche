@@ -19,7 +19,7 @@ import TextFieldNewPage from '@/components/elements/TextFieldNewPage'
 import InfoSellerSection from '@/components/modules/InfoSellerSection'
 import { useState, useContext } from 'react'
 import { NewContext } from '@/context/NewPageContext'
-export default function () {
+export default  function InfoSaleSection() {
     const { isSale } = useContext(NewContext);
     const { isExchange } = useContext(NewContext);
     const { setIsExchange } = useContext(NewContext);
