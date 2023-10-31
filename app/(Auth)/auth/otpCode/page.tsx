@@ -21,7 +21,7 @@ const Page = () => {
   };
 
   const onClickHandler = async () => {
-    const { user, session, error } = await supabase.auth.verifyOtp({
+    const {  error } = await supabase.auth.verifyOtp({
       email: mail,
       token: value,
       type: "recovery",
