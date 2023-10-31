@@ -10,7 +10,7 @@ import { REGISTERADVERTISE } from '@/constants/constantNewPage'
 import { NewContext } from "@/context/NewPageContext"
 import { useState } from 'react'
 
-export default function page() {
+export default function New() {
    
    const insertData = {
     name: 'first', platformId: '', cityId: '', provinceId: null, locId:'', statusId: '', price: '', moreInfo: '', data: ''

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 const emailReg = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
-const page = () => {
+const Auth = () => {
   const { setMail } = UseGlobalContext();
   const router = useRouter();
   const [allUsers, setAllUsers] = useState<any[]>([]);
@@ -97,4 +97,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Auth;

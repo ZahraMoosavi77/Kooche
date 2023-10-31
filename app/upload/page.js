@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const CDNURL =
   "https://olpicjxizbfbwpdftqvt.supabase.co/storage/v1/object/public/unity-image/test";
-export default function upload() {
+export default function Upload() {
   const [file, setFile] = useState([]);
   const [im, setImages] = useState([]);
 
