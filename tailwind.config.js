@@ -53,10 +53,10 @@ module.exports = {
       "primary-850":"#210A46",
       "primary-900":"#16072F",
       "accent-dark":"#0F152E",
-      "accent-error":"#C30000",
+      "accent-error-text":"#C30000",
       "accent-success":"#00BA88",
       "accent-warning":"#F4B740",
-      "accent-error-text":"#FFE5E5"
+      "accent-error":"#FFE5E5"
     },
     fontSize: {
       "scales-6xlarge": "4rem",

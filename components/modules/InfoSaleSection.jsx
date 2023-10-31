@@ -26,6 +26,7 @@ export default function () {
     const { setIsSale } = useContext(NewContext);
     const {insertData} = useContext(NewContext);
    
+   
     return (
         <div className=' flex flex-col gap-4'>
             <TitleNewPage text={infoSale.INFOSALETITLE} />

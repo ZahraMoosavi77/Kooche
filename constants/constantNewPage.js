@@ -56,3 +56,5 @@ export const CITIES = ["اصفهان", " تهران"];
 export const REGex = /^(\+98|0)?9\d{9}$/;
 
 export const TEXTHELPER = "بهتر هست اسمی که روی بسته بازی هست را دقیقا بنویسید";
+
+export const ERRORPHONENUMBER = "لطفا شماره صحیح وارد کنید."

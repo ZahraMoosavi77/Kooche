@@ -12,13 +12,19 @@ import SelectOptionsNewPage from '../elements/SelectOptionsNewPage'
 import { consoleCategory } from '@/constants/constantNewPage'
 import { CHOOSECONSOLE } from '@/constants/constantNewPage'
 import { SEARCHCONSOLE } from '@/constants/constantNewPage'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
-import { TEXTHELPER } from '@/constants/constantNewPage'
-import TextHelper from '../elements/TextHelper'
+
+
+import { NewContext } from '@/context/NewPageContext'
+
+
 
 export default function InfoGameSection() {
-    const [platforms , setPlatforms] = useState([])
+    const [platforms , setPlatforms] = useState([]);
+    const {insertData} = useContext(NewContext);
+    const{validNameGame, setValidNameGame,validNameSeller, setValidNameSeller} = useContext(NewContext);
+    console.log('insertData.name',insertData.name);
     const getData= async () =>{
         let { data, error } = await supabase
             .from('platforms')
@@ -41,8 +47,8 @@ export default function InfoGameSection() {
             </div>
             <div>
 
-                <TextFieldNewPage name={'name'} type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
-                <TextHelper specialClass={'pr-3'} text={TEXTHELPER}/>
+                <TextFieldNewPage validate={true} helpText={true} name={'name'} type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
+               
             </div>
 
             <div className='relative'>

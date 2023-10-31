@@ -7,9 +7,18 @@ export default function RegisterAdButton({ text }) {
   const {insertData} = useContext(NewContext);
   const {validPhoneNumber} =  useContext(NewContext);
   const {name , price, moreInfo, platformId, preferedExchange, provinceId, cityId} = insertData;
+  const{clicked, setClicked, setValidNameGame,validNameSeller, setValidNameSeller} = useContext(NewContext);
 
+
+   
+  // const handelCorrectData = ()=>{
+
+  //   if(!insertData.name) setValidNameGame(false);
+
+  // };
   const handelInsertData = async () => {
-    
+     
+     setClicked(true)
      if(validPhoneNumber)  { 
     const { data, error } = await supabase
       .from('games')
@@ -20,13 +29,14 @@ export default function RegisterAdButton({ text }) {
 
   } 
   else {
-    console.log('enter coorect number');
+    // console.log('enter coorect number');
+    // console.log(validPhoneNumber);
   }
 
 
 }
   return (
     
-    <button onClick={handelInsertData } className='font-peyda-medium text-white bg-primary leading-leading-3 rounded-xl px-4 py-2 w-[184px] h-12 hover:bg-primary-600'>{text}</button>
+    <button onClick={()=>{handelInsertData} } className='font-peyda-medium text-white bg-primary leading-leading-3 rounded-xl px-4 py-2 w-[184px] h-12 hover:bg-primary-600'>{text}</button>
   )
 }

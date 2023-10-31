@@ -14,10 +14,12 @@ import { SEARCHCITY, SEARCHUNITED } from '@/constants/constantNewPage'
 import { useState, useEffect , useContext } from 'react'
 import { supabase } from '@/lib/supabase'
 import { NewContext } from '@/context/NewPageContext'
+
 export default function InfoSellerSection() {
     const [cities, setCities] = useState([]);
     const [provinces, setProvinces] = useState([]);
     const {relatedCities} = useContext(NewContext);
+    const {validPhoneNumber} =  useContext(NewContext);
     const getData = async () => {
         let { data, error } = await supabase
             .from('cities')
@@ -32,7 +34,7 @@ export default function InfoSellerSection() {
             .from('provinces')
             .select('*')
         setProvinces(provinces);
-        console.log(provinces);
+        // console.log(provinces);
       
 
 
@@ -51,7 +53,7 @@ export default function InfoSellerSection() {
                 <SubTitleNewPage text={infoSeller.INFOSELLERSUBTITLE} />
             </div>
             <div>
-                <TextFieldNewPage type={'text'} name={'sellername'} label={<div className='flex  items-center '>
+                <TextFieldNewPage validate={'dgf'} type={'text'} name={'sellername'} label={<div className='flex  items-center '>
                     <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERNAME} type={'text'} />
                 </div>} />
             </div>
@@ -79,16 +81,12 @@ export default function InfoSellerSection() {
 
 
             <div>
-                <TextFieldNewPage name={'phoneNumber'} label={<div className='flex  items-center '>
+                <TextFieldNewPage validate={validPhoneNumber} name={'phoneNumber'} label={<div className='flex  items-center '>
                     <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERPHONE} type={'number'} />
 
 
                 </div>} />
-                <div className='flex  items-center '>
-                    <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERPHONE} type={'number'} />
-
-
-                </div>
+                
             </div>
         </div>
     )

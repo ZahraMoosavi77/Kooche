@@ -13,16 +13,18 @@ import { useState } from 'react'
 export default function page() {
    
    const insertData = {
-    name: '', platformId: '', cityId: '', provinceId: null, locId:'', statusId: '', price: '', moreInfo: '', data: ''
+    name: 'first', platformId: '', cityId: '', provinceId: null, locId:'', statusId: '', price: '', moreInfo: '', data: ''
     , exchange: false, preferedExchange: '',
 };
    const[isSale, setIsSale] = useState(false)
    const[isExchange, setIsExchange] = useState(false)
    const relatedCities =[];
    const disable = false;
-   const [validPhoneNumber, setValidPhoneNumber] = useState(true)
+   const [validPhoneNumber, setValidPhoneNumber] = useState(true);
+      const [clicked, setClicked] = useState(true);
+      const [validNameSeller, setValidNameSeller] = useState(true);
   return (
-    <NewContext.Provider value={{insertData,relatedCities,disable, isSale,setIsSale,isExchange, setIsExchange,validPhoneNumber, setValidPhoneNumber}}>
+    <NewContext.Provider value={{insertData,relatedCities,disable, isSale,setIsSale,isExchange, setIsExchange,validPhoneNumber, setValidPhoneNumber,clicked, setClicked}}>
 
   
     <div className='flex flex-col justify-center items-center mt-30 mb-10 '>
