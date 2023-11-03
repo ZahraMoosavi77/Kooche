@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { AuthContextProvider } from "@/context/AuthContext";
 
 export const metadata = {
   title: "Create Next App",
@@ -8,11 +9,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" dir="rtl">
-      <body className="flex flex-col h-screen">
+    <AuthContextProvider>
+      <html lang="en" dir="rtl">
+        <body className="flex flex-col h-screen">
         <Navbar />
         {children}
-      </body>
-    </html>
+        </body>
+      </html>
+    </AuthContextProvider>
   );
 }
