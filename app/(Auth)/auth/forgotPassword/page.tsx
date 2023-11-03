@@ -7,12 +7,12 @@ import {
   supabase,
   AuthErrors,
   AuthPasswordGuid,
+  passwordTester,
 } from "@/index";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
-const passReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
 const Page = () => {
   const [value, setValue] = useState("");
@@ -25,7 +25,7 @@ const Page = () => {
 
   const onInputHandler = (e) => {
     setValue(e.target.value.trim());
-    if (!passReg.test(e.target.value)) setIsValueValideted(false);
+    if (!passwordTester(e.target.value)) setIsValueValideted(false);
     else setIsValueValideted(true);
   };
 
@@ -37,22 +37,20 @@ const Page = () => {
   };
 
   const onSubmitHandler = async () => {
-    if (value === confirm && passReg.test(value)) {
+    if (value === confirm && passwordTester(value)) {
       const { data, error } = await supabase.auth.updateUser({
         password: value,
       });
       setConfirm("");
       setValue("");
       router.push("/auth");
-      console.log(error);
-      console.log(console.log(data));
     } else {
       setIsConfirmValideted(false);
       setIsValueValideted(false);
     }
   };
 
-  const firstIcon = (
+  const lockIcon = (
     <Image
       src={"/images/auth/Lock.svg"}
       width={24}
@@ -60,7 +58,7 @@ const Page = () => {
       alt="lock icon"
     />
   );
-  const firstIcon2 = (
+  const eyeIcon = (
     <Image
       src={"/images/auth/Lock.svg"}
       width={24}
@@ -76,7 +74,7 @@ const Page = () => {
     >
       <div>
         <Input
-          firstIcon={firstIcon}
+          firstIcon={lockIcon}
           element="input"
           type="password"
           id="password"
@@ -99,7 +97,7 @@ const Page = () => {
       <div>
         <Input
           label="تکرار رمز عبور"
-          firstIcon={firstIcon2}
+          firstIcon={eyeIcon}
           element="input"
           type="password"
           id="password"

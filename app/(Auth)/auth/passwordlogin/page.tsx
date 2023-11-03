@@ -6,12 +6,11 @@ import {
   Input,
   UseGlobalContext,
   AuthErrors,
+  passwordTester,
 } from "@/index";
 import Image from "next/image";
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-
-const passReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
 const Page = () => {
   const router = useRouter();
@@ -23,7 +22,7 @@ const Page = () => {
 
   const onInputHandler = (e) => {
     setValue(e.target.value);
-    if (!passReg.test(e.target.value)) setIsValidate(false);
+    if (!passwordTester(e.target.value)) setIsValidate(false);
     else setIsValidate(true);
   };
 
@@ -49,7 +48,7 @@ const Page = () => {
     router.push("/auth/otpCode");
   };
 
-  const firstIcon = (
+  const lockIcon = (
     <Image
       src={"/images/auth/Lock.svg"}
       width={24}
@@ -58,7 +57,7 @@ const Page = () => {
     />
   );
 
-  const secondIcon = (
+  const eyeIcon = (
     <Image
       src={"/images/auth/Show.svg"}
       width={24}
@@ -72,8 +71,8 @@ const Page = () => {
       <Form title="ورود" caption="رمز عبور خود را وارد کنید">
         <div>
           <Input
-            firstIcon={firstIcon}
-            secondIcon={secondIcon}
+            firstIcon={lockIcon}
+            secondIcon={eyeIcon}
             label="رمز عبور"
             element="input"
             type="password"

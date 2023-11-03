@@ -6,13 +6,12 @@ import {
   Button,
   supabase,
   AuthErrors,
+  passwordTester,
 } from "@/index";
 import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
-const passReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
 const Page = () => {
   const router = useRouter();
@@ -26,7 +25,7 @@ const Page = () => {
 
   const onInputHandler = (e) => {
     setValue(e.target.value.trim());
-    if (!passReg.test(e.target.value)) setIsValueValideted(false);
+    if (!passwordTester(e.target.value)) setIsValueValideted(false);
     else setIsValueValideted(true);
   };
 
@@ -38,7 +37,7 @@ const Page = () => {
   };
 
   const onSubmitHandler = async () => {
-    if (value === confirm && passReg.test(value)) {
+    if (value === confirm && passwordTester(value)) {
       const { data, error } = await supabase.auth.signUp({
         email: mail,
         password: value,
@@ -50,9 +49,7 @@ const Page = () => {
         },
       });
       localStorage.setItem("user", JSON.stringify(data.user.id));
-      console.log(error);
-
-      await setIsLoggedIn(true);
+      setIsLoggedIn(true);
       setConfirm("");
       setValue("");
       router.push("/");

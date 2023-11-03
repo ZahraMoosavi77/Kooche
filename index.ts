@@ -31,3 +31,11 @@ import AuthPasswordGuid from "@/components/modules/AuthPasswordGuid";
 // Modules Export
 
 export { Form, AuthErrors, AuthPasswordGuid };
+
+// Utils Import
+import { emailTester } from "@/utils/validators/emailValidator";
+import { passwordTester } from "@/utils/validators/passwordValidator";
+import { checkUserValidation } from "@/utils/userValidationCheck";
+
+// Utils Export
+export { emailTester, checkUserValidation, passwordTester };

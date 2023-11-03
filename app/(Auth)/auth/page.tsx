@@ -6,12 +6,12 @@ import {
   Button,
   UseGlobalContext,
   AuthErrors,
+  emailTester,
+  checkUserValidation,
 } from "@/index";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
-const emailReg = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
 const Auth = () => {
   const { setMail } = UseGlobalContext();
@@ -23,27 +23,19 @@ const Auth = () => {
   const onInputHandler = (e) => {
     setValue((prev) => e.target.value);
     setMail((prev) => e.target.value);
-    if (emailReg.test(e.target.value)) {
+    if (emailTester(e.target.value)) {
       setIsValidate((prev) => true);
     } else setIsValidate((prev) => false);
   };
 
   const onSubmitHandler = () => {
     if (value && isValidate) {
-      if (checkUserHandler()) {
+      if (checkUserValidation(allUsers, "email", value)) {
         router.push("auth/passwordlogin");
       } else router.push("auth/passwordsignup");
     } else setIsValidate(false);
   };
 
-  const checkUserHandler = () => {
-    return (
-      allUsers.length !== 0 &&
-      allUsers.some(
-        (item) => item.email.toLocaleLowerCase() === value.toLocaleLowerCase()
-      )
-    );
-  };
   useEffect(() => {
     const getAllUsers = async () => {
       const {
@@ -55,7 +47,7 @@ const Auth = () => {
     getAllUsers();
   }, []);
 
-  const firstIcon = (
+  const mailIcon = (
     <Image src="/images/auth/Mail.svg" width={24} height={24} alt="mail icon" />
   );
 
@@ -66,7 +58,7 @@ const Auth = () => {
     >
       <div>
         <Input
-          firstIcon={firstIcon}
+          firstIcon={mailIcon}
           label="ایمیل"
           element="input"
           type="text"
