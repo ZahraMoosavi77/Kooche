@@ -1,9 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-type Props = {};
-
-const Layout = ({ children }) => {
+const layout = ({ children }) => {
   return (
     <div className="h-full w-full flex flex-col justify-center items-center">
       <div className="self-start pt-6 pr-6 flex md:hidden gap-1.5 text-gray-800 font-peyda-semibold text-scales-default">
@@ -28,4 +26,4 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout;
+export default layout;

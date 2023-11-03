@@ -66,7 +66,7 @@ const Auth = () => {
           id="email"
           value={value}
           onInputHandler={onInputHandler}
-          className="w-11/12 share-inputs "
+          className="share-inputs "
           validation={isValidate}
         />
         <div
