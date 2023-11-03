@@ -1,6 +1,6 @@
 "use client";
 import { supabase, Form, Input, Button, UseGlobalContext } from "@/index";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -82,11 +82,18 @@ const Auth = () => {
           />
           <span>ایمیل معتبر نیست</span>
         </div>
+        <div className="font-peyda-regular text-scales-small mt-4">
+          با ورود به کوچه، تمام{" "}
+          <span className="text-primary cursor-pointer">
+            شرایط و قوانین کوچه
+          </span>{" "}
+          را می‌پذیرم
+        </div>
       </div>
-
+      <div className="md:hidden flex flex-col grow" />
       <Button
         text="بعدی"
-        className="w-full share-buttons "
+        className="w-full share-buttons"
         src="/images/auth/Arrow_Left_LG.svg"
         alt="arrow left"
         iconHeight={24}

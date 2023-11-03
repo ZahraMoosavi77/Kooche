@@ -5,7 +5,7 @@ const Form = ({ title, caption, children }) => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className="w-[440px] flex flex-col  minh-[300px] p-6 border-gray-300 border rounded-[20px] space-y-6"
+      className="relative w-full md:w-[440px]  flex flex-col flex-1 md:flex-grow-0 md:min-h-[300px] p-6 border-gray-300 md:border rounded-[20px] space-y-6"
     >
       <div className="w-full">
         <h4 className="text-scales-body font-peyda-bold  text-gray-900 mb-2.5">
