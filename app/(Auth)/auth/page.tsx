@@ -1,5 +1,12 @@
 "use client";
-import { supabase, Form, Input, Button, UseGlobalContext } from "@/index";
+import {
+  supabase,
+  Form,
+  Input,
+  Button,
+  UseGlobalContext,
+  AuthErrors,
+} from "@/index";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -69,28 +76,23 @@ const Auth = () => {
           className="share-inputs "
           validation={isValidate}
         />
-        <div
-          className={`${
-            isValidate ? "hidden" : "flex"
-          } gap-1 items-center text-accent-error m-1 font-peyda-regular text-scales-default`}
-        >
-          <Image
-            src="/images/Auth/Circle_Warning.svg"
-            width={24}
-            height={24}
-            alt="circle warning"
-          />
-          <span>ایمیل معتبر نیست</span>
-        </div>
-        <div className="font-peyda-regular text-scales-small mt-4">
+        <AuthErrors
+          src={"/images/Auth/Circle_Warning.svg"}
+          width={24}
+          height={24}
+          alt={"circle warning"}
+          error={"ایمیل معتبر نیست"}
+          validation={isValidate}
+        />
+        <div className="auth_page--conditions-text">
           با ورود به کوچه، تمام{" "}
-          <span className="text-primary cursor-pointer">
+          <span className="auth_page--conditions-link">
             شرایط و قوانین کوچه
           </span>{" "}
           را می‌پذیرم
         </div>
       </div>
-      <div className="md:hidden flex flex-col grow" />
+      <div className="space-maker" />
       <Button
         text="بعدی"
         className="w-full share-buttons"

@@ -3,8 +3,8 @@ import React from "react";
 
 const layout = ({ children }) => {
   return (
-    <div className="h-full w-full flex flex-col justify-center items-center">
-      <div className="self-start pt-6 pr-6 flex md:hidden gap-1.5 text-gray-800 font-peyda-semibold text-scales-default">
+    <div className="auth_layout--container">
+      <div className=".auth_layout--btn-container">
         <Image
           src={"/images/auth/Arrow_Right_MD.svg"}
           width={24}
@@ -13,7 +13,7 @@ const layout = ({ children }) => {
         />
         <span>بازگشت</span>
       </div>
-      <div className="flex md:hidden justify-center ml-8 my-10">
+      <div className="auth_layout--logo-container">
         <Image
           src={"/images/auth/auth-logo-mobile.png"}
           width={156}

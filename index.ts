@@ -25,7 +25,9 @@ export { Button, Input };
 // Modules Imports
 
 import Form from "@/components/modules/Form";
+import AuthErrors from "@/components/modules/AuthErrors";
+import AuthPasswordGuid from "@/components/modules/AuthPasswordGuid";
 
 // Modules Export
 
-export { Form };
+export { Form, AuthErrors, AuthPasswordGuid };

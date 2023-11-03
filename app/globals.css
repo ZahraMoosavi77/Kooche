@@ -3,18 +3,32 @@
 @tailwind utilities;
 
 @layer components {
+
+  .auth_pages--error {
+    @apply gap-1 items-center text-accent-error m-1 font-peyda-regular text-scales-default
+  }
+
+  .form-buttons_container {
+    @apply flex w-full justify-between items-center
+  }
+
+  /*? Input Component styles come from outside */
   .share-inputs {
     @apply flex-1 w-[60%] font-peyda-semibold text-scales-default bg-transparent outline-none
   }
 
+  /*? Button Component styles come from outside */
   .share-buttons {
     @apply flex justify-center px-4 py-2 gap-2 rounded-[12px] bg-primary font-peyda-semibold text-scales-default text-white
   }
 
+  /*? Back button in the Form Component */
   .back-button {
     @apply w-3/12 block ms-5 text-scales-default font-peyda-semibold text-gray-800
   }
 
+
+  /*? Form Component Styles */
   .form {
     @apply w-full md:w-[440px] flex flex-col flex-1 md:flex-grow-0 max-h-fit p-6 border-gray-300 md:border rounded-[20px] space-y-6
   }
@@ -24,7 +38,46 @@
   }
 
   .form-caption {
-    @apply max-w-full font-peyda-regular text-gray-800 text-scales-default leading-leading-5 
+    @apply max-w-full font-peyda-regular text-gray-800 text-scales-default leading-leading-5
+  }
+
+  /*? Auth layout styles */
+  .auth_layout--container {
+    @apply h-full w-full flex flex-col justify-center items-center
+  }
+
+  .auth_layout--btn-container {
+    @apply self-start pt-6 pr-6 flex md:hidden gap-1.5 text-gray-800 font-peyda-semibold text-scales-default
+  }
+
+  .auth_layout--logo-container {
+    @apply flex md:hidden justify-center ml-8 my-10
+  }
+
+
+  /*? Auth page styles */
+  .auth_page--conditions-text {
+    @apply font-peyda-regular text-scales-small mt-4
+  }
+
+  .auth_page--conditions-link {
+    @apply text-primary cursor-pointer
+  }
+
+  /*? Password Sign up styles */
+  .password-signup_password-guid {
+    @apply text-gray-700 font-peyda-regular text-scales-caption
+  }
+
+  /*? Password login styles */
+  .password_login-forget {
+    @apply block mx-2 text-scales-small md:text-scales-default font-peyda-semibold text-primary
+  }
+
+
+/*! Auth helper class */
+  .space-maker {
+    @apply md:hidden flex flex-col grow
   }
 }
 

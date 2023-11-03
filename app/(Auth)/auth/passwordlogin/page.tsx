@@ -1,5 +1,12 @@
 "use client";
-import { supabase, Form, Button, Input, UseGlobalContext } from "@/index";
+import {
+  supabase,
+  Form,
+  Button,
+  Input,
+  UseGlobalContext,
+  AuthErrors,
+} from "@/index";
 import Image from "next/image";
 import React, { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
@@ -76,34 +83,24 @@ const Page = () => {
             className={`share-inputs`}
             validation={isValidate}
           />
-          <div
-            className={`${
-              isValidate ? "hidden" : "flex"
-            } gap-1 items-center text-accent-error m-1 font-peyda-regular text-scales-default`}
-          >
-            <Image
-              src="/images/Auth/Circle_Warning.svg"
-              width={24}
-              height={24}
-              alt="circle warning"
-            />
-            <span>رمز عبور را به درستی انتخاب کنید</span>
-          </div>
-          <div
-            className={`${
-              isCorrect ? "hidden" : "flex"
-            } gap-1 items-center text-accent-error m-1 font-peyda-regular text-scales-default`}
-          >
-            <Image
-              src="/images/Auth/Circle_Warning.svg"
-              width={24}
-              height={24}
-              alt="circle warning"
-            />
-            <span> ترکیب نام کاربری/ایمیل با پسوورد صحیح نیست</span>
-          </div>
+          <AuthErrors
+            validation={isValidate}
+            error={"رمز عبور را به درستی انتخاب کنید"}
+            src={"/images/Auth/Circle_Warning.svg"}
+            width={24}
+            height={24}
+            alt={"circle warning"}
+          />
+          <AuthErrors
+            validation={isCorrect}
+            error={"ترکیب نام کاربری/ایمیل با پسوورد صحیح نیست"}
+            src={"/images/Auth/Circle_Warning.svg"}
+            width={24}
+            height={24}
+            alt={"circle warning"}
+          />
         </div>
-        <div className="md:hidden flex flex-col grow" />
+        <div className="space-maker" />
         <Button
           onClickHandler={onSubmitHandler}
           text="ورود"
@@ -111,12 +108,12 @@ const Page = () => {
         />
         <div className="self-center">
           {clickedForgot ? (
-            <span className=" block mx-2 text-scales-small md:text-scales-default font-peyda-semibold text-primary">
+            <span className="password_login-forget">
               ایمیل درخواست تغیر رمز عبور برای شما ارسال گردید
             </span>
           ) : (
             <div onClick={forgotPasswordHandler}>
-              <span className="cursor-pointer block mx-2 text-scales-default font-peyda-semibold text-primary">
+              <span className="cursor-pointer password_login-forget">
                 فراموشی رمز عبور
               </span>
             </div>

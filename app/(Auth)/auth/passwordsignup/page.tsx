@@ -1,5 +1,12 @@
 "use client";
-import { Form, Input, UseGlobalContext, Button, supabase } from "@/index";
+import {
+  Form,
+  Input,
+  UseGlobalContext,
+  Button,
+  supabase,
+  AuthErrors,
+} from "@/index";
 import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
@@ -90,21 +97,17 @@ const Page = () => {
             className="share-inputs"
             validation={isValueValideted}
           />
-          <div
-            className={`${
-              isValueValideted ? "hidden" : "flex"
-            } gap-1 items-center text-accent-error m-1 font-peyda-regular text-scales-default`}
-          >
-            <Image
-              src="/images/Auth/Circle_Warning.svg"
-              width={24}
-              height={24}
-              alt="circle warning"
-            />
-            <span>رمز عبور را به درستی انتخاب کنید</span>
-          </div>
+          \
+          <AuthErrors
+            validation={isValueValideted}
+            error={"رمز عبور را به درستی انتخاب کنید"}
+            src={"/images/Auth/Circle_Warning.svg"}
+            width={24}
+            height={24}
+            alt={"circle warning"}
+          />
           <div className="mt-2">
-            <span className="text-gray-700 font-peyda-regular text-scales-caption">
+            <span className="password-signup_password-guid">
               رمز عبور باید حداقل شامل 8 کاراکتر، یک حرف بزرگ، یک حرف کوچک و عدد
               باشد
             </span>
@@ -122,30 +125,25 @@ const Page = () => {
             className={`share-inputs`}
             validation={isConfirmValideted}
           />
-          <div
-            className={`${
-              isConfirmValideted ? "hidden" : "flex"
-            } gap-1 items-center text-accent-error m-1 font-peyda-regular text-scales-default`}
-          >
-            <Image
-              src="/images/Auth/Circle_Warning.svg"
-              width={24}
-              height={24}
-              alt="circle warning"
-            />
-            <span>عدم تطابق</span>
-          </div>
+          <AuthErrors
+            validation={isConfirmValideted}
+            error={"عدم تطابق"}
+            src={"/images/Auth/Circle_Warning.svg"}
+            width={24}
+            height={24}
+            alt={"circle warning"}
+          />
         </div>
-        <div className="md:hidden flex flex-col grow" />
-        <div className="flex flex-row-reverse w-full justify-between items-center">
+        <div className="space-maker" />
+        <div className="form-buttons_container">
+          <Link className="hidden md:block" href={"/auth"}>
+            <span className="back-button">قبلی</span>
+          </Link>
           <Button
             onClickHandler={onSubmitHandler}
             text="تمام"
             className="w-full md:w-9/12 share-buttons"
           />
-          <Link className="hidden md:block" href={"/auth"}>
-            <span className="back-button">قبلی</span>
-          </Link>
         </div>
       </Form>
     );

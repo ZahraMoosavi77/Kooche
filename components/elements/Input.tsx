@@ -19,9 +19,9 @@ const Input = (props) => {
     element === "input" ? (
       <>
         <div
-          className={`w-full flex gap-2 ${
+          className={`w-full flex gap-2 rounded-[12px] px-2.5 py-3 ${
             validation ? "bg-gray-200" : "bg-accent-error-text"
-          } rounded-[12px] px-2.5 py-3`}
+          } `}
         >
           <div className="min-w-fit min-h-fit self-start">{firstIcon}</div>
           <input
