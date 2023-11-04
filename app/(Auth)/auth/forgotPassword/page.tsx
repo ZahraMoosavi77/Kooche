@@ -76,7 +76,7 @@ const Page = () => {
           label="رمز عبور"
           onInputHandler={onInputHandler}
           value={value}
-          className="min-w-[300px] share-inputs"
+          className="share-inputs"
           validation={isValueValideted}
         />
         <div
@@ -92,6 +92,12 @@ const Page = () => {
           />
           <span>رمز عبور را به درستی انتخاب کنید</span>
         </div>
+        <div className="w-full mt-2">
+          <span className="text-gray-700 font-peyda-regular text-scales-caption">
+            رمز عبور باید حداقل شامل 8 کاراکتر، یک حرف بزرگ، یک حرف کوچک و عدد
+            باشد
+          </span>
+        </div>
       </div>
       <div>
         <Input
@@ -102,7 +108,7 @@ const Page = () => {
           id="password"
           onInputHandler={onConfirmHandler}
           value={confirm}
-          className="min-w-[300px] share-inputs"
+          className="share-inputs"
           validation={isConfirmValideted}
         />
         <div
@@ -119,13 +125,14 @@ const Page = () => {
           <span>عدم تطابق</span>
         </div>
       </div>
+      <div className="md:hidden flex flex-col grow" />
       <div className="flex flex-row-reverse w-full justify-between items-center">
         <Button
           onClickHandler={onSubmitHandler}
           text="تمام"
-          className="w-9/12 share-buttons"
+          className="w-full md:w-9/12 share-buttons"
         />
-        <Link href={"/auth"}>
+        <Link className="hidden md:block" href={"/auth"}>
           <span className="back-button">قبلی</span>
         </Link>
       </div>

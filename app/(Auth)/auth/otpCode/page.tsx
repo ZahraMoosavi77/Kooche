@@ -21,7 +21,7 @@ const Page = () => {
   };
 
   const onClickHandler = async () => {
-    const {  error } = await supabase.auth.verifyOtp({
+    const { error } = await supabase.auth.verifyOtp({
       email: mail,
       token: value,
       type: "recovery",
@@ -43,7 +43,7 @@ const Page = () => {
           id="password"
           value={value}
           onInputHandler={onInputHandler}
-          className={` min-w-[300px] share-inputs`}
+          className={`share-inputs`}
           validation={isCorrect}
         />
         <div
@@ -73,6 +73,7 @@ const Page = () => {
           <span>کد باید یک عدد شش رقمی باشد</span>
         </div>
       </div>
+      <div className="md:hidden flex flex-col grow" />
       <div className="flex flex-row-reverse w-full justify-between items-center">
         <Button
           onClickHandler={onClickHandler}
@@ -81,9 +82,9 @@ const Page = () => {
           alt="Arrow Left"
           iconHeight={24}
           iconWidth={24}
-          className="w-9/12 share-buttons"
+          className="w-full md:w-9/12 share-buttons"
         />
-        <Link href={"/auth/passwordlogin"}>
+        <Link className="hidden md:block" href={"/auth/passwordlogin"}>
           <span className="back-button">قبلی</span>
         </Link>
       </div>

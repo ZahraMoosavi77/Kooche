@@ -23,7 +23,7 @@ const Input = (props) => {
             validation ? "bg-gray-200" : "bg-accent-error-text"
           } rounded-[12px] px-2.5 py-3`}
         >
-          {firstIcon}
+          <div className="min-w-fit min-h-fit self-start">{firstIcon}</div>
           <input
             type={type}
             placeholder={placeholder || ""}
@@ -31,7 +31,7 @@ const Input = (props) => {
             value={value}
             onChange={onInputHandler}
           />
-          {secondIcon}
+          <div className="min-w-fit min-h-fit self-end">{secondIcon}</div>
         </div>
       </>
     ) : (

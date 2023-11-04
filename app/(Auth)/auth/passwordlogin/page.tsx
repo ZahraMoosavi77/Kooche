@@ -2,7 +2,6 @@
 import { supabase, Form, Button, Input, UseGlobalContext } from "@/index";
 import Image from "next/image";
 import React, { useState, useRef } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const passReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
@@ -14,12 +13,6 @@ const Page = () => {
   const [isValidate, setIsValidate] = useState<boolean | "-">("-");
   const [isCorrect, setIsCorrect] = useState<boolean | "-">("-");
   const [clickedForgot, setClickedForgot] = useState<boolean>(false);
-
-  // const getMainUser = async () => {
-  //   let { data: profiles, error } = await supabase
-  //     .from("profiles")
-  //     .select("id").eq()
-  // };
 
   const onInputHandler = (e) => {
     setValue(e.target.value);
@@ -80,7 +73,7 @@ const Page = () => {
             id="password"
             value={value}
             onInputHandler={onInputHandler}
-            className={`min-w-[300px] share-inputs`}
+            className={`share-inputs`}
             validation={isValidate}
           />
           <div
@@ -110,22 +103,25 @@ const Page = () => {
             <span> ترکیب نام کاربری/ایمیل با پسوورد صحیح نیست</span>
           </div>
         </div>
+        <div className="md:hidden flex flex-col grow" />
         <Button
           onClickHandler={onSubmitHandler}
           text="ورود"
           className="w-full share-buttons"
         />
-        {clickedForgot ? (
-          <span className=" block mx-2 text-scales-default font-peyda-semibold text-primary">
-            ایمیل درخواست تغیر رمز عبور برای شما ارسال گردید
-          </span>
-        ) : (
-          <div onClick={forgotPasswordHandler}>
-            <span className="cursor-pointer block mx-2 text-scales-default font-peyda-semibold text-primary">
-              فراموشی رمز عبور
+        <div className="self-center">
+          {clickedForgot ? (
+            <span className=" block mx-2 text-scales-small md:text-scales-default font-peyda-semibold text-primary">
+              ایمیل درخواست تغیر رمز عبور برای شما ارسال گردید
             </span>
-          </div>
-        )}
+          ) : (
+            <div onClick={forgotPasswordHandler}>
+              <span className="cursor-pointer block mx-2 text-scales-default font-peyda-semibold text-primary">
+                فراموشی رمز عبور
+              </span>
+            </div>
+          )}
+        </div>
       </Form>
     );
 };
