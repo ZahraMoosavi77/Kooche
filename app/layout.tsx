@@ -1,8 +1,7 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import Navbar from "@/components/layouts/Navbar";
+import { MapProvider } from "@/context/map/mapContext";
 import { AuthContextProvider } from "@/context/AuthContext";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -13,7 +12,12 @@ export default function RootLayout({ children }) {
   return (
     <AuthContextProvider>
       <html lang="en" dir="rtl">
-        <body className={inter.className}>{children}</body>
+        <body className="flex flex-col h-screen relative">
+          <MapProvider>
+            <Navbar />
+            {children}
+          </MapProvider>
+        </body>
       </html>
     </AuthContextProvider>
   );
