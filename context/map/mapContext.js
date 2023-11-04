@@ -1,33 +1,28 @@
 "use client";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
-export const MarkerContext = createContext();
-export const ActionMarkerContext = createContext();
+export const UserSearchContext = createContext();
+export const LocationContext = createContext();
+export const ActionUserSearchContext = createContext();
+export const ActionLocationContext = createContext();
 
 export const MapProvider = ({ children }) => {
-  const [list, setList] = useState([]);
-  // const [list2:number[], setList2:] = useState([1]);
+  const [userLocation, setUserLocation] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // useEffect(() => {
-  // const fetchData = async () => {
-  //     let { data, error } = await supabase.from("locations").select(`
-  //       id,loc,
-  //       games(
-  //       name,price,
-  //       platforms(name)
-  //       )
-  //       `);
-  //     setList(data);
-  //   };
-  //
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    setUserLocation(JSON.parse(localStorage.getItem("userLocation")));
+  }, []);
 
   return (
-    <MarkerContext.Provider value={list}>
-      <ActionMarkerContext.Provider value={setList}>
-        {children}
-      </ActionMarkerContext.Provider>
-    </MarkerContext.Provider>
+    <LocationContext.Provider value={userLocation}>
+      <ActionLocationContext.Provider value={setUserLocation}>
+        <UserSearchContext.Provider value={searchTerm}>
+          <ActionUserSearchContext.Provider value={setSearchTerm}>
+            {children}
+          </ActionUserSearchContext.Provider>
+        </UserSearchContext.Provider>
+      </ActionLocationContext.Provider>
+    </LocationContext.Provider>
   );
 };

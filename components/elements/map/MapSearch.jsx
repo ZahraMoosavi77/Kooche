@@ -1,110 +1,128 @@
 "use client";
-import { useCallback, useContext, useState } from "react";
-import { ActionMarkerContext } from "@/context/map/mapContext";
+import { useCallback, useContext, useEffect, useState } from "react";
 import Image from "next/image";
+import NavbarFilterModal from "@/components/elements/NavbarFilterModal";
+import { supabase } from "@/lib/supabase";
+import { ActionUserSearchContext } from "@/context/map/mapContext";
 
 const MapSearch = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const setUserSearch = useContext(ActionUserSearchContext);
   const [searchTerms, setSearchTerms] = useState({
-    gameTerm: "",
-    platformTerm: "All",
+    gameNameTerm: "",
+    platformsTerm: {},
+    isForSell: false,
+    isForExchange: false,
   });
-  // const [platformsList, setPlatformsList] = useState([]);
-  const [gameList, setGameList] = useState([]);
+  const { gameNameTerm, isForExchange, isForSell, platformsTerm } = searchTerms;
 
-  const setMarkerList = useContext(ActionMarkerContext);
+  useEffect(() => {
+    const fetchData = async () => {
+      let { data } = await supabase.from("platforms").select("*");
 
-  const { gameTerm, platformTerm } = searchTerms;
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const { data: platforms, error: platformsError } = await supabase
-  //       .from("platforms")
-  //       .select("name");
-  //     setPlatformsList(platforms);
-  //
-  //     let { data: games, error: gamesError } = await supabase.from("locations")
-  //       .select(`
-  //       id,loc,
-  //       games(
-  //       name,price,
-  //       platforms(name)
-  //       )
-  //       `);
-  //     setGameList(games);
-  //   };
-  //
-  //   fetchData();
-  // }, []);
-
-  const handleChange = useCallback((target) => {
-    const { name, value } = target;
-    if (name === "gameName") {
-      setSearchTerms((prevState) => {
-        return { ...prevState, gameTerm: value };
+      data.forEach((item) => {
+        setSearchTerms((prevState) => ({
+          ...prevState,
+          platformsTerm: { ...prevState.platformsTerm, [item.name]: false },
+        }));
       });
-    } else if (name === "platforms") {
-      setSearchTerms((prevState) => {
-        return { ...prevState, platformTerm: value };
-      });
-    }
+    };
+
+    fetchData();
   }, []);
 
-  const handleClick = useCallback(
+  const handleSearchClick = useCallback((platforms) => {
+    setSearchTerms((prevState) => {
+      return { ...prevState, platformsTerm: platforms };
+    });
+  }, []);
+
+  useEffect(() => {
+    // const finalSearch = {gameName: gameNameTerm,isForSell:isForSell,isForExchange: isForExchange,platformsList: platformsTerm.filter(pla)   }
+    setUserSearch(JSON.stringify(searchTerms));
+  }, [searchTerms, setUserSearch]);
+
+  const handleChange = useCallback((target) => {
+    setSearchTerms((prevState) => {
+      return { ...prevState, gameNameTerm: target.value };
+    });
+  }, []);
+
+  const handleّFilterClick = useCallback(() => {
+    setIsModalOpen(true);
+  }, []);
+
+  const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      const a = getGamesFilter(searchTerms, gameList);
-      console.log(a);
-      setMarkerList(a);
     },
-    [searchTerms, gameList],
+    [searchTerms],
   );
 
+  const handlePlatformsClick = useCallback((platforms) => {
+    setSearchTerms((prevState) => {
+      return { ...prevState, platformsTerm: platforms };
+    });
+  }, []);
+
   return (
-    <div className={"flex"}>
-      {/*<div className={"text-gray-950 w-full"}>*/}
-      <form id="search_form" className="ml-4">
+    <>
+      {/*<div*/}
+      {/*  className={*/}
+      {/*    "rounded-xl text-gray-500 py-[11px] px-3 flex gap-2 bg-gray-200 w-[380px] h-12 font-peyda-regular leading-leading-3 cursor-text"*/}
+      {/*  }*/}
+      {/*>*/}
+      {/*  <Image*/}
+      {/*    src="images/map/Search_Magnifying_Glass.svg"*/}
+      {/*    alt="Search Icon"*/}
+      {/*    width={24}*/}
+      {/*    height={24}*/}
+      {/*  />*/}
+
+      {/*  <span>جستجو</span>*/}
+      {/*</div>*/}
+      {/*<div className=""></div>*/}
+      <form className="relative" onSubmit={(e) => handleSubmit(e)}>
         <input
           type="text"
           name={"gameName"}
-          value={gameTerm}
+          value={gameNameTerm}
           onChange={({ target }) => handleChange(target)}
+          // onClick={handleSearchClick}
           className={
-            "rounded-xl text-gray-500 py-[11px] px-3 bg-gray-200 w-[380px]"
+            "rounded-xl text-gray-500 py-[11px] pl-3 pr-11 bg-gray-200 w-[380px] h-12 font-peyda-regular leading-leading-3"
           }
           placeholder={"جستجو"}
         />
-        {/*<select*/}
-        {/*  name="platforms"*/}
-        {/*  onChange={({ target }) => handleChange(target)}*/}
-        {/*  className={"mx-3 h-full"}*/}
-        {/*>*/}
-        {/*  <option value="All">All</option>*/}
-        {/*  {platformsList.map(({ name }, index) => (*/}
-        {/*    <option key={index} value={name}>*/}
-        {/*      {name}*/}
-        {/*    </option>*/}
-        {/*  ))}*/}
-        {/*</select>*/}
-        {/*<button*/}
-        {/*  type="submit"*/}
-        {/*  className={"bg-white"}*/}
-        {/*  onClick={(e) => handleClick(e)}*/}
-        {/*>*/}
-        {/*  جست و جو*/}
-        {/*</button>*/}
+        <Image
+          src="images/map/Search_Magnifying_Glass.svg"
+          alt="Search Icon"
+          width={24}
+          height={24}
+          className="absolute top-[11px] right-3"
+        />
       </form>
-      <div className="flex items-center rounded-xl border-2 border-primary text-primary px-4 py-2 font-semibold">
+      <button
+        className="flex items-center gap-2 rounded-xl border-2 border-primary text-primary px-4 py-2 font-peyda-semibold"
+        onClick={handleّFilterClick}
+      >
         <Image
           src="images/map/filter.svg"
           alt="Filter Icon"
           width={24}
           height={24}
-          className="ml-2"
         />
         فیلتر
-      </div>
-      {/*</div>*/}
-    </div>
+      </button>
+      {isModalOpen && (
+        <NavbarFilterModal
+          onClose={setIsModalOpen}
+          onPlatformsClick={handlePlatformsClick}
+          setSearch={setSearchTerms}
+          searchTerm={searchTerms}
+        />
+      )}
+    </>
   );
 };
 

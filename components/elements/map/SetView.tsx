@@ -6,6 +6,7 @@ const SetView = ({ map, markerGroup }) => {
       easeLinearity: 0.1,
     });
   }
+
   return null;
 };
 

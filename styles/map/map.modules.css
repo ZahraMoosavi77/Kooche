@@ -1,3 +1,90 @@
 .leaflet-bottom {
     display: none;
 }
+
+.leaflet-top{
+    z-index: 998;
+}
+
+.leaflet-popup-content-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 400px !important;
+    height: 400px !important;
+    border-radius: 50% !important;
+    border: 1px solid  #A77AF2 !important;
+    background: rgba(109, 33, 233, 0.07) !important;
+}
+
+.leaflet-popup-content {
+    display: flex !important;
+    width: 320px !important;
+    height: 110px !important;
+    padding: 8px !important;
+    align-items: center !important;
+    border-radius: 12px !important;
+    border: 1px solid  #EDEDED !important;
+    background:  #FFF !important;
+    box-shadow: 0 7px 11px -5px rgba(0, 0, 0, 0.10) !important;
+    margin: 0 !important;
+}
+
+.leaflet-popup-tip,.leaflet-popup-close-button {
+    display: none !important;
+}
+
+.popup-image {
+    width: 94px;
+    height: 100%;
+    background-color: #dcdcdc;
+    border-radius: 8px;
+    margin-left: 16px;
+}
+
+.popup-content {
+    width: 194px;
+    height: 100%;
+}
+
+.leaflet-popup  {
+    margin: 0;
+    bottom: -200px !important;
+}
+
+.popup-game_name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-left: 8px;
+    @apply text-gray-900;
+    @apply text-scales-small;
+    @apply font-medium;
+    @apply font-peyda-medium;
+    @apply leading-leading-2
+}
+
+.popup-tag {
+    @apply flex;
+    @apply justify-center;
+    @apply bg-primary-100;
+    @apply text-primary;
+    @apply text-scales-caption;
+    @apply font-peyda-regular;
+    @apply px-1.5;
+    @apply rounded-2xl;
+    @apply items-center;
+    height: 22px !important;
+}
+
+.popup-platform {
+    @apply mr-1;
+    @apply font-peyda-regular;
+    @apply text-scales-caption;
+}
+
+.popup-price{
+    @apply text-scales-small;
+    @apply font-peyda-regular;
+    @apply font-medium;
+}

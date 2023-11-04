@@ -1,5 +1,6 @@
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/layouts/Navbar";
+import { MapProvider } from "@/context/map/mapContext";
 import { AuthContextProvider } from "@/context/AuthContext";
 
 export const metadata = {
@@ -11,9 +12,11 @@ export default function RootLayout({ children }) {
   return (
     <AuthContextProvider>
       <html lang="en" dir="rtl">
-        <body className="flex flex-col h-screen">
-        <Navbar />
-        {children}
+        <body className="flex flex-col h-screen relative">
+          <MapProvider>
+            <Navbar />
+            {children}
+          </MapProvider>
         </body>
       </html>
     </AuthContextProvider>

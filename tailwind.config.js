@@ -1,14 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-
-    },
+    extend: {},
 
     screens: {
       "xs": "320px",
@@ -67,13 +65,13 @@ module.exports = {
       "scales-tiny": "0.625rem",
     },
 
-    lineHeight: {
-      "leading-1": "1.35rem",
-      "leading-2": "1.75rem",
-      "leading-3": "1.8rem",
-      "leading-4": "2.025rem",
-      "leading-5": "2.1rem"
-
+    lineHeight:{
+      "leading-1":"1.35rem",
+      "leading-2":"1.75rem",
+      "leading-3":"1.8rem",
+      "leading-4":"2.025rem",
+      "leading-5":"2.1rem"
+    
     },
 
     fontFamily: {
