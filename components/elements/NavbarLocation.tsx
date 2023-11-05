@@ -13,7 +13,7 @@ const NavbarLocation = () => {
 
   useEffect(() => {
     if (!localStorage.getItem("userLocation")) {
-      setUserLocation();
+      setUserLocation("تهران", "تهران");
     }
     const fetchData = async () => {
       let { data } = await supabase
