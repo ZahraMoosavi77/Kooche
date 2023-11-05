@@ -9,9 +9,9 @@ const NavbarLocationModal = ({ onClose, provinces }) => {
   const [cities, setCities] = useState({});
 
   return (
-    <div className="absolute w-full h-full top-0 right-0 z-[999] bg-gradient-to-b from-[rgba(0,0,0,0.6)] to-[rgba(0,0,0,0.6)] flex items-center justify-center">
-      <div className="w-[340px] h-[65%] bg-white p-8 rounded-[20px] flex flex-col">
-        <div className="mb-6 flex justify-between">
+    <div className="absolute w-full h-full top-0 right-0 z-[402] bg-gradient-to-b from-[rgba(0,0,0,0.6)] to-[rgba(0,0,0,0.6)] flex items-center justify-center">
+      <div className="w-[340px] h-[65%] bg-white p-6 rounded-[20px] flex flex-col">
+        <div className="mb-3 flex justify-between">
           <span className="font-peyda-bold text-scales-body">انتخاب شهر</span>
           <Image
             src="/images/map/Close_LG.svg"

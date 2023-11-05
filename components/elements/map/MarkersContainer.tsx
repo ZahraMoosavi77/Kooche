@@ -33,7 +33,7 @@ const MarkersContainer = () => {
         exchange,preferedExchange,name,price,
         platforms(name),
         categories(name),
-        cities!inner(name,bounds,center),
+        cities!inner(name),
         status(name)
         )
         `,
@@ -52,28 +52,20 @@ const MarkersContainer = () => {
   useEffect(() => {
     if (locations.length) {
       const { gameNameTerm, platformsTerm, isForExchange, isForSell } =
-        JSON.parse(userSearch);
+        userSearch;
 
       const selectedPlatforms = Object.keys(platformsTerm).filter(
         (key) => platformsTerm[key] === true,
       );
-      // console.log(
-      //   selectedPlatforms,
-      //   platformsTerm,
-      //   isForExchange,
-      //   isForSell,
-      //   locations[4].games[0].name.toLowerCase(),
-      //   selectedPlatforms.filter((platform) =>
-      //     platform.includes(locations[1].games[0].platforms.name),
-      //   ),
-      // );
 
       const newLocations = locations.filter(({ games }) => {
         if (!!selectedPlatforms.length) {
           if (isForSell && isForExchange) {
             return (
               games[0].exchange === isForExchange &&
-              games[0].name.toLowerCase().includes(gameNameTerm) &&
+              games[0].name
+                .toLowerCase()
+                .includes(gameNameTerm.toLowerCase()) &&
               !!parseInt(games[0].price) === isForSell &&
               !!selectedPlatforms.filter((platform) =>
                 platform.includes(games[0].platforms.name),
@@ -90,14 +82,18 @@ const MarkersContainer = () => {
           } else if (!isForSell && isForExchange) {
             return (
               games[0].exchange === isForExchange &&
-              games[0].name.toLowerCase().includes(gameNameTerm) &&
+              games[0].name
+                .toLowerCase()
+                .includes(gameNameTerm.toLowerCase()) &&
               !!selectedPlatforms.filter((platform) =>
                 platform.includes(games[0].platforms.name),
               ).length
             );
           } else {
             return (
-              games[0].name.toLowerCase().includes(gameNameTerm) &&
+              games[0].name
+                .toLowerCase()
+                .includes(gameNameTerm.toLowerCase()) &&
               !!selectedPlatforms.filter((platform) =>
                 platform.includes(games[0].platforms.name),
               ).length
@@ -107,21 +103,27 @@ const MarkersContainer = () => {
           if (isForSell && isForExchange) {
             return (
               games[0].exchange === isForExchange &&
-              games[0].name.toLowerCase().includes(gameNameTerm) &&
+              games[0].name
+                .toLowerCase()
+                .includes(gameNameTerm.toLowerCase()) &&
               !!parseInt(games[0].price) === isForSell
             );
           } else if (isForSell && !isForExchange) {
             return (
-              games[0].name.toLowerCase().includes(gameNameTerm) &&
+              games[0].name
+                .toLowerCase()
+                .includes(gameNameTerm.toLowerCase()) &&
               !!parseInt(games[0].price) === isForSell
             );
           } else if (!isForSell && isForExchange) {
             return (
               games[0].exchange === isForExchange &&
-              games[0].name.toLowerCase().includes(gameNameTerm)
+              games[0].name.toLowerCase().includes(gameNameTerm.toLowerCase())
             );
           } else {
-            return games[0].name.toLowerCase().includes(gameNameTerm);
+            return games[0].name
+              .toLowerCase()
+              .includes(gameNameTerm.toLowerCase());
           }
         }
       });
@@ -138,7 +140,7 @@ const MarkersContainer = () => {
       {!displayLocations.length && (
         <div
           className={
-            "w-full h-full z-[990] bg-gray-900 flex justify-center relative items-center opacity-60"
+            "w-full h-full z-[401] bg-gray-900 flex justify-center relative items-center opacity-60"
           }
         >
           <p className={"text-[2.5rem] text-gray-400 font-extrabold"}>

@@ -4,12 +4,5 @@ export const setUserLocation = (cityName, provinceName) => {
     provinceName: provinceName,
   });
 
-  if (localStorage.getItem("userLocation")) {
-    localStorage.setItem("userLocation", location);
-  } else {
-    localStorage.setItem(
-      "userLocation",
-      '{"cityName":"تهران","provinceName":"تهران"}',
-    );
-  }
+  localStorage.setItem("userLocation", location);
 };

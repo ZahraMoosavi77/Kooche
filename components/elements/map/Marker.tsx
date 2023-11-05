@@ -22,10 +22,10 @@ const Marker = ({ game, markerGroup }) => {
   //   newMarker.openPopup();
   // });
   //
-  // newMarker.on("click", function (e) {
-  //   this.openPopup();
-  //   setIsClicked(true);
-  // });
+  newMarker.on("click", function (e) {
+    this.openPopup();
+    // setIsClicked(true);
+  });
   //
   // {
   //   !isClicked &&
