@@ -9,7 +9,6 @@ export const ActionLocationContext = createContext();
 
 export const MapProvider = ({ children }) => {
   const [userLocation, setUserLocation] = useState("");
-  // const [searchTerms, setSearchTerms] = useState("");
   const [searchTerms, setSearchTerms] = useState({
     gameNameTerm: "",
     platformsTerm: {},

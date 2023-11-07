@@ -42,6 +42,7 @@ const MapSearchModalSuggestions = ({ gameName, setGameName, onClose }) => {
         .filter(({ games }) =>
           games[0].name.toLowerCase().includes(gameName.trim().toLowerCase()),
         )
+        .slice(0, 5)
         .map(({ games }) => (
           <MapSearchModalSingleSuggestion
             key={games[0].id}

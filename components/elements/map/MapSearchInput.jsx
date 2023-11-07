@@ -8,7 +8,6 @@ const MapSearchInput = () => {
   const searchTerm = useContext(UserSearchContext);
   const { gameNameTerm } = searchTerm;
 
-  console.log(isSearchModalOpen);
   return (
     <>
       <div
