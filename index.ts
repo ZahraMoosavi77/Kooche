@@ -29,3 +29,9 @@ import Form from "@/components/modules/Form";
 // Modules Export
 
 export { Form };
+
+// Template Imports
+import SideMenu from "./components/templates/side-menu";
+
+// Template Imports
+export { SideMenu };
