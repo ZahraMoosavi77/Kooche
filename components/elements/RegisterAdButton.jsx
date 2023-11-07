@@ -7,7 +7,7 @@ export default function RegisterAdButton({ text }) {
   const {insertData} = useContext(NewContext);
   const {validPhoneNumber} =  useContext(NewContext);
   const {name , price, moreInfo, platformId, preferedExchange, provinceId, cityId} = insertData;
-  const{clicked, setClicked, setValidNameGame,validNameSeller, setValidNameSeller} = useContext(NewContext);
+  const{clicked, setClicked, setValidNameGame,validNameSeller, setValidNameSeller, setIsCorrect, isCorrect} = useContext(NewContext);
 
 
    
@@ -19,6 +19,9 @@ export default function RegisterAdButton({ text }) {
   const handelInsertData = async () => {
      
      setClicked(true)
+     if(!isCorrect){
+      setIsCorrect(false)
+    } 
      if(validPhoneNumber)  { 
     const { data, error } = await supabase
       .from('games')

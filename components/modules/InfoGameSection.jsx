@@ -22,8 +22,9 @@ import { NewContext } from '@/context/NewPageContext'
 
 export default function InfoGameSection() {
     const [platforms , setPlatforms] = useState([]);
+    const [gameName, setGameName] = useState('')
     const {insertData} = useContext(NewContext);
-    const{validNameGame, setValidNameGame,validNameSeller, setValidNameSeller} = useContext(NewContext);
+    const{validNameGame, setValidNameGame,validNameSeller, setValidNameSeller, values, setValues, onChange} = useContext(NewContext);
     console.log('insertData.name',insertData.name);
     const getData= async () =>{
         let { data, error } = await supabase
@@ -47,7 +48,7 @@ export default function InfoGameSection() {
             </div>
             <div>
 
-                <TextFieldNewPage validate={true} helpText={true} name={'name'} type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
+                <TextFieldNewPage value={values.name} onChange={onChange} setGameName={setGameName} validate={true} helpText={true} name={'name'} type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
                
             </div>
 
