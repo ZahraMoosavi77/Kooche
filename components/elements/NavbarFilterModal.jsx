@@ -38,7 +38,7 @@ const NavbarFilterModal = ({ onClose }) => {
 
   return (
     <div className="absolute w-full h-full top-0 right-0 z-[402] bg-gradient-to-b from-[rgba(0,0,0,0.6)] to-[rgba(0,0,0,0.6)] flex items-center justify-center">
-      <div className="w-[340px] h-[56%] bg-white p-6 rounded-[20px] flex flex-col   ">
+      <div className="w-[340px] h-[420px] bg-white p-6 rounded-[20px] flex flex-col   ">
         <div className="mb-3 flex justify-between">
           <span className="font-peyda-bold text-scales-body">فیلترها</span>
           <Image

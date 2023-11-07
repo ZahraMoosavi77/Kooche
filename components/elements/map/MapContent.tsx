@@ -13,7 +13,7 @@ const MapContent = () => {
         className={"relative h-full"}
         center={CENTER}
         zoom={10}
-        scrollWheelZoom={false}
+        scrollWheelZoom={true}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <MarkersContainer />
