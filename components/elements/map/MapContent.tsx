@@ -11,6 +11,7 @@ const MapContent = () => {
     <div className={"w-full h-full"}>
       <MapContainer
         className={"relative h-full"}
+        // @ts-ignore
         center={CENTER}
         zoom={10}
         scrollWheelZoom={true}
