@@ -4,10 +4,10 @@ import React, { useState } from "react";
 import { Button } from "@/index";
 import { useRouter, usePathname } from "next/navigation";
 import { sideMenuLinks } from "@/constants/Side-Menu/constants";
-import Link from "next/link";
+import Link from "next/link"; 
 
 const SideMenu = () => {
-  const [isShow, setIsShow] = useState(false);
+  const [isShow, setIsShow] = useState(true);
   const router = useRouter();
   const pathName = usePathname().split("/");
   const primaryPath = pathName[1];
