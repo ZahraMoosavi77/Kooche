@@ -8,44 +8,44 @@ import { ERRORPHONENUMBER } from "@/constants/constantNewPage";
 import TextHelper from '../elements/TextHelper'
 import { TEXTHELPER } from '@/constants/constantNewPage'
 
-export default function TextField({ type, label, name, validate, helpText , setGameName, value}) {
+export default function TextField({ type, label, name, errormessage, helpText ,required, value, validate}) {
 
 
-  const{validNameGame, setValidNameGame,validNameSeller, setValidNameSeller,formik,isCorrect, setIsCorrect} = useContext(NewContext);
-  let {value} =useContext(NewContext)
+  const{validNameGame, setValidNameGame,validNameSeller, setValidNameSeller,formik,isCorrect, setIsCorrect, isValid , setIsValid} = useContext(NewContext);
+ 
   
   
 
-  const { setValidPhoneNumber, clicked } = useContext(NewContext);
+  const { setValidPhoneNumber, clicked, onChange,  } = useContext(NewContext);
   const { validPhoneNumber } = useContext(NewContext);
   const [inputValue, setInputValue] = useState('');
   const { insertData } = useContext(NewContext);
 
 
-  const handelInput = (e) => {
-    setInputValue(e.target.value);
-    insertData[name] = inputValue.trim();
-    setIsCorrect(true)
+  // const handelInput = (e) => {
+  //   setInputValue(e.target.value);
+  //   insertData[name] = inputValue.trim();
+  //   setIsCorrect(true)
    
    
 
-  }
+  // }
   
  
   
   
-  useEffect(() => {
+  // useEffect(() => {
   
-    if (name === 'phoneNumber' && inputValue ) {
-      const result = REGex.test(inputValue)
-      if (result) { 
-        setValidPhoneNumber(true);
-         }
-      if (!result) {setValidPhoneNumber(false)}  
-    }
+  //   if (name === 'phoneNumber' && inputValue ) {
+  //     const result = REGex.test(inputValue)
+  //     if (result) { 
+  //       setValidPhoneNumber(true);
+  //        }
+  //     if (!result) {setValidPhoneNumber(false)}  
+  //   }
     
-    insertData[name] = inputValue
-  }, [inputValue])
+  //   insertData[name] = inputValue
+  // }, [inputValue])
 
  
   // insertData[name] = inputValue
@@ -53,10 +53,11 @@ export default function TextField({ type, label, name, validate, helpText , setG
   return (
     <>
       <label htmlFor={name}>{label} </label>
-      <input id={name} type={type} onChange={handelInput} value={value} name={name}   className={` ${ !isCorrect && !inputValue  ? 'bg-accent-error' :'bg-gray-200'  }  text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`}   />
-      {/* className={` ${ clicked ? inputValue  ? 'bg-accent-error' :'bg-gray-200' :   validate   ? 'bg-gray-200' :'bg-accent-error'}  text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`} */}
+      <input id={name} type={type} onChange={onChange} value={value} name={name}   className={` ${ !validate ? 'bg-accent-error' :'bg-gray-200'  }  text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`}   />
+      {!validate ?  <TextError text={errormessage}/> :''}
+      
       {helpText && <TextHelper specialClass={'pr-3'} text={TEXTHELPER}/>}
-      {/* {!validate  && inputValue &&  <TextError text={ERRORPHONENUMBER}/>} */}
+     
 
     </>
 

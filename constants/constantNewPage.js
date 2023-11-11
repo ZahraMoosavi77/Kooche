@@ -57,4 +57,7 @@ export const REGex = /^(\+98|0)?9\d{9}$/;
 
 export const TEXTHELPER = "بهتر هست اسمی که روی بسته بازی هست را دقیقا بنویسید";
 
-export const ERRORPHONENUMBER = "لطفا شماره صحیح وارد کنید."
+export const ErrorMessagePhoneNumber = "لطفا شماره صحیح وارد کنید."
+export const ErrorMessageNameOfGame = "لطفا اسم بازی را وارد کنید."
+export const ErrorMessageNameOfSeller = "لطفا اسم فروشنده را وارد کنید."
+export const ErrorMessagePrice = "لطفا قیمت مورد نظر خود را وارد کنید."

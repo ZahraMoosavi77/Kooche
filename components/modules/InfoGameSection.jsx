@@ -14,7 +14,7 @@ import { CHOOSECONSOLE } from '@/constants/constantNewPage'
 import { SEARCHCONSOLE } from '@/constants/constantNewPage'
 import { useContext, useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
-
+import {ErrorMessageNameOfGame} from '@/constants/constantNewPage'
 
 import { NewContext } from '@/context/NewPageContext'
 
@@ -24,12 +24,13 @@ export default function InfoGameSection() {
     const [platforms , setPlatforms] = useState([]);
     const [gameName, setGameName] = useState('')
     const {insertData} = useContext(NewContext);
-    const{validNameGame, setValidNameGame,validNameSeller, setValidNameSeller, values, setValues, onChange} = useContext(NewContext);
-    console.log('insertData.name',insertData.name);
+    const{validNameGame, setValidNameGame,validNameSeller, setValidNameSeller, values, setValues, onChange, isValidName} = useContext(NewContext);
+    // console.log('insertData.name',insertData.name);
     const getData= async () =>{
         let { data, error } = await supabase
             .from('platforms')
             .select('*')
+           
          setPlatforms(data);
       
 
@@ -48,7 +49,7 @@ export default function InfoGameSection() {
             </div>
             <div>
 
-                <TextFieldNewPage value={values.name} onChange={onChange} setGameName={setGameName} validate={true} helpText={true} name={'name'} type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
+                <TextFieldNewPage value={values.name} validate={isValidName}  required={true} errormessage={ErrorMessageNameOfGame} helpText={true} name={'name'} type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
                
             </div>
 
@@ -59,7 +60,7 @@ export default function InfoGameSection() {
                 </div>} />
             </div>
             <div >
-                <TextAreaNewPage name={'moreInfo'} label={<div className='flex  '>
+                <TextAreaNewPage  name={'moreInfo'} value={values.moreInfo} label={<div className='flex  '>
                     <TextNewPage specialClass={'pr-3'} text={infoGame.GAMEDESCRIPTION} type={'textarea'} />
                     <Optional />
                 </div>} />

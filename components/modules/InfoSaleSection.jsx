@@ -19,11 +19,12 @@ import TextFieldNewPage from '@/components/elements/TextFieldNewPage'
 import InfoSellerSection from '@/components/modules/InfoSellerSection'
 import { useState, useContext } from 'react'
 import { NewContext } from '@/context/NewPageContext'
+import {ErrorMessagePrice} from '@/constants/constantNewPage'
 export default function () {
     const { isSale } = useContext(NewContext);
     const { isExchange } = useContext(NewContext);
     const { setIsExchange } = useContext(NewContext);
-    const { setIsSale } = useContext(NewContext);
+    const { setIsSale, isValidPrice } = useContext(NewContext);
     const {insertData} = useContext(NewContext);
    
    
@@ -38,7 +39,7 @@ export default function () {
 
                 </div>
                 <div className={`${isSale ? 'block' : 'hidden'}`}>
-                    <TextFieldNewPage name={'price'}  label={<div className='flex  items-center  '>
+                    <TextFieldNewPage validate={isValidPrice} name={'price'} required={true} errormessage={ErrorMessagePrice}  label={<div className='flex  items-center  '>
                         <TextNewPage specialClass={'pr-3'} text={infoSale.PRICEGAME} type={'textarea'} />
                     </div>} />
                 </div>
@@ -49,7 +50,7 @@ export default function () {
                     <TextNewPage text={infoSale.EXCHANGEGAME} />
                 </div>
                 <div className={`${isExchange ? 'block' : 'hidden'}`}>
-                    <TextFieldNewPage name={'preferedExchange'} label={<div className='flex  items-center '>
+                    <TextFieldNewPage validate={true} name={'preferedExchange'} required={false} label={<div className='flex  items-center '>
                         <TextNewPage specialClass={'pr-3'} text={infoSale.PREFEREDEXCHANGEGAME} type={'textarea'} />
                         <Optional />
                     </div>} />

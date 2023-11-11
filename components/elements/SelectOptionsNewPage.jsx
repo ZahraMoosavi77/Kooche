@@ -12,11 +12,13 @@ export default function SelectOptionsNewPage({ label,optionsGroup,placeholderSea
     
 
     const [isOpen,setIsOpen] = useState(false);
-    const {insertData}= useContext(NewContext)
+    const { values}= useContext(NewContext)
     const {relatedCities} = useContext(NewContext);
     
-    insertData[column] = selected.id;
-        // console.log(column,insertData[column]);
+    console.log(column);
+    
+    values[column] = selected.id;
+        console.log(column, values[column]);
         // console.log(typeof(insertData[column]));
     return (
         <>
