@@ -11,7 +11,7 @@ export default function SelectOptionsNewPage({ label, optionsGroup, placeholderS
     const [selected, setSelected] = useState({ name: '', id: '' });
     // console.log(column,optionsGroup);
     const [isOpen, setIsOpen] = useState(false);
-    const { values, setIsValidProvince, setIsValidCity } = useContext(NewContext)
+    const { values, setIsValidProvince, setIsValidCity,cities, setCities } = useContext(NewContext)
     values[column] = selected.id;
 
     return (
@@ -32,7 +32,7 @@ export default function SelectOptionsNewPage({ label, optionsGroup, placeholderS
                     return <li key={item.id} onClick={
                         () => {
                             if (column === 'cityId') setIsValidCity(true)
-                            if (column === 'provinceId') setIsValidProvince(true)
+                            if (column === 'provinceId') {setIsValidProvince(true); setCities(item.cities) ; }
                             if (item.name !== selected.name) setSelected({ name: item.name, id: item.id }); setIsOpen(false); setInputValue("")
                         }
                     } className={`py-[6px] px-3 font-peyda-regular ${item.name?.startsWith(inputValue) ? 'block' : 'hidden'} hover:bg-primary-50 `}>{item.name}</li>

@@ -15,40 +15,24 @@ import { ErrorMessagePhoneNumber } from '@/constants/constantNewPage'
 import { REGex } from "@/constants/constantNewPage"
 import {ErrorMessageCity, ErrorMessageProvince} from "@/constants/constantNewPage"
 export default function InfoSellerSection() {
-    const [cities, setCities] = useState([]);
+   
     const [provinces, setProvinces] = useState([]);
-    const { isValidPhoneNumber, isValidSellerName, values,isValidProvince,isValidCity } = useContext(NewContext);
-    const getDataCity = async () => {
-        // let { data, error } = await supabase
-        //     .from('cities')
-        //     .select('*')
-        //     .order('name')
-     
-
-        let { data: cities, error } = await supabase
-            .from('cities')
-
-            .select(`*, provinces!inner(name,id)`)
-                // .eq(`province.name`, 'اصفهان')
-
-        setCities(cities);
-
-
-
-    }
+    const { isValidPhoneNumber, isValidSellerName, values,isValidProvince,isValidCity,cities } = useContext(NewContext);
+    
     const getDataProvince = async () => {
         let { data: provinces, error } = await supabase
             .from('provinces')
-            .select('*')
+            .select('name,id,cities(name,id)')
             .order('name')
         setProvinces(provinces);
+        
 
 
 
 
     }
     useEffect(() => {
-        getDataCity();
+      
         getDataProvince();
 
 
