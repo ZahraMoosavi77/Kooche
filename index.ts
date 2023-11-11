@@ -25,10 +25,11 @@ export { Button, Input };
 // Modules Imports
 
 import Form from "@/components/modules/Form";
+import BackButton from "@/components/modules/backButton"
 
 // Modules Export
 
-export { Form };
+export { Form, BackButton };
 
 // Template Imports
 import SideMenu from "./components/templates/side-menu";
