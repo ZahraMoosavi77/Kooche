@@ -17,7 +17,7 @@ export const MapProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    setUserLocation(JSON.parse(localStorage.getItem("userLocation")));
+    setUserLocation(JSON.parse(localStorage?.getItem("userLocation")));
   }, []);
 
   useEffect(() => {

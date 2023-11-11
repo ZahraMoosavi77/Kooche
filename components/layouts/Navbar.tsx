@@ -5,7 +5,7 @@ import Link from "next/link";
 import "@/styles/navbar/navbar.modules.css";
 import NavbarSearchTags from "@/components/elements/NavbarSearchTags";
 import NavbarResultNumber from "@/components/elements/NavbarResultNumber";
-import { headers } from "next/headers";
+// import { headers } from "next/headers";
 
 const Navbar = () => {
   return (

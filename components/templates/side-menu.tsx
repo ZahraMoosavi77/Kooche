@@ -37,7 +37,7 @@ const SideMenu = () => {
             <div className="flex flex-col">
               {sideMenuLinks.map(({ title, src, srcActive, link, alt, url }) =>
                 primaryPath === url ? (
-                  <Link href={link}>
+                  <Link key={title} href={link}>
                     <div className="flex items-center justify-start gap-2 py-2 text-primary">
                       <Image
                         src={`${srcActive}`}
@@ -58,7 +58,7 @@ const SideMenu = () => {
                     </div>
                   </Link>
                 ) : (
-                  <Link href={link}>
+                  <Link key={title} href={link}>
                     <div className="flex items-center justify-start gap-2 py-2 text-gray-900">
                       <Image
                         src={src}

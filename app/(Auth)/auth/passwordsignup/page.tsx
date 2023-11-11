@@ -71,8 +71,8 @@ const Page = () => {
       alt="lock icon"
     />
   );
-  if (!mail) router.push("/auth");
-  else
+  // if (!mail) router.push("/auth");
+  // else
     return (
       <Form
         title="ساخت رمز عبور"
