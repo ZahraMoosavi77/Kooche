@@ -25,7 +25,7 @@ export { Button, Input };
 // Modules Imports
 
 import Form from "@/components/modules/Form";
-import BackButton from "@/components/modules/backButton"
+import BackButton from "@/components/modules/BackButton"
 
 // Modules Export
 

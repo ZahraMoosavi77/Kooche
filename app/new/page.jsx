@@ -11,7 +11,7 @@ import { NewContext } from "@/context/NewPageContext"
 import { useState } from 'react'
 import { REGex } from '@/constants/constantNewPage'
 
-export default function page() {
+export default function Page() {
 
   const [isSale, setIsSale] = useState(false)
   const [isExchange, setIsExchange] = useState(false)

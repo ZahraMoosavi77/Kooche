@@ -4,7 +4,6 @@ import SubTitleNewPage from '@/components/elements/SubTitleNewPage'
 import { infoSeller } from '@/constants/constantNewPage'
 import TitleNewPage from '../elements/TitleNewPage'
 import TextNewPage from '../elements/TextNewPage'
-import MapNewPage from '../elements/MapNewPage'
 import SelectOptionsNewPage from '../elements/SelectOptionsNewPage'
 import { SEARCHCITY, SEARCHUNITED } from '@/constants/constantNewPage'
 import { useState, useEffect, useContext } from 'react'
@@ -14,6 +13,13 @@ import { ErrorMessageNameOfSeller } from '@/constants/constantNewPage'
 import { ErrorMessagePhoneNumber } from '@/constants/constantNewPage'
 import { REGex } from "@/constants/constantNewPage"
 import {ErrorMessageCity, ErrorMessageProvince} from "@/constants/constantNewPage"
+import dynamic from 'next/dynamic'
+const MapNewPage = dynamic(
+    () => import("@/components/elements/MapNewPage"),
+    {
+      ssr: false, // Disable server-side rendering for Leaflet component
+    },
+  );
 export default function InfoSellerSection() {
    
     const [provinces, setProvinces] = useState([]);
