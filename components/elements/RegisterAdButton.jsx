@@ -5,7 +5,7 @@ import { InsertData } from "@/context/NewPageContext2"
 import { NewContext } from "@/context/NewPageContext"
 import { REGex } from "@/constants/constantNewPage"
 export default function RegisterAdButton({ text }) {
-  const { isValidName, isValidSellerName, isValidPrice, isValidPhoneNumber, values, setIsValidName, setIsValidPhoneNumber, setIsValidSellerName, setIsValidPrice } = useContext(NewContext);
+  const { isValidName, isValidSellerName, isValidPrice, isValidPhoneNumber,isValidCity, setIsValidCity,isValidProvince, setIsValidProvince, values, setIsValidName, setIsValidPhoneNumber, setIsValidSellerName, setIsValidPrice } = useContext(NewContext);
   const { name, price, preferedExchange, moreInfo, platformId, cityId, provinceId } = values;
 
   const handleInsertData = async () => {
@@ -13,6 +13,9 @@ export default function RegisterAdButton({ text }) {
     if (!values.sellername.trim()) setIsValidSellerName(false)
     if (!values.price.trim()) setIsValidPrice(false);
     if (!values.phonenumber.trim()) setIsValidPhoneNumber(false);
+    if (!values.platformId) setIsValidProvince(false);
+    if (!values.cityId) setIsValidCity(false);
+
 
     if (isValidName && isValidPrice && isValidPhoneNumber && isValidSellerName) {
       const { data, error } = await supabase

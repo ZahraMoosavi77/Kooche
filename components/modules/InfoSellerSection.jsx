@@ -1,6 +1,4 @@
 'use client'
-import AddImage from '@/components/elements/AddImage'
-import ShowImage from '@/components/elements/ShowImage'
 import TextFieldNewPage from '@/components/elements/TextFieldNewPage'
 import SubTitleNewPage from '@/components/elements/SubTitleNewPage'
 import { infoSeller } from '@/constants/constantNewPage'
@@ -15,10 +13,11 @@ import { NewContext } from '@/context/NewPageContext'
 import { ErrorMessageNameOfSeller } from '@/constants/constantNewPage'
 import { ErrorMessagePhoneNumber } from '@/constants/constantNewPage'
 import { REGex } from "@/constants/constantNewPage"
+import {ErrorMessageCity, ErrorMessageProvince} from "@/constants/constantNewPage"
 export default function InfoSellerSection() {
     const [cities, setCities] = useState([]);
     const [provinces, setProvinces] = useState([]);
-    const { isValidPhoneNumber, isValidSellerName, values } = useContext(NewContext);
+    const { isValidPhoneNumber, isValidSellerName, values,isValidProvince,isValidCity } = useContext(NewContext);
     const getDataCity = async () => {
         // let { data, error } = await supabase
         //     .from('cities')
@@ -69,7 +68,7 @@ export default function InfoSellerSection() {
             <div className='flex flex-col gap-2'>
                 <div className='flex justify-between gap-6'>
                     <div className='w-full relative'>
-                        <SelectOptionsNewPage column={'provinceId'} required={true} optionsGroup={provinces} placeholderSearch={SEARCHUNITED} label={<div className='flex  items-center '>
+                        <SelectOptionsNewPage column={'provinceId'} validate={isValidProvince} errormessage={ErrorMessageProvince} required={true} optionsGroup={provinces} placeholderSearch={SEARCHUNITED} label={<div className='flex  items-center '>
                             <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERUNITED} type={'text'} />
 
                         </div>} />
@@ -77,7 +76,7 @@ export default function InfoSellerSection() {
 
                     </div>
                     <div className='w-full relative'>
-                        <SelectOptionsNewPage column={'cityId'} required={true} optionsGroup={cities} placeholderSearch={SEARCHCITY} label={<div className='flex  items-center '>
+                        <SelectOptionsNewPage column={'cityId'} validate={isValidCity} errormessage={ErrorMessageCity}optionsGroup={cities} placeholderSearch={SEARCHCITY} label={<div className='flex  items-center '>
                             <TextNewPage specialClass={'pr-3'} text={infoSeller.SELLERCITY} type={'text'} />
                         </div>} />
 

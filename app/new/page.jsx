@@ -67,7 +67,8 @@ export default function page() {
       }
 
   return (
-    <NewContext.Provider value={{ insertData, relatedCities, disable, isSale, setIsSale, isExchange, setIsExchange, isValidName, isValidPhoneNumber, setIsValidPhoneNumber, setIsValidName, isValidSellerName, setIsValidSellerName, isValidPrice, setIsValidPrice, clicked, setClicked, isCorrect, setIsCorrect, values, setValues, onChange }}>
+    <NewContext.Provider value={{ insertData, relatedCities, disable, isSale, setIsSale, isExchange, setIsExchange, isValidName, isValidPhoneNumber, setIsValidPhoneNumber, setIsValidName, isValidSellerName, setIsValidSellerName,
+     isValidPrice, setIsValidPrice, clicked, setClicked, isCorrect, setIsCorrect, values, setValues, onChange,isValidProvince, setIsValidProvince,isValidCity, setIsValidCity }}>
 
 
       <div className='flex flex-col justify-center items-center mt-30 mb-10 '>
