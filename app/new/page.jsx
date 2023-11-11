@@ -13,19 +13,11 @@ import { REGex } from '@/constants/constantNewPage'
 
 export default function page() {
 
-
-
-  const insertData = {
-    name: 'first', platformId: '', cityId: '', provinceId: null, locId: '', statusId: '', price: '', moreInfo: '', data: ''
-    , exchange: false, preferedExchange: '',
-  };
   const [isSale, setIsSale] = useState(false)
   const [isExchange, setIsExchange] = useState(false)
-  const relatedCities = [];
   const disable = false;
 
   const [clicked, setClicked] = useState(true);
-  // const [validNameSeller, setValidNameSeller] = useState(true);
   const [isCorrect, setIsCorrect] = useState("-");
   const [isValidName, setIsValidName] = useState(true);
   const [isValidPhoneNumber, setIsValidPhoneNumber] = useState(true);
@@ -33,7 +25,7 @@ export default function page() {
   const [isValidPrice, setIsValidPrice] = useState(true);
   const [isValidProvince, setIsValidProvince] = useState(true);
   const [isValidCity, setIsValidCity] = useState(true);
-
+  const [cities, setCities] = useState([]);
   const [values, setValues] = useState({
     name: '',
     sellername: '',
@@ -67,12 +59,12 @@ export default function page() {
       }
 
   return (
-    <NewContext.Provider value={{ insertData, relatedCities, disable, isSale, setIsSale, isExchange, setIsExchange, isValidName, isValidPhoneNumber, setIsValidPhoneNumber, setIsValidName, isValidSellerName, setIsValidSellerName,
-     isValidPrice, setIsValidPrice, clicked, setClicked, isCorrect, setIsCorrect, values, setValues, onChange,isValidProvince, setIsValidProvince,isValidCity, setIsValidCity }}>
+    <NewContext.Provider value={{   disable, isSale, setIsSale, isExchange, setIsExchange, isValidName, isValidPhoneNumber, setIsValidPhoneNumber, setIsValidName, isValidSellerName, setIsValidSellerName,
+     isValidPrice, setIsValidPrice, clicked, setClicked, isCorrect, setIsCorrect, values, setValues, onChange,isValidProvince, setIsValidProvince,isValidCity, setIsValidCity,cities, setCities }}>
 
 
-      <div className='flex flex-col justify-center items-center mt-30 mb-10 '>
-        <div className='flex flex-col gap-8'>
+      <div className='flex flex-col justify-center items-center mt-30 mb-10  '>
+        <div className='flex flex-col gap-8 lg:w-[600px] '>
           <div className=' flex flex-col gap-8'>
             <RegisterAd />
             <InfoGameSection />
