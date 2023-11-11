@@ -5,7 +5,7 @@ import {
   UserSearchContext,
 } from "@/context/map/mapContext";
 import Image from "next/image";
-import NavbarSearchPlatformsTags from "@/components/elements/NavbarSearchPlatformsTags";
+import NavbarSearchPlatformsTags from "@/components/elements/navbar/NavbarSearchPlatformsTags";
 
 const NavbarSearchTags = () => {
   const { isForSell, isForExchange, platformsTerm } =
