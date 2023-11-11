@@ -34,7 +34,6 @@ export const MapProvider = ({ children }) => {
 
     fetchData();
   }, []);
-
   return (
     <LocationContext.Provider value={userLocation}>
       <ActionLocationContext.Provider value={setUserLocation}>

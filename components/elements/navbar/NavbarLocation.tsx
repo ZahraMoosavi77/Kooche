@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import NavbarLocationModal from "@/components/elements/NavbarLocationModal";
+import NavbarLocationModal from "@/components/elements/navbar/NavbarLocationModal";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { LocationContext } from "@/context/map/mapContext";
 import { setUserLocation } from "@/utils/map/setUserLocation";
@@ -38,16 +38,19 @@ const NavbarLocation = () => {
   return (
     <>
       <button
-        className="flex gap-2 items-center py-2 px-4"
+        className="flex p-2 md:gap-2 items-center md:px-4 "
         onClick={handleClick}
+        title={`${location.provinceName}, ${location.cityName}`}
       >
         <Image
           src="/images/map/Map_Pin.svg"
           alt="Location"
-          width={24}
-          height={24}
+          width={32}
+          height={32}
+          className="md:w-6 md:h-6"
         />
-        <span className="text-gray-900 font-semibold leading-leading-2">
+
+        <span className="text-gray-900 hidden md:inline font-semibold leading-leading-2">
           {location.provinceName}, {location.cityName}
         </span>
       </button>

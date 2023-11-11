@@ -1,6 +1,10 @@
 import { setUserLocation } from "@/utils/map/setUserLocation";
 import { useCallback, useContext } from "react";
-import { ActionLocationContext } from "@/context/map/mapContext";
+import {
+  ActionLocationContext,
+  ActionUserSearchContext,
+  UserSearchContext,
+} from "@/context/map/mapContext";
 
 const NavbarLocationCity = ({
   cityName,
@@ -9,6 +13,9 @@ const NavbarLocationCity = ({
   provinceName,
 }) => {
   const setLocation = useContext(ActionLocationContext);
+  const { platformsTerm } = useContext(UserSearchContext);
+  const setSearchTerms = useContext(ActionUserSearchContext);
+  console.log(platformsTerm);
   const handleClick = useCallback(
     (cityName) => {
       setLocation({
@@ -16,6 +23,16 @@ const NavbarLocationCity = ({
         provinceName,
       });
       setUserLocation(cityName, provinceName);
+      const newplatformsTerm = Object.keys(platformsTerm).reduce(
+        (prev, curr) => ({ ...prev, [curr]: false }),
+        {},
+      );
+      setSearchTerms((prev) => ({
+        gameNameTerm: "",
+        platformsTerm: newplatformsTerm,
+        isForSell: false,
+        isForExchange: false,
+      }));
       isProvinces(true);
       onClose(false);
     },
