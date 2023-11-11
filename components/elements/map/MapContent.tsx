@@ -15,7 +15,7 @@ const MapContent = () => {
         zoom={10}
         scrollWheelZoom={true}
       >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
         <MarkersContainer />
       </MapContainer>
     </div>
