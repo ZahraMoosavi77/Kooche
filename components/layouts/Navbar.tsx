@@ -8,8 +8,11 @@ import NavbarSearchTags from "@/components/elements/navbar/NavbarSearchTags";
 import NavbarResultNumber from "@/components/elements/navbar/NavbarResultNumber";
 import { usePathname } from "next/navigation";
 import { useWindowSize } from "@/hooks/useWindowSize";
+import { useState } from "react";
+import SideMenu from "../templates/side-menu";
 
 const Navbar = () => {
+  const [isShow, setIsShow] = useState(false);
   const { width } = useWindowSize();
   const path = usePathname();
   return (
@@ -19,10 +22,13 @@ const Navbar = () => {
       } md:py-5`}
     >
       <div className={`flex items-center justify-between gap-4`}>
-        <button className="lg2:hidden p-2">
+        <button
+          onClick={() => setIsShow((prev) => true)}
+          className="lg2:hidden p-2"
+        >
           <Image
             src="/images/map/Hamburger_LG.svg"
-            alt="Logo"
+            alt="Hamburger"
             width={32}
             height={32}
           />
@@ -55,6 +61,7 @@ const Navbar = () => {
           <NavbarResultNumber />
         </div>
       )}
+      {isShow && <SideMenu setIsShow={setIsShow} />}
     </div>
   );
 };
