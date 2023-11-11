@@ -9,17 +9,16 @@ import { NewContext } from '@/context/NewPageContext'
 export default function SelectOptionsNewPage({ label,optionsGroup,placeholderSearch,column }) {
     const [inputValue, setInputValue] =useState("");
     const [selected, setSelected] = useState({name:'', id:''});
-    
+    console.log(column,optionsGroup);
 
     const [isOpen,setIsOpen] = useState(false);
     const { values}= useContext(NewContext)
     const {relatedCities} = useContext(NewContext);
     
-    console.log(column);
+
     
     values[column] = selected.id;
-        console.log(column, values[column]);
-        // console.log(typeof(insertData[column]));
+        
     return (
         <>
             <label>{label}</label>

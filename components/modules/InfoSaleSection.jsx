@@ -33,7 +33,7 @@ export default function () {
             <TitleNewPage text={infoSale.INFOSALETITLE} />
             <SubTitleNewPage text={infoSale.INFOSALESUBTITLE} />
             <div >
-                <div onClick={() => {setIsSale(!isSale);setIsExchange(false); console.log(insertData);}} className='flex items-center gap-2 mb-2'>
+                <div onClick={() => {setIsSale(!isSale); console.log(insertData);}} className='flex items-center gap-2 mb-2'>
                     <CheckBox checked = {isSale} />
                     <TextNewPage text={infoSale.SALEGAME} />
 
@@ -45,7 +45,7 @@ export default function () {
                 </div>
             </div>
             <div>
-                <div onClick={() =>{ setIsExchange(!isExchange);setIsSale(false); `${isExchange ? insertData.exchange = false : true }`;console.log(insertData);}} className='flex items-center gap-2 mb-2'>
+                <div onClick={() =>{ setIsExchange(!isExchange); `${isExchange ? insertData.exchange = false : true }`;console.log(insertData);}} className='flex items-center gap-2 mb-2'>
                     <CheckBox checked = {isExchange} />
                     <TextNewPage text={infoSale.EXCHANGEGAME} />
                 </div>

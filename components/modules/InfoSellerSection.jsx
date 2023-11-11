@@ -18,20 +18,19 @@ import { REGex } from "@/constants/constantNewPage"
 export default function InfoSellerSection() {
     const [cities, setCities] = useState([]);
     const [provinces, setProvinces] = useState([]);
-    const { relatedCities } = useContext(NewContext);
     const { isValidPhoneNumber, isValidSellerName, values } = useContext(NewContext);
     const getDataCity = async () => {
         // let { data, error } = await supabase
         //     .from('cities')
         //     .select('*')
         //     .order('name')
+     
 
         let { data: cities, error } = await supabase
             .from('cities')
-            .select(`
-            name,
-            province !inner(name)
-                `)
+
+            .select(`*, provinces!inner(name,id)`)
+                // .eq(`province.name`, 'اصفهان')
 
         setCities(cities);
 
@@ -55,7 +54,7 @@ export default function InfoSellerSection() {
 
 
 
-    }, [])
+    }, [values.provinceTd])
     return (
         <div className=' flex flex-col gap-4'>
             <div className=' flex flex-col gap-1'>

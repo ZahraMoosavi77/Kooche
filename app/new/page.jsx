@@ -31,6 +31,8 @@ export default function page() {
   const [isValidPhoneNumber, setIsValidPhoneNumber] = useState(true);
   const [isValidSellerName, setIsValidSellerName] = useState(true);
   const [isValidPrice, setIsValidPrice] = useState(true);
+  const [isValidProvince, setIsValidProvince] = useState(true);
+  const [isValidCity, setIsValidCity] = useState(true);
 
   const [values, setValues] = useState({
     name: '',
