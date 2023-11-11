@@ -1,26 +1,31 @@
 import Image from "next/image";
 import { useContext, useState } from "react";
-import MapSearchModal from "@/components/elements/map/MapSearchModal";
+import MapSearchModal from "@/components/elements/navbar/MapSearchModal";
 import { UserSearchContext } from "@/context/map/mapContext";
+import { useWindowSize } from "@/hooks/useWindowSize";
 
 const MapSearchInput = () => {
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const searchTerm = useContext(UserSearchContext);
   const { gameNameTerm } = searchTerm;
+  const { width } = useWindowSize();
 
   return (
     <>
       <div
-        className="rounded-xl text-gray-500 py-[11px] px-3 flex gap-2 bg-gray-200 w-[380px] h-12 font-peyda-regular leading-leading-3 cursor-text relative"
+        className="rounded-xl p-2 text-gray-500 md:py-[11px] md:px-3 flex gap-2 md:bg-gray-200 md:min-w-[160px] lg:max-w-[380px] md:max-w-[280px] md:h-12 font-peyda-regular leading-leading-3 cursor-pointer md:cursor-text md:relative order-1 md:order-[0] md:flex-grow"
         onClick={() => setIsSearchModalOpen(() => true)}
       >
         <Image
-          src="images/map/Search_Magnifying_Glass.svg"
+          src={`images/map/Search_Magnifying_Glass${
+            width < 768 ? "-black" : ""
+          }.svg`}
           alt="Search Icon"
-          width={24}
-          height={24}
+          width={32}
+          height={32}
+          className="md:w-6 md:h-6"
         />
-        <span className="whitespace-nowrap text-ellipsis overflow-hidden">
+        <span className="whitespace-nowrap text-ellipsis overflow-hidden hidden md:inline">
           {gameNameTerm || "جستجو"}
         </span>
         {isSearchModalOpen && <MapSearchModal onClose={setIsSearchModalOpen} />}
