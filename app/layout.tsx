@@ -2,7 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import { MapProvider } from "@/context/map/mapContext";
 import { AuthContextProvider } from "@/context/AuthContext";
-import { SideMenu } from "..";
+// import { SideMenu } from "..";
 
 export const metadata = {
   title: "Create Next App",
@@ -14,7 +14,6 @@ export default function RootLayout({ children }) {
     <AuthContextProvider>
       <html lang="en" dir="rtl">
         <body className="flex flex-col h-screen relative">
-          <SideMenu />
           <MapProvider>
             <Navbar />
             {children}

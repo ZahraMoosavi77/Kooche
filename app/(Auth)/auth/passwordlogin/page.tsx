@@ -59,8 +59,8 @@ const Page = () => {
       alt="hide icon"
     />
   );
-  if (!mail) router.push("/auth");
-  else
+  // if (!mail) router.push("/auth");
+  // else
     return (
       <Form title="ورود" caption="رمز عبور خود را وارد کنید">
         <div>

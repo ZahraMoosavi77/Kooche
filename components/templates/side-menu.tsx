@@ -6,8 +6,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { sideMenuLinks } from "@/constants/Side-Menu/constants";
 import Link from "next/link"; 
 
-const SideMenu = () => {
-  const [isShow, setIsShow] = useState(true);
+const SideMenu = ({setIsShow}) => {
   const router = useRouter();
   const pathName = usePathname().split("/");
   const primaryPath = pathName[1];
@@ -22,9 +21,9 @@ const SideMenu = () => {
 
   return (
     <>
-      {isShow && (
+      {(
         <div className="flex lg:hidden w-screen min-h-screen fixed z-[999] left-0 top-0 bottom-0">
-          <div className="flex flex-col bg-white w-[85%] h-full px-5 ">
+          <div className="flex flex-col bg-white w-[70%] max-w-[500px] h-full px-5 ">
             {/* <div className="w-full px-20 py-5 flex items-center justify-center"> */}
             <Image
               src={"/images/auth/auth-logo-mobile.png"}
