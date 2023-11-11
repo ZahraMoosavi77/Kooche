@@ -1,3 +1,4 @@
+
 import TextNewPage from "./TextNewPage"
 import { infoGame } from "@/constants/constantNewPage"
 import Image from "next/image"
