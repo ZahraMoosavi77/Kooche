@@ -9,20 +9,24 @@ module.exports = {
     extend: {},
 
     screens: {
-      "xs": "320px",
+      "xs": "360px",
       // => @media (min-width: 3200px) { ... }
-      'sm': '640px',
+      sm: "640px",
       // => @media (min-width: 640px) { ... }
-      'md': '768px',
+      md: "768px",
+      // => @media (min-width: 920px) { ... }
+      md2: "920px",
       // => @media (min-width: 768px) { ... }
-      'lg': '1024px',
+      lg: "1024px",
+      // => @media (min-width: 1100px) { ... }
+      lg2: "1100px",
       // => @media (min-width: 1024px) { ... }
-      'xl': '1280px',
+      xl: "1280px",
       // => @media (min-width: 1280px) { ... }
     },
     colors: {
-      "white": "#FFFFFF",
-      "gradient": "linear-gradient(to bottom right, red, yellow)",
+      white: "#FFFFFF",
+      gradient: "linear-gradient(to bottom right, red, yellow)",
       "gray-200": "#EDEDED",
       "gray-300": "#E2E3E4",
       "gray-400": "#C6C7C8",
@@ -31,7 +35,7 @@ module.exports = {
       "gray-700": "#555859",
       "gray-800": "#3A3C3D",
       "gray-900": "#1E1F20",
-      "primary": "#6D21E9",
+      primary: "#6D21E9",
       "primary-50": "#F0E9FD",
       "primary-100": "#E2D3FB",
       "primary-150": "#D3BCF8",
@@ -48,8 +52,8 @@ module.exports = {
       "accent-success": "#00BA88",
       "accent-warning": "#F4B740",
       "accent-error-text": "#FFE5E5",
-      'transparent': 'transparent',
-      'black': '#000'
+      transparent: "transparent",
+      black: "#000",
     },
     fontSize: {
       "scales-6xlarge": "4rem",
@@ -71,8 +75,7 @@ module.exports = {
       "leading-2": "1.75rem",
       "leading-3": "1.8rem",
       "leading-4": "2.025rem",
-      "leading-5": "2.1rem"
-
+      "leading-5": "2.1rem",
     },
 
     fontFamily: {
@@ -80,8 +83,7 @@ module.exports = {
       "peyda-medium": "PeydaMedium",
       "peyda-semibold": "PeydaSemiBold",
       "peyda-bold": "PeydaBold",
-    }
-
+    },
   },
   plugins: [],
-}
+};

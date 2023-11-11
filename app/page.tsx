@@ -1,16 +1,11 @@
-// import MapContent from "@/components/elements/map/MapContent";
-import dynamic from "next/dynamic"
-import { ComponentType } from "react";
+import dynamic from "next/dynamic";
 
-// const MapContent: ComponentType<{}> = dynamic(
-//   dynamicOptions: () => import('@/components/elements/map/MapContent'),
-//   options:{
-//     ssr: false
-//   }
-// )
-const MapContent = dynamic(() => import('@/components/elements/map/MapContent'), {
-  ssr: false
-})
+const MapContent = dynamic(
+  () => import("@/components/elements/map/MapContent"),
+  {
+    ssr: false, // Disable server-side rendering for Leaflet component
+  },
+);
 
 export default function page() {
   return (

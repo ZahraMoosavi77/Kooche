@@ -4,10 +4,10 @@ import React, { useState } from "react";
 import { Button } from "@/index";
 import { useRouter, usePathname } from "next/navigation";
 import { sideMenuLinks } from "@/constants/Side-Menu/constants";
-import Link from "next/link";
+import Link from "next/link"; 
 
 const SideMenu = () => {
-  const [isShow, setIsShow] = useState(false);
+  const [isShow, setIsShow] = useState(true);
   const router = useRouter();
   const pathName = usePathname().split("/");
   const primaryPath = pathName[1];
@@ -35,50 +35,51 @@ const SideMenu = () => {
             />
             {/* </div> */}
             <div className="flex flex-col">
-              {sideMenuLinks.map(({ title, src, srcActive, link, alt, url }) =>
-                primaryPath === url ? (
-                  <Link key={title} href={link}>
-                    <div className="flex items-center justify-start gap-2 py-2 text-primary">
-                      <Image
-                        src={`${srcActive}`}
-                        width={24}
-                        height={24}
-                        alt={`${alt} icon`}
-                      />
-                      <span className="font-peyda-regular text-scales-large text-primary">
-                        {title}
-                      </span>
-                      <Image
-                        src={"images/side-menu/Chevron_Left_active.svg"}
-                        width={24}
-                        height={24}
-                        alt="icon"
-                        className="mr-auto"
-                      />
-                    </div>
-                  </Link>
-                ) : (
-                  <Link key={title} href={link}>
-                    <div className="flex items-center justify-start gap-2 py-2 text-gray-900">
-                      <Image
-                        src={src}
-                        width={24}
-                        height={24}
-                        alt={`${alt} icon`}
-                      />
-                      <span className="font-peyda-regular text-scales-large">
-                        {title}
-                      </span>
-                      <Image
-                        src={"images/side-menu/Chevron_Left.svg"}
-                        width={24}
-                        height={24}
-                        alt="icon"
-                        className="mr-auto"
-                      />
-                    </div>
-                  </Link>
-                )
+              {sideMenuLinks.map(
+                ({ title, src, srcActive, link, alt, url }, index) =>
+                  primaryPath === url ? (
+                    <Link href={link} key={index}>
+                      <div className="flex items-center justify-start gap-2 py-2 text-primary">
+                        <Image
+                          src={`${srcActive}`}
+                          width={24}
+                          height={24}
+                          alt={`${alt} icon`}
+                        />
+                        <span className="font-peyda-regular text-scales-large text-primary">
+                          {title}
+                        </span>
+                        <Image
+                          src={"images/side-menu/Chevron_Left_active.svg"}
+                          width={24}
+                          height={24}
+                          alt="icon"
+                          className="mr-auto"
+                        />
+                      </div>
+                    </Link>
+                  ) : (
+                    <Link href={link} key={index}>
+                      <div className="flex items-center justify-start gap-2 py-2 text-gray-900">
+                        <Image
+                          src={src}
+                          width={24}
+                          height={24}
+                          alt={`${alt} icon`}
+                        />
+                        <span className="font-peyda-regular text-scales-large">
+                          {title}
+                        </span>
+                        <Image
+                          src={"images/side-menu/Chevron_Left.svg"}
+                          width={24}
+                          height={24}
+                          alt="icon"
+                          className="mr-auto"
+                        />
+                      </div>
+                    </Link>
+                  ),
               )}
               <Button
                 className="mt-6 rounded-xl space-x-2 w-full px-2 py-4 bg-primary text-white font-peyda-regular text-scales"
