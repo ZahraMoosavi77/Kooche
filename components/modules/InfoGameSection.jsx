@@ -20,9 +20,9 @@ import { NewContext } from '@/context/NewPageContext'
 
 export default function InfoGameSection() {
     const [platforms , setPlatforms] = useState([]);
-    const {values} = useContext(ValuesContext)
-    // const{ values, isValidName} = useContext(NewContext);
-    // console.log('insertData.name',insertData.name);
+    // const {values} = useContext(ValuesContext)
+    const{ values, isValidName} = useContext(NewContext);
+ 
     const getData= async () =>{
         let { data, error } = await supabase
             .from('platforms')
