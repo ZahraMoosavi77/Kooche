@@ -17,7 +17,7 @@ export default function SelectOptionsNewPage({ label, optionsGroup, placeholderS
     return (
         <>
             <label>{label}</label>
-            <div onClick={() => { setIsOpen(!isOpen); }} className={` ${selected.name ? "justify-between" : 'justify-end'} flex  items-center appearance-none bg-gray-200 text-gray-900 rounded-xl font-peyda-medium  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`}>
+            <div onClick={() => { setIsOpen(!isOpen); }} className={` ${selected.name ? "justify-between" : 'justify-end'} cursor-pointer flex  items-center appearance-none bg-gray-200 text-gray-900 rounded-xl font-peyda-medium  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`}>
                 {selected.name ? selected.name : ''}
                 <Image className={`${isOpen && "rotate-180"}   `} src={down} width={24} height={24} alt='down' />
             </div>
