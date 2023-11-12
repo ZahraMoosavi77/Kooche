@@ -63,8 +63,8 @@ export default function Page() {
      isValidPrice, setIsValidPrice, clicked, setClicked, isCorrect, setIsCorrect, values, setValues, onChange,isValidProvince, setIsValidProvince,isValidCity, setIsValidCity,cities, setCities }}>
 
 
-      <div className='flex flex-col justify-center items-center mt-30 mb-10  '>
-        <div className='flex flex-col gap-8 lg:w-[600px] '>
+      <div className='flex flex-col justify-center items-center '>
+        <div className='flex flex-col gap-8 lg:w-[600px] mt-30 mb-10   '>
           <div className=' flex flex-col gap-8'>
             <RegisterAd />
             <InfoGameSection />
