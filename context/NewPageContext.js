@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useState } from "react";
+export const NewContext = createContext({});
 export const ValuesContext = createContext();
 export const ActionsValuesContext = createContext();
 export const ValidNameContext = createContext();
@@ -62,10 +63,10 @@ export const NewPageProvider = ({ children }) => {
   //   {children}
   return (
     <CitiesContext.Provider value={cities}>
-      {/* <ActionCitiesContext.Provider value={setCities}>
+      <ActionCitiesContext.Provider value={setCities}>
         <ValuesContext.Provider value={values}>
           <ActionsValuesContext.Provider value={setValues}>
-            <ExchangeContext.Provider value={isExchange}>
+            {/* <ExchangeContext.Provider value={isExchange}>
               <ActionExchangeContext value={setIsExchange}>
                 <SaleContext value={isSale}>
                   <ActionSaleContext value={setIsSale}>
@@ -80,15 +81,15 @@ export const NewPageProvider = ({ children }) => {
                                     <ValidCityContext value={isValidCity}>
                                       <ActionValidCityContext value={setIsValidCity}>
                                         <ValidProvinceContext value={isValidProvince}>
-                                          <ActionValidProvinceContext value={setIsValidProvince}> */}
+                                          <ActionValidProvinceContext value={setIsValidProvince}>  */}
                                             {/* <OnChangeFunctionContext value={onChange}> */}
-                                            <div>
+                                            
                                             {children}
 
-                                            </div>
+                                           
                                            
                                             {/* </OnChangeFunctionContext> */}
-                                          {/* </ActionValidProvinceContext>
+                                           {/* </ActionValidProvinceContext>
                                         </ValidProvinceContext>
                                       </ActionValidCityContext>
                                     </ValidCityContext>
@@ -103,10 +104,10 @@ export const NewPageProvider = ({ children }) => {
                   </ActionSaleContext>
                 </SaleContext>
               </ActionExchangeContext>
-            </ExchangeContext.Provider>
+            </ExchangeContext.Provider> */}
           </ActionsValuesContext.Provider>
         </ValuesContext.Provider>
-      </ActionCitiesContext.Provider> */}
+      </ActionCitiesContext.Provider>
     </CitiesContext.Provider>
   );
 };

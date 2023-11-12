@@ -13,15 +13,15 @@ import { SEARCHCONSOLE } from '@/constants/constantNewPage'
 import { useContext, useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import {ErrorMessageNameOfGame} from '@/constants/constantNewPage'
-
+import ValuesContext from '@/context/NewPageContext'
 import { NewContext } from '@/context/NewPageContext'
 
 
 
 export default function InfoGameSection() {
     const [platforms , setPlatforms] = useState([]);
-  
-    const{ values, isValidName} = useContext(NewContext);
+    const {values} = useContext(ValuesContext)
+    // const{ values, isValidName} = useContext(NewContext);
     // console.log('insertData.name',insertData.name);
     const getData= async () =>{
         let { data, error } = await supabase
