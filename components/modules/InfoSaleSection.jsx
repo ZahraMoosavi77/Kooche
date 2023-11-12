@@ -23,7 +23,7 @@ export default function InfoSaleSection () {
             <TitleNewPage text={infoSale.INFOSALETITLE} />
             <SubTitleNewPage text={infoSale.INFOSALESUBTITLE} />
             <div >
-                <div onClick={() => {setIsSale(!isSale); console.log(insertData);}} className='flex items-center gap-2 mb-2'>
+                <div onClick={() => {setIsSale(!isSale);}} className='flex items-center gap-2 mb-2'>
                     <CheckBox checked = {isSale} />
                     <TextNewPage text={infoSale.SALEGAME} />
 
