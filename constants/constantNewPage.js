@@ -22,7 +22,7 @@ export const infoSeller = {
 
 export const infoSale = {
   INFOSALETITLE: "مشخصات فروش",
-  INFOSALESUBTITLE: "در این بخش مشخص کنید مایل به فروش  یا  تبادل هستید.",
+  INFOSALESUBTITLE: "در این بخش مشخص کنید مایل به فروش  یا  تبادل یا هر دو هستید.",
   SALEGAME: "فروش بازی",
   PRICEGAME: "قیمت بازی",
   EXCHANGEGAME: "تبادل با بازی های دیگر",

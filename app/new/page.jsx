@@ -10,12 +10,13 @@ import { REGISTERADVERTISE } from '@/constants/constantNewPage'
 import { NewContext } from "@/context/NewPageContext"
 import { useState } from 'react'
 import { REGex } from '@/constants/constantNewPage'
+import BackButton from '@/components/modules/BackButton'
 
 export default function Page() {
 
   const [isSale, setIsSale] = useState(false)
   const [isExchange, setIsExchange] = useState(false)
-  const disable = false;
+
 
   const [clicked, setClicked] = useState(true);
   const [isCorrect, setIsCorrect] = useState("-");
@@ -35,7 +36,8 @@ export default function Page() {
     moreInfo:'',
     platformId:'',
     cityId:'',
-    provinceId:''
+    provinceId:'',
+    exchange:''
 
   })
 
@@ -62,21 +64,23 @@ export default function Page() {
     <NewContext.Provider value={{   disable, isSale, setIsSale, isExchange, setIsExchange, isValidName, isValidPhoneNumber, setIsValidPhoneNumber, setIsValidName, isValidSellerName, setIsValidSellerName,
      isValidPrice, setIsValidPrice, clicked, setClicked, isCorrect, setIsCorrect, values, setValues, onChange,isValidProvince, setIsValidProvince,isValidCity, setIsValidCity,cities, setCities }}>
 
-
+      
       <div className='flex flex-col justify-center items-center '>
-        <div className='flex flex-col gap-8 lg:w-[600px] mt-30 mb-10   '>
+        <div className='flex flex-col gap-8 xs:w-[80%] sm: md: lg:w-[600px] mt-30 mb-10   '>
           <div className=' flex flex-col gap-8'>
+            <BackButton />
             <RegisterAd />
             <InfoGameSection />
             <InfoSellerSection />
             <InfoSaleSection />
           </div>
-          <div className='flex justify-end gap-6 w-full '>
+          <div className='flex justify-center sm:justify-end gap-6  w-full '> 
+          {/* justify-end gap-6 */}
             <CancelButton text={CANCEL} />
             <RegisterAdButton text={REGISTERADVERTISE} />
           </div>
         </div>
       </div>
-    </NewContext.Provider>
+     </NewContext.Provider>
   )
 }
