@@ -61,7 +61,7 @@ export default function Page() {
       }
 
   return (
-    <NewContext.Provider value={{   disable, isSale, setIsSale, isExchange, setIsExchange, isValidName, isValidPhoneNumber, setIsValidPhoneNumber, setIsValidName, isValidSellerName, setIsValidSellerName,
+    <NewContext.Provider value={{   isSale, setIsSale, isExchange, setIsExchange, isValidName, isValidPhoneNumber, setIsValidPhoneNumber, setIsValidName, isValidSellerName, setIsValidSellerName,
      isValidPrice, setIsValidPrice, clicked, setClicked, isCorrect, setIsCorrect, values, setValues, onChange,isValidProvince, setIsValidProvince,isValidCity, setIsValidCity,cities, setCities }}>
 
       
