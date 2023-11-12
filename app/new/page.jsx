@@ -16,7 +16,7 @@ export default function Page() {
 
   const [isSale, setIsSale] = useState(false)
   const [isExchange, setIsExchange] = useState(false)
-  const disable = false;
+
 
   const [clicked, setClicked] = useState(true);
   const [isCorrect, setIsCorrect] = useState("-");
@@ -37,7 +37,7 @@ export default function Page() {
     platformId:'',
     cityId:'',
     provinceId:'',
-    exchange:'t'
+    exchange:''
 
   })
 
@@ -81,6 +81,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-    </NewContext.Provider>
+     </NewContext.Provider>
   )
 }

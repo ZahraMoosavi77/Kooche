@@ -1,9 +1,9 @@
 'use client'
 import { supabase } from "@/lib/supabase"
 import { useContext } from "react"
-import { InsertData } from "@/context/NewPageContext2"
+
 import { NewContext } from "@/context/NewPageContext"
-import { REGex } from "@/constants/constantNewPage"
+
 export default function RegisterAdButton({ text }) {
   const { isValidName, isValidSellerName, isValidPrice, isValidPhoneNumber,isValidCity, setIsValidCity,isValidProvince, setIsValidProvince, values, setIsValidName, setIsValidPhoneNumber, setIsValidSellerName, setIsValidPrice } = useContext(NewContext);
   const { name, price, preferedExchange, moreInfo, platformId, cityId, provinceId , exchange} = values;
