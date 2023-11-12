@@ -11,11 +11,12 @@ const MapContent = () => {
     <div className={"w-full h-full"}>
       <MapContainer
         className={"relative h-full"}
+        // @ts-ignore
         center={CENTER}
         zoom={10}
         scrollWheelZoom={true}
       >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
         <MarkersContainer />
       </MapContainer>
     </div>
