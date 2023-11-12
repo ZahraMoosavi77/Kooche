@@ -75,7 +75,6 @@ export default function Page() {
             <InfoSaleSection />
           </div>
           <div className='flex justify-center sm:justify-end gap-6  w-full '> 
-          {/* justify-end gap-6 */}
             <CancelButton text={CANCEL} />
             <RegisterAdButton text={REGISTERADVERTISE} />
           </div>
