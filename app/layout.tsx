@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <AuthContextProvider>
-       <NewPageProvider>
+       {/* <NewPageProvider> */}
        <MapProvider>
        
       <html lang="en" dir="rtl">
@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       </html>
       
       </MapProvider>
-      </NewPageProvider>
+      {/* </NewPageProvider> */}
     </AuthContextProvider>
   );
 }
