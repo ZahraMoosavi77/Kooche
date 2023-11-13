@@ -1,5 +1,5 @@
 'use client'
-import { NewContext } from "@/context/NewPageContext"
+import { NewContext } from "@/context/NewContext"
 import { useContext} from "react"
 import TextError from "./TextError";
 import TextHelper from '../elements/TextHelper'

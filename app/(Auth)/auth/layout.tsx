@@ -6,7 +6,7 @@ import React from "react";
 const layout = ({ children }) => {
   return (
     <div className="h-full w-full flex flex-col justify-center items-center">
-      <BackButton  />
+      <BackButton specialClass={'pr-6'} />
       <div className="flex md:hidden justify-center ml-8 my-10">
         <Image
           src={"/images/auth/auth-logo-mobile.png"}

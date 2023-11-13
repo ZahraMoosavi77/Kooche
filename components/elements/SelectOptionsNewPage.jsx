@@ -3,7 +3,7 @@ import down from '../../asset/icons/Down.svg'
 import Image from 'next/image'
 import Search from '../../asset/icons/Serarch.svg'
 import { useState, useContext } from 'react'
-import { NewContext } from '@/context/NewPageContext'
+import { NewContext } from '@/context/NewContext'
 import TextError from './TextError'
 
 export default function SelectOptionsNewPage({ label, optionsGroup, placeholderSearch, column, errormessage, validate }) {
@@ -11,7 +11,7 @@ export default function SelectOptionsNewPage({ label, optionsGroup, placeholderS
     const [selected, setSelected] = useState({ name: '', id: '' });
     // console.log(column,optionsGroup);
     const [isOpen, setIsOpen] = useState(false);
-    const { values, setIsValidProvince, setIsValidCity,cities, setCities } = useContext(NewContext)
+    const { values, setIsValidProvince, setIsValidCity, setCities } = useContext(NewContext)
     values[column] = selected.id;
 
     return (
