@@ -8,11 +8,13 @@ import SelectOptionsNewPage from '../elements/SelectOptionsNewPage'
 import { SEARCHCITY, SEARCHUNITED } from '@/constants/constantNewPage'
 import { useState, useEffect, useContext } from 'react'
 import { supabase } from '@/lib/supabase'
-import { NewContext } from '@/context/NewPageContext'
+
 import { ErrorMessageNameOfSeller } from '@/constants/constantNewPage'
 import { ErrorMessagePhoneNumber } from '@/constants/constantNewPage'
 import { REGex } from "@/constants/constantNewPage"
 import {ErrorMessageCity, ErrorMessageProvince} from "@/constants/constantNewPage"
+
+import { NewContext } from '@/context/NewContext'
 import dynamic from 'next/dynamic'
 const MapNewPage = dynamic(
     () => import("@/components/elements/MapNewPage"),
@@ -24,6 +26,7 @@ export default function InfoSellerSection() {
    
     const [provinces, setProvinces] = useState([]);
     const { isValidPhoneNumber, isValidSellerName, values,isValidProvince,isValidCity,cities } = useContext(NewContext);
+  
     
     const getDataProvince = async () => {
         let { data: provinces, error } = await supabase
@@ -43,7 +46,7 @@ export default function InfoSellerSection() {
 
 
 
-    }, [values.provinceTd])
+    }, [])
     return (
         <div className=' flex flex-col gap-4'>
             <div className=' flex flex-col gap-1'>

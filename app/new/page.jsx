@@ -61,25 +61,26 @@ export default function Page() {
       }
 
   return (
-    <NewContext.Provider value={{   isSale, setIsSale, isExchange, setIsExchange, isValidName, isValidPhoneNumber, setIsValidPhoneNumber, setIsValidName, isValidSellerName, setIsValidSellerName,
-     isValidPrice, setIsValidPrice, clicked, setClicked, isCorrect, setIsCorrect, values, setValues, onChange,isValidProvince, setIsValidProvince,isValidCity, setIsValidCity,cities, setCities }}>
+    // <NewContext.Provider value={{   disable, isSale, setIsSale, isExchange, setIsExchange, isValidName, isValidPhoneNumber, setIsValidPhoneNumber, setIsValidName, isValidSellerName, setIsValidSellerName,
+    //  isValidPrice, setIsValidPrice, clicked, setClicked, isCorrect, setIsCorrect, values, setValues, onChange,isValidProvince, setIsValidProvince,isValidCity, setIsValidCity,cities, setCities }}>
 
       
       <div className='flex flex-col justify-center items-center '>
         <div className='flex flex-col gap-8 xs:w-[80%] sm: md: lg:w-[600px] mt-30 mb-10   '>
           <div className=' flex flex-col gap-8'>
-            <BackButton />
+            <BackButton  />
             <RegisterAd />
             <InfoGameSection />
             <InfoSellerSection />
             <InfoSaleSection />
           </div>
           <div className='flex justify-center sm:justify-end gap-6  w-full '> 
+          
             <CancelButton text={CANCEL} />
             <RegisterAdButton text={REGISTERADVERTISE} />
           </div>
         </div>
       </div>
-     </NewContext.Provider>
+    //  </NewContext.Provider>
   )
 }

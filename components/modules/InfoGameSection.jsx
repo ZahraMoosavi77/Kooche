@@ -13,14 +13,14 @@ import { SEARCHCONSOLE } from '@/constants/constantNewPage'
 import { useContext, useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import {ErrorMessageNameOfGame} from '@/constants/constantNewPage'
-import ValuesContext from '@/context/NewPageContext'
-import { NewContext } from '@/context/NewPageContext'
+
+import { NewContext } from '@/context/NewContext'
 
 
 
 export default function InfoGameSection() {
     const [platforms , setPlatforms] = useState([]);
-    // const {values} = useContext(ValuesContext)
+  
     const{ values, isValidName} = useContext(NewContext);
  
     const getData= async () =>{
@@ -39,32 +39,34 @@ export default function InfoGameSection() {
         
     }, [])
     return (
-        <div className=' flex flex-col gap-4 '>
-            <div className=' flex flex-col gap-2'>
-                <TitleNewPage text={infoGame.INFOGAMETITLE} />
-                <SubTitleNewPage text={infoGame.INFOGAMESUBTITLE} />
-            </div>
-            <div>
+        <>
+        </>
+        // <div className=' flex flex-col gap-4 '>
+        //     <div className=' flex flex-col gap-2'>
+        //         <TitleNewPage text={infoGame.INFOGAMETITLE} />
+        //         <SubTitleNewPage text={infoGame.INFOGAMESUBTITLE} />
+        //     </div>
+        //     <div>
 
-                <TextFieldNewPage value={values.name} validate={isValidName}  required={true} errormessage={ErrorMessageNameOfGame} helpText={true} name={'name'} type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
+        //         <TextFieldNewPage value={values.name} validate={isValidName}  required={true} errormessage={ErrorMessageNameOfGame} helpText={true} name={'name'} type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
                
-            </div>
+        //     </div>
 
-            <div className='relative'>
-                <SelectOptionsNewPage column={'platformId'} validate={true} defualtValue={CHOOSECONSOLE} placeholderSearch={SEARCHCONSOLE} optionsGroup={platforms} label={<div className='flex  '>
-                    <TextNewPage specialClass={'pr-3'} text={infoGame.GAMECONSOLE} />
-                    <Optional />
-                </div>} />
-            </div>
-            <div >
-                <TextAreaNewPage  name={'moreInfo'} value={values.moreInfo} label={<div className='flex  '>
-                    <TextNewPage specialClass={'pr-3'} text={infoGame.GAMEDESCRIPTION} type={'textarea'} />
-                    <Optional />
-                </div>} />
+        //     <div className='relative'>
+        //         <SelectOptionsNewPage column={'platformId'} validate={true} defualtValue={CHOOSECONSOLE} placeholderSearch={SEARCHCONSOLE} optionsGroup={platforms} label={<div className='flex  '>
+        //             <TextNewPage specialClass={'pr-3'} text={infoGame.GAMECONSOLE} />
+        //             <Optional />
+        //         </div>} />
+        //     </div>
+        //     <div >
+        //         <TextAreaNewPage  name={'moreInfo'} value={values.moreInfo} label={<div className='flex  '>
+        //             <TextNewPage specialClass={'pr-3'} text={infoGame.GAMEDESCRIPTION} type={'textarea'} />
+        //             <Optional />
+        //         </div>} />
 
-            </div>
-            <TextNewPage text={infoGame.GAMEIMAGES} />
-            <AddImage />
-        </div>
+        //     </div>
+        //     <TextNewPage text={infoGame.GAMEIMAGES} />
+        //     <AddImage />
+        // </div>
     )
 }

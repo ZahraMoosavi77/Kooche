@@ -2,10 +2,10 @@
 import { supabase } from "@/lib/supabase"
 import { useContext } from "react"
 
-import { NewContext } from "@/context/NewPageContext"
+import { NewContext } from "@/context/NewContext"
 
 export default function RegisterAdButton({ text }) {
-  const { isValidName, isValidSellerName, isValidPrice, isValidPhoneNumber,isValidCity, setIsValidCity,isValidProvince, setIsValidProvince, values, setIsValidName, setIsValidPhoneNumber, setIsValidSellerName, setIsValidPrice } = useContext(NewContext);
+  const { isValidName, isValidSellerName, isValidPrice, isValidPhoneNumber, setIsValidCity, setIsValidProvince, values, setIsValidName, setIsValidPhoneNumber, setIsValidSellerName, setIsValidPrice } = useContext(NewContext);
   const { name, price, preferedExchange, moreInfo, platformId, cityId, provinceId , exchange} = values;
 
   const handleInsertData = async () => {

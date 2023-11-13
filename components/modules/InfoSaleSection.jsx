@@ -8,14 +8,11 @@ import TextNewPage from '@/components/elements/TextNewPage'
 import CheckBox from '@/components/elements/CheckBox'
 import TextFieldNewPage from '@/components/elements/TextFieldNewPage'
 import { useContext } from 'react'
-import { NewContext } from '@/context/NewPageContext'
+import { NewContext } from '@/context/NewContext'
 import { ErrorMessagePrice } from '@/constants/constantNewPage'
 export default function InfoSaleSection() {
-    const { isSale } = useContext(NewContext);
-    const { isExchange } = useContext(NewContext);
-    const { setIsExchange } = useContext(NewContext);
-    const { setIsSale, isValidPrice } = useContext(NewContext);
-    const { values } = useContext(NewContext);
+    const { isSale,isExchange,setIsExchange ,setIsSale, isValidPrice,values } = useContext(NewContext);
+   
 
 
     return (
