@@ -1,5 +1,6 @@
-import { MapContainer,TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import SetGameLocation from "./SetGameLocation";
 
 export default function MapNewPage() {
   const mapOptions = {
@@ -8,10 +9,11 @@ export default function MapNewPage() {
     scrollWheelZoom: true,
   };
   return (
-    <div className='rounded-xl w-full h-[300px]'>
+    <div className="rounded-xl w-full h-[300px]">
       <MapContainer {...mapOptions} className="w-full h-full">
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <SetGameLocation />
       </MapContainer>
     </div>
-  )
+  );
 }
