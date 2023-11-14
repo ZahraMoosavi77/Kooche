@@ -22,7 +22,7 @@ export default function SelectOptionsNewPage({ label, optionsGroup, placeholderS
                 <Image className={`${isOpen && "rotate-180"}   `} src={down} width={24} height={24} alt='down' />
             </div>
             {validate ? '' : <TextError text={errormessage} />}
-            <ul className={`z-[401] absolute bg-white w-full pb-2 pr-2 pl-2 border rounded-xl border-gray-200 mt-1 max-h-[162px] overflow-y-auto ${isOpen ? 'block' : 'hidden'} `}>
+            <ul className={`z-[1200] absolute bg-white w-full pb-2 pr-2 pl-2 border rounded-xl border-gray-200 mt-1 max-h-[162px] overflow-y-auto ${isOpen ? 'block' : 'hidden'} `}>
                 <div className='flex justify-between items-center sticky top-0'>
                     {/* <Image src={Search} width={20} height={20} alt='search' color='blue' className='text-primary' /> */}
                     <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} type="text" placeholder={placeholderSearch} className='placeholder:text-primary-200 font-peyda-medium w-full outline-none p-2 ' />
