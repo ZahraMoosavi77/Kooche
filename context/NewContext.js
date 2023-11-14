@@ -1,5 +1,5 @@
 "use client";
-
+import { REGex} from "@/constants/constantNewPage";
 import { createContext, useState } from "react";
 
 export const NewContext = createContext({});
@@ -14,6 +14,7 @@ export const NewPageProvider = ({ children }) => {
   const [isValidProvince, setIsValidProvince] = useState(true);
   const [isValidCity, setIsValidCity] = useState(true);
   const [cities, setCities] = useState([]);
+  const [file, setFile] = useState([]);
   const [values, setValues] = useState({
     name: "",
     sellername: "",
@@ -63,6 +64,8 @@ export const NewPageProvider = ({ children }) => {
         onChange,
         values,
         setValues,
+        file,
+        setFile,
       }}
     >
       {children}
