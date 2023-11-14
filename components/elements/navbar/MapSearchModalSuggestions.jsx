@@ -3,8 +3,8 @@ import Image from "next/image";
 import { useGetGamesData } from "@/hooks/useGetGamesData";
 
 const MapSearchModalSuggestions = ({ gameName, setGameName, onClose }) => {
-  const displayGames = useGetGamesData();
-  console.log(displayGames);
+  const displayGames = useGetGamesData(gameName);
+  console.log(displayGames, gameName);
 
   if (!displayGames.length) {
     return (
