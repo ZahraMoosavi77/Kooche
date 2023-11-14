@@ -1,11 +1,12 @@
+"use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
 type Props = {};
 // pr-6
-const BackButton = ({specialClass}) => {
-    const router = useRouter();
+const BackButton = ({ specialClass }) => {
+  const router = useRouter();
   return (
     <div
       onClick={() => router.back()}

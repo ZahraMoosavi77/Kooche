@@ -4,19 +4,16 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import MarkersContainer from "@/components/elements/map/MarkersContainer";
 
-const CENTER: number[] = [35.68804331563681, 51.38883302970867];
-
+const mapOptions = {
+  center: [35.68804331563681, 51.38883302970867],
+  zoom: 10,
+  scrollWheelZoom: true,
+};
 const MapContent = () => {
   return (
     <div className={"w-full h-full"}>
-      <MapContainer
-        className={"relative h-full"}
-        // @ts-ignore
-        center={CENTER}
-        zoom={10}
-        scrollWheelZoom={true}
-      >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+      <MapContainer className={"relative h-full"} {...mapOptions}>
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <MarkersContainer />
       </MapContainer>
     </div>
