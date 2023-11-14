@@ -4,7 +4,7 @@ export const sideMenuLinks = [
     src: "/images/side-menu/Note.svg",
     srcActive: "/images/side-menu/Note_active.svg",
     alt: "Note",
-    link: "#",
+    link: "notes",
     url: "notes",
   },
   {
@@ -12,7 +12,7 @@ export const sideMenuLinks = [
     src: "/images/side-menu/Map.svg",
     srcActive: "/images/side-menu/Map_active.svg",
     alt: "map",
-    link: "#",
+    link: "/",
     url: "",
   },
   {
@@ -20,7 +20,7 @@ export const sideMenuLinks = [
     src: "/images/side-menu/User_02.svg",
     srcActive: "/images/side-menu/User_02_active.svg",
     alt: "user",
-    link: "#",
+    link: "auth",
     url: "auth",
   },
   {
@@ -28,7 +28,7 @@ export const sideMenuLinks = [
     src: "/images/side-menu/Headphones.svg",
     srcActive: "/images/side-menu/Headphones_active.svg",
     alt: "headphone",
-    link: "#",
+    link: "contact",
     url: "contact",
   },
 ];

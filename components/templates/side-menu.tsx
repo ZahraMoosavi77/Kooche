@@ -16,7 +16,7 @@ const SideMenu = ({setIsShow}) => {
   };
 
   const onClickHandler = () => {
-    router.push("/");
+    router.push("/new");
   };
 
   return (
