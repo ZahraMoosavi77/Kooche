@@ -1,6 +1,6 @@
 'use client'
 import { useContext, useState } from "react"
-import { NewContext } from "@/context/NewPageContext"
+import { NewContext } from "@/context/NewContext"
 
 export default function TextAreaNewPage({ type,label,name , value}) {
   const { onChange}= useContext(NewContext);
