@@ -12,20 +12,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <AuthContextProvider>
-       <NewPageProvider>
-       <MapProvider>
-       
-      <html lang="en" dir="rtl">
-        <body className="flex flex-col h-screen relative">
-         
-            <Navbar />
-
-            {children}
-        
-        </body>
-      </html>
-      
-      </MapProvider>
+      <NewPageProvider>
+        <MapProvider>
+          <html lang="en" dir="rtl">
+            <body className="flex flex-col h-screen relative">
+              <Navbar />
+              {children}
+            </body>
+          </html>
+        </MapProvider>
       </NewPageProvider>
     </AuthContextProvider>
   );

@@ -5,37 +5,20 @@ import { v4 as uuidv4 } from 'uuid';
 import { NewContext } from "@/context/NewContext"
 import { useUser } from "@supabase/supabase-js";
 import { useEffect } from "react";
+import { UseGlobalContext } from "@/context/AuthContext";
+
 export default function RegisterAdButton({ text }) {
   const { isValidName, isValidSellerName, isValidPrice, isValidPhoneNumber, setIsValidCity, setIsValidProvince, values, setIsValidName, setIsValidPhoneNumber, setIsValidSellerName, setIsValidPrice,file } = useContext(NewContext);
   const { name, price, preferedExchange, moreInfo, platformId, cityId, provinceId , exchange} = values;
-  const [userId, setUserId] = useState(null)
- useEffect(()=>{
-    const ckeckUserIsLogin = async () =>{
-      const { data: { user } , error} = await supabase.auth.getUser();
-      console.log(user.id);
-      if(user){
-       setUserId(user.id) 
-      }
-      if(error) console.log(error);
-    };
-    const LogOut = async () =>{
-      const { error } = await supabase.auth.signOut()
-      console.log(error);
-    }
-    
-
-    // ckeckUserIsLogin();
-    // LogOut();
-    ckeckUserIsLogin();
-  
-  },[])
+  const {setIsLoggedIn, id} = UseGlobalContext();
+ 
   // console.log(user);
   const handleSubmitImage = async (e) => {
     // e.preventDefault();
     const fileName = `${uuidv4()}-${file.name}`;
     const { data, error } = await supabase.storage
       .from("test")
-      .upload(userId+ '/'+ fileName, file, {
+      .upload(id+ '/'+ fileName, file, {
         cacheControl: "3600",
         upsert: false,
       });

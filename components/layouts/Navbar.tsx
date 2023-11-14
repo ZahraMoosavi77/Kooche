@@ -8,13 +8,36 @@ import NavbarSearchTags from "@/components/elements/navbar/NavbarSearchTags";
 import NavbarResultNumber from "@/components/elements/navbar/NavbarResultNumber";
 import { usePathname } from "next/navigation";
 import { useWindowSize } from "@/hooks/useWindowSize";
-import { useState } from "react";
 import SideMenu from "../templates/side-menu";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
+import { UseGlobalContext } from "@/context/AuthContext";
 
 const Navbar = () => {
   const [isShow, setIsShow] = useState(false);
   const { width } = useWindowSize();
   const path = usePathname();
+  const { setIsLoggedIn, setId } = UseGlobalContext();
+
+  useEffect(() => {
+    const ckeckUserIsLogin = async () => {
+      const {
+        data: { user },
+        error,
+      } = await supabase.auth.getUser();
+      console.log(user.id);
+
+      if (user) {
+        setId(user.id);
+        setIsLoggedIn(true);
+      } else {
+        setId("");
+        setIsLoggedIn(false);
+      }
+      if (error) console.log(error);
+    };
+  }, []);
+
   return (
     <div
       className={`px-2.5 py-1 md:px-[56px] xl:px-[108px] ${
