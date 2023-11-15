@@ -2,7 +2,7 @@
 import { NewContext } from "@/context/NewContext"
 import { useContext} from "react"
 import TextError from "./TextError";
-import TextHelper from '../elements/TextHelper'
+import TextHelper from './TextHelper'
 import { TEXTHELPER } from '@/constants/constantNewPage'
 
 export default function TextField({ type, label, name, errormessage, helpText, value, validate }) {

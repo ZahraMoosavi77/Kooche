@@ -2,9 +2,9 @@
 import TextFieldNewPage from "@/components/elements/TextFieldNewPage";
 import SubTitleNewPage from "@/components/elements/SubTitleNewPage";
 import { infoSeller } from "@/constants/constantNewPage";
-import TitleNewPage from "../elements/TitleNewPage";
-import TextNewPage from "../elements/TextNewPage";
-import SelectOptionsNewPage from "../elements/SelectOptionsNewPage";
+import TitleNewPage from "../elements/new/TitleNewPage";
+import TextNewPage from "../elements/new/TextNewPage";
+import SelectOptionsNewPage from "../elements/new/SelectOptionsNewPage";
 import { SEARCHCITY, SEARCHUNITED } from "@/constants/constantNewPage";
 import { useState, useEffect, useContext } from "react";
 import { supabase } from "@/lib/supabase";
