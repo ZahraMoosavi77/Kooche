@@ -1,6 +1,6 @@
 "use client";
-import TextFieldNewPage from "@/components/elements/TextFieldNewPage";
-import SubTitleNewPage from "@/components/elements/SubTitleNewPage";
+import TextFieldNewPage from "@/components/elements/new/TextFieldNewPage";
+import SubTitleNewPage from "@/components/elements/new/SubTitleNewPage";
 import { infoSeller } from "@/constants/constantNewPage";
 import TitleNewPage from "../elements/new/TitleNewPage";
 import TextNewPage from "../elements/new/TextNewPage";
@@ -19,7 +19,7 @@ import {
 
 import { NewContext } from "@/context/NewContext";
 import dynamic from "next/dynamic";
-const MapNewPage = dynamic(() => import("@/components/elements/MapNewPage"), {
+const MapNewPage = dynamic(() => import("@/components/elements/new/MapNewPage"), {
   ssr: false, // Disable server-side rendering for Leaflet component
 });
 export default function InfoSellerSection() {

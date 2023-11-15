@@ -2,7 +2,7 @@
 import TextNewPage from "./TextNewPage"
 import { infoGame } from "@/constants/constantNewPage"
 import Image from "next/image"
-import addPlus from '../../asset/icons/AddPlus.svg'
+import addPlus from '../../../asset/icons/AddPlus.svg'
 import { useState, useContext, useEffect } from "react"
 import { supabase } from "@/lib/supabase"
 import { v4 as uuidv4 } from 'uuid';

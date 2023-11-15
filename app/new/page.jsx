@@ -1,8 +1,8 @@
 
-import RegisterAd from '@/components/elements/RegisterAd'
+import RegisterAd from '@/components/elements/new/RegisterAd'
 import { CANCEL } from '@/constants/constantNewPage'
-import CancelButton from '@/components/elements/CancelButton'
-import RegisterAdButton from '@/components/elements/RegisterAdButton'
+import CancelButton from '@/components/elements/new/CancelButton'
+import RegisterAdButton from '@/components/elements/new/RegisterAdButton'
 import InfoGameSection from '@/components/modules/InfoGameSection'
 import InfoSellerSection from '@/components/modules/InfoSellerSection'
 import InfoSaleSection from '@/components/modules/InfoSaleSection'

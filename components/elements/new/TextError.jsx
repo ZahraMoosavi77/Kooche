@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import error from '../../asset/icons/erroe.svg'
+import error from '../../../asset/icons/erroe.svg'
 export default function TextError({text}) {
   return (
     <div className='flex  items-center justify-start pr-3 gap-1'>

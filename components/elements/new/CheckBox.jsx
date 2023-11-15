@@ -1,6 +1,6 @@
 'use client'
-import CheckBoxImage from '../../asset/icons/Check_Big.svg'
-import checkbox from '../../asset/icons/Check.svg'
+import CheckBoxImage from '../../../asset/icons/Check_Big.svg'
+import checkbox from '../../../asset/icons/Check.svg'
 import Image from 'next/image'
 
 export default function CheckBox({ checked}) {
