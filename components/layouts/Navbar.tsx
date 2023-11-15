@@ -25,7 +25,7 @@ const Navbar = () => {
         data: { user },
         error,
       } = await supabase.auth.getUser();
-      console.log(user.id);
+      console.log(user.id,'userid');
 
       if (user) {
         setId(user.id);
@@ -36,6 +36,8 @@ const Navbar = () => {
       }
       if (error) console.log(error);
     };
+
+    ckeckUserIsLogin();
   }, []);
 
   return (

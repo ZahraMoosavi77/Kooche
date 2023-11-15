@@ -63,3 +63,5 @@ export const ErrorMessageNameOfSeller = "لطفا اسم فروشنده را و�
 export const ErrorMessagePrice = "لطفا قیمت مورد نظر خود را وارد کنید.";
 export const ErrorMessageProvince = "لطفا استان  خود را وارد کنید.";
 export const ErrorMessageCity = "لطفا شهر خود را وارد کنید.";
+
+export const CDNURL = "https://vcclbeslusvmyuhuefmr.supabase.co/storage/v1/object/public/test"

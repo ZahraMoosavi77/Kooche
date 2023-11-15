@@ -15,6 +15,7 @@ export const NewPageProvider = ({ children }) => {
   const [isValidCity, setIsValidCity] = useState(true);
   const [cities, setCities] = useState([]);
   const [file, setFile] = useState([]);
+  const [imageUrl, setImageUrl] = useState('')
   const [values, setValues] = useState({
     name: "",
     sellername: "",
@@ -66,6 +67,8 @@ export const NewPageProvider = ({ children }) => {
         setValues,
         file,
         setFile,
+        imageUrl,
+        setImageUrl
       }}
     >
       {children}
