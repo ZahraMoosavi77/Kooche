@@ -11,13 +11,15 @@ const Marker = ({ game, markerGroup }) => {
         iconUrl: "/images/map/map_marker.svg",
         iconSize: [32, 32],
       }),
-    []
+    [],
   );
-  if(!!game_location[0] && !!game_location[1] ){
-    const newMarker = useMemo(
-      () => L.marker(game_location, { icon: markerIcon }).addTo(markerGroup),
-      [game_location, markerGroup, markerIcon]
+
+  console.log(games);
+  if (!!game_location[0] && !!game_location[1]) {
+    const newMarker = L.marker(game_location, { icon: markerIcon }).addTo(
+      markerGroup,
     );
+
     const markerPopUp = L.popup().setContent(mapPopup(games));
     newMarker.bindPopup(markerPopUp);
   }

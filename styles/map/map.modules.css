@@ -46,6 +46,12 @@
     background-color: #dcdcdc;
     border-radius: 8px;
     margin-left: 16px;
+    overflow: hidden ;
+}
+
+.popup-image_url {
+    width: 100%;
+    height: 100% !important;
 }
 
 .popup-content {

@@ -15,7 +15,7 @@ const NavbarLocationCity = ({
   const setLocation = useContext(ActionLocationContext);
   const { platformsTerm } = useContext(UserSearchContext);
   const setSearchTerms = useContext(ActionUserSearchContext);
-  console.log(platformsTerm);
+
   const handleClick = useCallback(
     (cityName) => {
       setLocation({

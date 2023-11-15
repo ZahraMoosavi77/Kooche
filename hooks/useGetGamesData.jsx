@@ -16,7 +16,7 @@ export function useGetGamesData(gameNameSearch = "") {
           `
         id,game_location,
         games!inner(
-        exchange,preferedExchange,name,price,
+        exchange,preferedExchange,name,price,imageUrl,
         platforms(name),
         categories(name),
         cities!inner(name),
@@ -28,8 +28,6 @@ export function useGetGamesData(gameNameSearch = "") {
           "games.cities.name",
           JSON.parse(localStorage.getItem("userLocation")).cityName,
         );
-       
-
 
       setLocations(data);
     };
