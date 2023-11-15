@@ -14,7 +14,7 @@ const SetGameLocation = () => {
     });
 
     let markerIcon = L.icon({
-      iconUrl: "/images/map/map_marker.svg",
+      iconUrl: "/images/map/get-location.svg",
       iconSize: [24, 24],
     });
 
