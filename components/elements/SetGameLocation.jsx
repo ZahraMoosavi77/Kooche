@@ -5,7 +5,7 @@ import { useState } from "react";
 const SetGameLocation = () => {
   const [gameLocation, setGameLocation] = useState({});
   const map = useMap();
-
+  
   map.on("click", function (e) {
     map.eachLayer(function (layer) {
       if (layer instanceof L.Marker) {

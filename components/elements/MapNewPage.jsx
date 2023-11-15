@@ -7,6 +7,7 @@ export default function MapNewPage() {
     center: [35.68804331563681, 51.38883302970867],
     zoom: 10,
     scrollWheelZoom: true,
+    attributionControl :false
   };
   return (
     <div className="rounded-xl w-full h-[300px]">
