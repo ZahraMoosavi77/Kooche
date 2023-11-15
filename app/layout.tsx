@@ -12,16 +12,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <AuthContextProvider>
-      <NewPageProvider>
-        <MapProvider>
+      <MapProvider>
+        <NewPageProvider>
           <html lang="en" dir="rtl">
             <body className="flex flex-col h-screen relative">
               <Navbar />
               {children}
             </body>
           </html>
-        </MapProvider>
-      </NewPageProvider>
+        </NewPageProvider>
+      </MapProvider>
     </AuthContextProvider>
   );
 }

@@ -1,9 +1,7 @@
 "use client";
 import { REGex} from "@/constants/constantNewPage";
 import { createContext, useState } from "react";
-
 export const NewContext = createContext({});
-
 export const NewPageProvider = ({ children }) => {
   const [isSale, setIsSale] = useState(false);
   const [isExchange, setIsExchange] = useState(false);
