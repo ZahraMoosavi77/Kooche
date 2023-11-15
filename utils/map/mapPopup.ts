@@ -1,5 +1,11 @@
 export const mapPopup = (games) => {
-  return `<div class="popup-image"></div><div class="popup-content">
+  return `<div class="popup-image"><Image
+          src=${games[0].imageUrl}
+          alt="game image"
+          width={32}
+          height={32}
+          class="popup-image_url"
+        /></div><div class="popup-content">
 <div  class="w-full flex justify-between items-center overflow-hidden">
 <span class="popup-game_name" title="${games[0].name}">
 ${games[0].name}
