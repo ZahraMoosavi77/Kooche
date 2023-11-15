@@ -1,9 +1,12 @@
 import { useMap } from "react-leaflet";
 import L from "leaflet";
 import { useState } from "react";
+import { NewContext } from "@/context/NewContext";
+import { useContext } from "react";
 
 const SetGameLocation = () => {
-  const [gameLocation, setGameLocation] = useState({});
+
+  const {setGameLocation,gameLocation} = useContext(NewContext)
   const map = useMap();
   
   map.on("click", function (e) {
@@ -20,6 +23,7 @@ const SetGameLocation = () => {
 
     setGameLocation(e.latlng);
     let marker = new L.marker(e.latlng, { icon: markerIcon }).addTo(map);
+   console.log(gameLocation);
   });
   return null;
 };
