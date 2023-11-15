@@ -17,6 +17,7 @@ export const NewPageProvider = ({ children }) => {
   const [file, setFile] = useState([]);
   const [imageUrl, setImageUrl] = useState('');
   const [gameLocation, setGameLocation] = useState({});
+  const [centerCity,setCenterCity] = useState([35.68804331563681, 51.38883302970867]);
   const [values, setValues] = useState({
     name: "",
     sellername: "",
@@ -73,6 +74,8 @@ export const NewPageProvider = ({ children }) => {
         setImageUrl,
         gameLocation,
         setGameLocation,
+        centerCity,
+        setCenterCity
       }}
     >
       {children}

@@ -9,11 +9,9 @@ import TextError from './TextError'
 export default function SelectOptionsNewPage({ label, optionsGroup, placeholderSearch, column, errormessage, validate }) {
     const [inputValue, setInputValue] = useState("");
     const [selected, setSelected] = useState({ name: '', id: '' });
-    // console.log(column,optionsGroup);
     const [isOpen, setIsOpen] = useState(false);
-    const { values, setIsValidProvince, setIsValidCity, setCities } = useContext(NewContext)
+    const { values, setIsValidProvince, setIsValidCity, setCities,setCenterCity } = useContext(NewContext)
     values[column] = selected.id;
-
     return (
         <>
             <label>{label}</label>
@@ -31,7 +29,7 @@ export default function SelectOptionsNewPage({ label, optionsGroup, placeholderS
                 {optionsGroup?.map((item) => {
                     return <li key={item.id} onClick={
                         () => {
-                            if (column === 'cityId') setIsValidCity(true)
+                            if (column === 'cityId'){ setIsValidCity(true); setCenterCity(item.center)}
                             if (column === 'provinceId') {setIsValidProvince(true); setCities(item.cities) ; }
                             if (item.name !== selected.name) setSelected({ name: item.name, id: item.id }); setIsOpen(false); setInputValue("")
                         }

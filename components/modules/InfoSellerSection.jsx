@@ -8,7 +8,6 @@ import SelectOptionsNewPage from "../elements/new/SelectOptionsNewPage";
 import { SEARCHCITY, SEARCHUNITED } from "@/constants/constantNewPage";
 import { useState, useEffect, useContext } from "react";
 import { supabase } from "@/lib/supabase";
-
 import { ErrorMessageNameOfSeller } from "@/constants/constantNewPage";
 import { ErrorMessagePhoneNumber } from "@/constants/constantNewPage";
 import { REGex } from "@/constants/constantNewPage";
@@ -32,6 +31,7 @@ export default function InfoSellerSection() {
     isValidCity,
     cities,
   } = useContext(NewContext);
+  const { centerCity } = useContext(NewContext);
 
   const getDataProvince = async () => {
     let { data: provinces, error } = await supabase
@@ -42,6 +42,7 @@ export default function InfoSellerSection() {
   };
   useEffect(() => {
     getDataProvince();
+    console.log('provinces',provinces);
   }, []);
   return (
     <div className=" flex flex-col gap-4">
@@ -108,7 +109,7 @@ export default function InfoSellerSection() {
           </div>
         </div>
 
-        <MapNewPage />
+        <MapNewPage mapCenter ={centerCity} />
       </div>
 
       <div>

@@ -6,10 +6,8 @@ import { useGetGamesData } from "@/hooks/useGetGamesData";
 
 const MarkersContainer = () => {
   const displayLocations = useGetGamesData();
-
   const map = useMap();
   const markerGroup = L.featureGroup().addTo(map);
-
   markerGroup.clearLayers();
   map.eachLayer(function (layer) {
     if (layer instanceof L.Marker) {
@@ -33,7 +31,7 @@ const MarkersContainer = () => {
           </p>
         </div>
       )}
-      <SetView markerGroup={markerGroup} map={map} />
+      <SetView markerGroup={markerGroup} map={map}  />
     </>
   );
 };

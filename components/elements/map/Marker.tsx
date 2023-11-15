@@ -13,17 +13,14 @@ const Marker = ({ game, markerGroup }) => {
       }),
     []
   );
-
-  const newMarker = useMemo(
-    () => L.marker(game_location, { icon: markerIcon }).addTo(markerGroup),
-    [game_location, markerGroup, markerIcon]
-  );
-
-  const markerPopUp = L.popup().setContent(mapPopup(games));
-
-  newMarker.bindPopup(markerPopUp);
-
+  if(!!game_location[0] && !!game_location[1] ){
+    const newMarker = useMemo(
+      () => L.marker(game_location, { icon: markerIcon }).addTo(markerGroup),
+      [game_location, markerGroup, markerIcon]
+    );
+    const markerPopUp = L.popup().setContent(mapPopup(games));
+    newMarker.bindPopup(markerPopUp);
+  }
   return null;
 };
-
 export default Marker;

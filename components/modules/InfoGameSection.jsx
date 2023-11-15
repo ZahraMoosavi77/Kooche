@@ -13,31 +13,21 @@ import { SEARCHCONSOLE } from '@/constants/constantNewPage'
 import { useContext, useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import {ErrorMessageNameOfGame} from '@/constants/constantNewPage'
-
 import { NewContext } from "@/context/NewContext"
 
 
 
 export default function InfoGameSection() {
     const [platforms , setPlatforms] = useState([]);
-  
-    const { values,isValidName, setIsValidProvince, setIsValidCity, setCities } = useContext(NewContext)
-    // console.log(setIsValidProvince);
- 
+    const { values,isValidName } = useContext(NewContext)
     const getData= async () =>{
         let { data, error } = await supabase
             .from('platforms')
             .select('*')
-           
          setPlatforms(data);
-      
-
     }
     useEffect( () => {
         getData()
-  
-
-        
     }, [])
     return (
     
@@ -47,9 +37,7 @@ export default function InfoGameSection() {
                 <SubTitleNewPage text={infoGame.INFOGAMESUBTITLE} />
             </div>
             <div>
-
                 <TextFieldNewPage value={values.name} validate={isValidName}  required={true} errormessage={ErrorMessageNameOfGame} helpText={true} name={'name'} type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
-               
             </div>
 
             <div className='relative'>
