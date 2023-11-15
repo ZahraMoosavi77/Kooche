@@ -14,7 +14,6 @@ const Marker = ({ game, markerGroup }) => {
     [],
   );
 
-  console.log(games);
   if (!!game_location[0] && !!game_location[1]) {
     const newMarker = L.marker(game_location, { icon: markerIcon }).addTo(
       markerGroup,
