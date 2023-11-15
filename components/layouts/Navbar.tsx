@@ -19,26 +19,26 @@ const Navbar = () => {
   const path = usePathname();
   const { setIsLoggedIn, setId } = UseGlobalContext();
 
-  useEffect(() => {
-    const ckeckUserIsLogin = async () => {
-      const {
-        data: { user },
-        error,
-      } = await supabase.auth.getUser();
-      console.log(user.id,'userid');
+  // useEffect(() => {
+  //   const ckeckUserIsLogin = async () => {
+  //     const {
+  //       data: { user },
+  //       error,
+  //     } = await supabase.auth.getUser();
+  //     console.log(user.id,'userid');
 
-      if (user) {
-        setId(user.id);
-        setIsLoggedIn(true);
-      } else {
-        setId("");
-        setIsLoggedIn(false);
-      }
-      if (error) console.log(error);
-    };
+  //     if (user) {
+  //       setId(user.id);
+  //       setIsLoggedIn(true);
+  //     } else {
+  //       setId("");
+  //       setIsLoggedIn(false);
+  //     }
+  //     if (error) console.log(error);
+  //   };
 
-    ckeckUserIsLogin();
-  }, []);
+  //   ckeckUserIsLogin();
+  // }, []);
 
   return (
     <div
