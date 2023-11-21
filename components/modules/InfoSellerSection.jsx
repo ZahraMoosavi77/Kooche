@@ -26,7 +26,6 @@ export default function InfoSellerSection() {
   const {
     isValidPhoneNumber,
     isValidSellerName,
-    values,
     isValidProvince,
     isValidCity,
     cities,
@@ -42,7 +41,6 @@ export default function InfoSellerSection() {
   };
   useEffect(() => {
     getDataProvince();
-    console.log('provinces',provinces);
   }, []);
   return (
     <div className=" flex flex-col gap-4">

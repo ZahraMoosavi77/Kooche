@@ -17,11 +17,7 @@ const SetGameLocation = () => {
       ])
       .select()
       if(data) {
-        console.log('send');
-        console.log('d',data);
         values.locId = data[0].id;
-        console.log('values.locId',values.locId);
-        console.log(values);
       };
   }
   useEffect(() => {

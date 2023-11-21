@@ -30,6 +30,7 @@ export default function RegisterAdButton({ text }) {
     exchange,
     locId,
   } = values;
+   
 
   const handleInsertData = async () => {
     const insertData = {
@@ -51,7 +52,7 @@ export default function RegisterAdButton({ text }) {
     if (!values.phonenumber.trim()) setIsValidPhoneNumber(false);
     if (!values.platformId) setIsValidProvince(false);
     if (!values.cityId) setIsValidCity(false);
-
+       
 
     if (isValidName && isValidPrice && isValidPhoneNumber && isValidSellerName) {
       const { data, error } = await supabase
@@ -59,6 +60,14 @@ export default function RegisterAdButton({ text }) {
         .insert([insertData,
         ])
         .select()
+        if(data){
+          let valuesArray = Object.values(values);
+          for (let value of valuesArray) { 
+            console.log(value); 
+            value = '';
+        } 
+        if(error) console.log(error);
+        }  
     }
   }
   return (
