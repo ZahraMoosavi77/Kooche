@@ -7,11 +7,11 @@ export { UseGlobalContext };
 
 // Supabase Create Client
 
-import { supabase } from "@/supabase/configs";
+import { secret } from "@/lib/supabase";
 
 // Supabase Export
 
-export { supabase };
+export { secret };
 
 // Elements Imports
 
