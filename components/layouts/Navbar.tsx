@@ -17,29 +17,8 @@ const Navbar = () => {
   const [isShow, setIsShow] = useState(false);
   const { width } = useWindowSize();
   const path = usePathname();
-  const { setIsLoggedIn, setId } = UseGlobalContext();
-
-  // useEffect(() => {
-  //   const ckeckUserIsLogin = async () => {
-  //     const {
-  //       data: { user },
-  //       error,
-  //     } = await supabase.auth.getUser();
-  //     console.log(user.id,'userid');
-
-  //     if (user) {
-  //       setId(user.id);
-  //       setIsLoggedIn(true);
-  //     } else {
-  //       setId("");
-  //       setIsLoggedIn(false);
-  //     }
-  //     if (error) console.log(error);
-  //   };
-
-  //   ckeckUserIsLogin();
-  // }, []);
-
+  const { id, isLoggedIn, setIsLoggedIn, setId } = UseGlobalContext();
+  
   return (
     <div
       className={`px-2.5 py-1 md:px-[56px] xl:px-[108px] ${
@@ -70,13 +49,35 @@ const Navbar = () => {
         <NavbarLocation />
         {path === "/" && <MapSearch />}
 
-        <div className="hidden gap-4 mr-auto lg2:flex">
-          <Link href={"/"}>آگهی‌ها</Link>
-          <Link href={"/"}>نقشه</Link>
-          <Link href={"/"}>ارتباط با ما</Link>
-          <Link href={"/auth"}> ورود / ثبت نام</Link>
-          <Link href={"/new"} className="">
-            ثبت آگهی
+        <div className="hidden gap-4 mr-auto lg:flex items-center">
+          <Link className="navbar-link" href={"/"}>
+            آگهی‌ها
+          </Link>
+          <Link className="navbar-link" href={"/"}>
+            نقشه
+          </Link>
+          <Link className="navbar-link" href={"/"}>
+            ارتباط با ما
+          </Link>
+          {/*  */}
+          {isLoggedIn ? (
+            <Image
+              src={"/images/side-menu/User_02-nav.svg"}
+              width={32}
+              height={32}
+              alt="account"
+              className="cursor-pointer"
+            />
+          ) : (
+            <Link className="navbar-link" href={"/auth"}>
+              ورود / ثبت نام
+            </Link>
+          )}
+          <Link className="bg-primary px-4 py-2 rounded-xl" href={"/new"}>
+            <button className="w-full h-full flex gap-2">
+              <Image src={"/images/side-menu/Add_Plus.svg"} height={24} width={24} alt="add / plus" />
+              <span className="navbar-link text-white">ثبت آگهی</span>
+            </button>
           </Link>
         </div>
       </div>
