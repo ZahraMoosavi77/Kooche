@@ -29,34 +29,35 @@ export default function RegisterAdButton({ text }) {
     exchange
   } = values;
 
-  const handleInsertData = async () => {
-    const insertData = {
-      name: name,
-      platformId: platformId || null,
-      moreInfo: moreInfo || null,
-      price: price || null,
-      cityId: cityId,
-      provinceId: provinceId,
-      preferedExchange: preferedExchange || null,
-      exchange: exchange || null,
-      imageUrl: imageUrl || null
-    }
+  const handleInsertData =  () => {
+    // const insertData = {
+    //   name: name,
+    //   platformId: platformId || null,
+    //   moreInfo: moreInfo || null,
+    //   price: price || null,
+    //   cityId: cityId,
+    //   provinceId: provinceId,
+    //   preferedExchange: preferedExchange || null,
+    //   exchange: exchange || null,
+    //   imageUrl: imageUrl || null
+    // }
 
-    if (!values.name.trim()) setIsValidName(false)
-    if (!values.sellername.trim()) setIsValidSellerName(false)
-    if (!values.price.trim()) setIsValidPrice(false);
-    if (!values.phonenumber.trim()) setIsValidPhoneNumber(false);
-    if (!values.platformId) setIsValidProvince(false);
-    if (!values.cityId) setIsValidCity(false);
+    // if (!values.name.trim()) setIsValidName(false)
+    // if (!values.sellername.trim()) setIsValidSellerName(false)
+    // if (!values.price.trim()) setIsValidPrice(false);
+    // if (!values.phonenumber.trim()) setIsValidPhoneNumber(false);
+    // if (!values.platformId) setIsValidProvince(false);
+    // if (!values.cityId) setIsValidCity(false);
 
 
-    if (isValidName && isValidPrice && isValidPhoneNumber && isValidSellerName) {
-      const { data, error } = await supabase
-        .from('games')
-        .insert([insertData,
-        ])
-        .select()
-    }
+    // if (isValidName && isValidPrice && isValidPhoneNumber && isValidSellerName) {
+    //   const { data, error } = await supabase
+    //     .from('games')
+    //     .insert([insertData,
+    //     ])
+    //     .select()
+    // }
+   console.log('not send');
   }
   return (
     <>
