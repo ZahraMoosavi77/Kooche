@@ -47,37 +47,24 @@ export default function RegisterAdButton({ text }) {
     //   preferedExchange: preferedExchange || null,
     //   exchange: exchange || null,
     //   imageUrl: imageUrl || null
-    // };
-
-    console.log(provinceId,'provinceId');
-
-    // if (!name.trim()) await setIsValidName(false)
-    // if (!sellername.trim())  await setIsValidSellerName(false)
-    // if (!price.trim())  await setIsValidPrice(false);
-    // if (!phonenumber.trim())  await setIsValidPhoneNumber(false);
-    // if(provinceId){
-    //   console.log(isValidProvince,'isvalidprovince');
     // }
-    // if (!provinceId)  {
-    //   await setIsValidProvince(false);
-    //   console.log('ok');}
-    // if (!cityId)  await setIsValidCity(false);
+
+    // if (!values.name.trim()) setIsValidName(false)
+    // if (!values.sellername.trim()) setIsValidSellerName(false)
+    // if (!values.price.trim()) setIsValidPrice(false);
+    // if (!values.phonenumber.trim()) setIsValidPhoneNumber(false);
+    // if (!values.platformId) setIsValidProvince(false);
+    // if (!values.cityId) setIsValidCity(false);
 
 
-    // if (isValidName && isValidPrice && isValidPhoneNumber && isValidSellerName && isValidCity) {
+    // if (isValidName && isValidPrice && isValidPhoneNumber && isValidSellerName) {
     //   const { data, error } = await supabase
     //     .from('games')
     //     .insert([insertData,
     //     ])
     //     .select()
-        
-    //     if(data){
-    //        router.push('/auth');
-    //        console.log('s');
-    //     }
-      
-    
     // }
+   console.log('not send');
   }
   return (
     <>
