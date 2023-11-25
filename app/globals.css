@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer components {
+
+  .navbar-link {
+    @apply font-peyda-regular text-scales-large text-gray-900
+  }
+  
   .share-inputs {
     @apply flex-1 w-[60%] font-peyda-semibold text-scales-default bg-transparent outline-none
   }
