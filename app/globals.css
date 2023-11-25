@@ -67,3 +67,29 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
+.rotate-center {
+	-webkit-animation: rotate-center 1.5s cubic-bezier(.73,-0.21,.51,.48) infinite backwards;
+	        animation: rotate-center 1.5s cubic-bezier(.73,-0.21,.51,.48) infinite backwards;
+}
+
+ @-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}

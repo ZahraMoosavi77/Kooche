@@ -17,10 +17,11 @@ export { secret };
 
 import Button from "@/components/elements/Button";
 import Input from "@/components/elements/Input";
+import Loading from "@/components/modules/Loading"
 
 // Elements Export
 
-export { Button, Input };
+export { Button, Input, Loading };
 
 // Modules Imports
 
