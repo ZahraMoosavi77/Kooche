@@ -1,5 +1,6 @@
 "use client";
-import { Form, Input, Button, UseGlobalContext, supabase } from "@/index";
+import { Form, Input, Button, UseGlobalContext} from "@/index";
+import {supabase} from "@/lib/supabase"
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

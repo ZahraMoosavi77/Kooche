@@ -1,5 +1,5 @@
 "use client";
-import { supabase, Form, Input, Button, UseGlobalContext } from "@/index";
+import { secret, Form, Input, Button, UseGlobalContext } from "@/index";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -42,7 +42,7 @@ const Auth = () => {
       const {
         data: { users },
         error,
-      } = await supabase.auth.admin.listUsers();
+      } = await secret.auth.admin.listUsers();
       setAllUsers(users);
     };
     getAllUsers();
