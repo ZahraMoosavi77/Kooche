@@ -19,7 +19,8 @@ export default function AddImage() {
 
   const handleSubmitImage = async () => {
     setFileName(`${uuidv4()}-${file.name}`);
-    const { data, error } = await supabase.storage
+    if(file.length ){
+      const { data, error } = await supabase.storage
       .from("test")
       .upload(id + '/' + fileName, file, {
         cacheControl: "3600",
@@ -28,10 +29,17 @@ export default function AddImage() {
     if (data) {
       setImageUrl(CDNURL + '/' + data.path)
     }
+
+    }
+   
   }
 
   useEffect(() => {
-    handleSubmitImage();
+    if(file) {
+      handleSubmitImage();
+      console.log('send');
+    }
+   
   }, [file])
 
   const handleFileSelected = (e) => {

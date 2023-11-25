@@ -12,6 +12,7 @@ export default function SelectOptionsNewPage({ label, optionsGroup, placeholderS
     const [isOpen, setIsOpen] = useState(false);
     const { values, setIsValidProvince, setIsValidCity, setCities,setCenterCity } = useContext(NewContext)
     values[column] = selected.id;
+    console.log('hajiiii chera');
     return (
         <>
             <label>{label}</label>

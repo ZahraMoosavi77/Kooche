@@ -31,6 +31,7 @@ export const NewPageProvider = ({ children }) => {
   });
 
   const onChange = (e) => {
+    e.preventDefault();
     setValues({ ...values, [e.target.name]: e.target.value });
     if (e.target.name === "name") setIsValidName(true);
     if (e.target.name === "sellername") setIsValidSellerName(true);

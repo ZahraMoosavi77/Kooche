@@ -3,8 +3,10 @@
 import { supabase } from "@/lib/supabase"
 import { useContext } from "react"
 import { NewContext } from "@/context/NewContext"
-
+import { useRouter } from "next/router"
 export default function RegisterAdButton({ text }) {
+  const router = useRouter()
+
   const {
     isValidName,
     isValidSellerName,
@@ -18,7 +20,10 @@ export default function RegisterAdButton({ text }) {
     setIsValidSellerName,
     setIsValidPrice,
     imageUrl,
-    gameLocation
+    gameLocation,
+    isValidCity,
+    isValidProvince,
+  
   } = useContext(NewContext);
   const {
     name,
@@ -26,37 +31,53 @@ export default function RegisterAdButton({ text }) {
     preferedExchange,
     moreInfo, platformId,
     cityId, provinceId,
-    exchange
+    exchange,
+    phonenumber,
+    sellername,
   } = values;
 
-  const handleInsertData = async () => {
-    const insertData = {
-      name: name,
-      platformId: platformId || null,
-      moreInfo: moreInfo || null,
-      price: price || null,
-      cityId: cityId,
-      provinceId: provinceId,
-      preferedExchange: preferedExchange || null,
-      exchange: exchange || null,
-      imageUrl: imageUrl || null
-    }
+  const handleInsertData =  () => {
+    // const insertData = {
+    //   name: name,
+    //   platformId: platformId || null,
+    //   moreInfo: moreInfo || null,
+    //   price: price || null,
+    //   cityId: cityId,
+    //   provinceId: provinceId,
+    //   preferedExchange: preferedExchange || null,
+    //   exchange: exchange || null,
+    //   imageUrl: imageUrl || null
+    // };
 
-    if (!values.name.trim()) setIsValidName(false)
-    if (!values.sellername.trim()) setIsValidSellerName(false)
-    if (!values.price.trim()) setIsValidPrice(false);
-    if (!values.phonenumber.trim()) setIsValidPhoneNumber(false);
-    if (!values.platformId) setIsValidProvince(false);
-    if (!values.cityId) setIsValidCity(false);
+    console.log(provinceId,'provinceId');
+
+    // if (!name.trim()) await setIsValidName(false)
+    // if (!sellername.trim())  await setIsValidSellerName(false)
+    // if (!price.trim())  await setIsValidPrice(false);
+    // if (!phonenumber.trim())  await setIsValidPhoneNumber(false);
+    // if(provinceId){
+    //   console.log(isValidProvince,'isvalidprovince');
+    // }
+    // if (!provinceId)  {
+    //   await setIsValidProvince(false);
+    //   console.log('ok');}
+    // if (!cityId)  await setIsValidCity(false);
 
 
-    if (isValidName && isValidPrice && isValidPhoneNumber && isValidSellerName) {
-      const { data, error } = await supabase
-        .from('games')
-        .insert([insertData,
-        ])
-        .select()
-    }
+    // if (isValidName && isValidPrice && isValidPhoneNumber && isValidSellerName && isValidCity) {
+    //   const { data, error } = await supabase
+    //     .from('games')
+    //     .insert([insertData,
+    //     ])
+    //     .select()
+        
+    //     if(data){
+    //        router.push('/auth');
+    //        console.log('s');
+    //     }
+      
+    
+    // }
   }
   return (
     <>

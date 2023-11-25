@@ -21,7 +21,8 @@ const SetGameLocation = () => {
       };
   }
   useEffect(() => {
-    handleInsertLocation();
+    if(gameLocation) handleInsertLocation();
+
   }, [gameLocation])
 
 
