@@ -12,6 +12,10 @@ export default function SelectOptionsNewPage({ label, optionsGroup, placeholderS
     const [isOpen, setIsOpen] = useState(false);
     const { values, setIsValidProvince, setIsValidCity, setCities,setCenterCity } = useContext(NewContext)
     values[column] = selected.id;
+    const searchStyle = {
+        color:'red'
+
+    }
     return (
         <>
             <label>{label}</label>
@@ -21,9 +25,9 @@ export default function SelectOptionsNewPage({ label, optionsGroup, placeholderS
             </div>
             {validate ? '' : <TextError text={errormessage} />}
             <ul className={`z-[1200] absolute bg-white w-full pb-2 pr-2 pl-2 border rounded-xl border-gray-200 mt-1 max-h-[162px] overflow-y-auto ${isOpen ? 'block' : 'hidden'} `}>
-                <div className='flex justify-between items-center sticky top-0'>
-                    {/* <Image src={Search} width={20} height={20} alt='search' color='blue' className='text-primary' /> */}
-                    <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} type="text" placeholder={placeholderSearch} className='placeholder:text-primary-200 font-peyda-medium w-full outline-none p-2 ' />
+                <div className='flex justify-between items-center sticky top-0 px-3'>
+                    <Image src={Search} width={20} height={20} alt='search'  />
+                    <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} type="text" placeholder={placeholderSearch} className='placeholder:text-gray-600 font-peyda-medium w-full outline-none p-2 ' />
                 </div>
 
                 {optionsGroup?.map((item) => {
