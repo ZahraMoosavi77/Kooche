@@ -12,14 +12,14 @@ import { CHOOSECONSOLE } from '@/constants/constantNewPage'
 
 import { useContext, useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
-import { ErrorMessageNameOfGame } from '@/constants/constantNewPage'
+import { ErrorMessageNameOfGame,ErrorMessagePlatform } from '@/constants/constantNewPage'
 import { NewContext } from "@/context/NewContext"
 
 
 
 export default function InfoGameSection() {
     const [platforms, setPlatforms] = useState([]);
-    const { values, isValidName } = useContext(NewContext)
+    const { values, isValidName, isValidPlatform } = useContext(NewContext)
     const getData = async () => {
         let { data, error } = await supabase
             .from('platforms')
@@ -41,9 +41,16 @@ export default function InfoGameSection() {
             </div>
 
             <div className='relative'>
-                <SelectOptionsNewPage column={'platformId'} validate={true} defualtValue={CHOOSECONSOLE} placeholderSearch={SEARCH} optionsGroup={platforms} label={<div className='flex  '>
-                    <TextNewPage specialClass={'pr-3'} text={infoGame.GAMECONSOLE} />
-                </div>} />
+                <SelectOptionsNewPage 
+                column={'platformId'}
+                 validate={isValidPlatform}
+                    defualtValue={CHOOSECONSOLE}
+                     placeholderSearch={SEARCH} 
+                     optionsGroup={platforms} 
+                     errormessage={ErrorMessagePlatform}
+                     label={<div className='flex  '>
+                        <TextNewPage specialClass={'pr-3'} text={infoGame.GAMECONSOLE} />
+                    </div>} />
             </div>
             <div >
                 <TextAreaNewPage name={'moreInfo'} value={values.moreInfo} label={<div className='flex  '>

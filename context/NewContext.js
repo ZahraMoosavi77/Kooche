@@ -11,6 +11,7 @@ export const NewPageProvider = ({ children }) => {
   const [isValidPrice, setIsValidPrice] = useState(true);
   const [isValidProvince, setIsValidProvince] = useState(true);
   const [isValidCity, setIsValidCity] = useState(true);
+  const [isValidPlatform, setIsValidPlatform] = useState(true);
   const [cities, setCities] = useState([]);
   const [file, setFile] = useState([]);
   const [imageUrl, setImageUrl] = useState('');
@@ -29,6 +30,7 @@ export const NewPageProvider = ({ children }) => {
     exchange: "",
     locId:"",
   });
+
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -73,7 +75,9 @@ export const NewPageProvider = ({ children }) => {
         gameLocation,
         setGameLocation,
         centerCity,
-        setCenterCity
+        setCenterCity,
+        isValidPlatform,
+        setIsValidPlatform,
       }}
     >
       {children}
