@@ -74,7 +74,7 @@ export default function RegisterAdButton({ text }) {
           let valuesArray = Object.values(values);
           for (let value of valuesArray) { 
             // console.log(values);
-           setValues({...values, [value]:''})
+           setValues({...values, [value]:null})
              
 
         } 
