@@ -63,12 +63,13 @@ export default function RegisterAdButton({ text }) {
     if(!platformId) setIsValidPlatform(false)
        
 
-    if (isValidName && isValidPrice && isValidPhoneNumber && isValidSellerName ) {
+    if ((isValidName && isValidPrice && isValidPhoneNumber && isValidSellerName ) === true) {
       const { data, error } = await supabase
         .from('games')
         .insert([insertData,
         ])
         .select()
+        console.log('send');
         if(data){
           // router.push('/')
           let valuesArray = Object.values(values);
