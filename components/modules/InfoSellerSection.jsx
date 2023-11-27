@@ -1,7 +1,7 @@
 "use client";
 import TextFieldNewPage from "@/components/elements/new/TextFieldNewPage";
 import SubTitleNewPage from "@/components/elements/new/SubTitleNewPage";
-import { infoSeller } from "@/constants/constantNewPage";
+import { SEARCH, infoSeller } from "@/constants/constantNewPage";
 import TitleNewPage from "../elements/new/TitleNewPage";
 import TextNewPage from "../elements/new/TextNewPage";
 import SelectOptionsNewPage from "../elements/new/SelectOptionsNewPage";
@@ -26,7 +26,6 @@ export default function InfoSellerSection() {
   const {
     isValidPhoneNumber,
     isValidSellerName,
-    values,
     isValidProvince,
     isValidCity,
     cities,
@@ -42,7 +41,6 @@ export default function InfoSellerSection() {
   };
   useEffect(() => {
     getDataProvince();
-    console.log('provinces',provinces);
   }, []);
   return (
     <div className=" flex flex-col gap-4">
@@ -77,7 +75,7 @@ export default function InfoSellerSection() {
               errormessage={ErrorMessageProvince}
               required={true}
               optionsGroup={provinces}
-              placeholderSearch={SEARCHUNITED}
+              placeholderSearch={SEARCH}
               label={
                 <div className="flex  items-center ">
                   <TextNewPage
@@ -95,7 +93,7 @@ export default function InfoSellerSection() {
               validate={isValidCity}
               errormessage={ErrorMessageCity}
               optionsGroup={cities}
-              placeholderSearch={SEARCHCITY}
+              placeholderSearch={SEARCH}
               label={
                 <div className="flex  items-center ">
                   <TextNewPage

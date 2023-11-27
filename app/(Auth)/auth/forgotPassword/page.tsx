@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { Form, Input, Button, supabase } from "@/index";
+import { Form, Input, Button } from "@/index";
+import {supabase} from "@/lib/supabase"
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -37,8 +38,7 @@ const Page = () => {
       setConfirm("");
       setValue("");
       router.push("/auth");
-      console.log(error);
-      console.log(console.log(data));
+      
     } else {
       setIsConfirmValideted(false);
       setIsValueValideted(false);

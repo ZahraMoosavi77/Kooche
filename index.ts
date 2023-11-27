@@ -7,20 +7,21 @@ export { UseGlobalContext };
 
 // Supabase Create Client
 
-import { supabase } from "@/supabase/configs";
+import { secret } from "@/lib/supabase";
 
 // Supabase Export
 
-export { supabase };
+export { secret };
 
 // Elements Imports
 
 import Button from "@/components/elements/Button";
 import Input from "@/components/elements/Input";
+import Loading from "@/components/modules/Loading"
 
 // Elements Export
 
-export { Button, Input };
+export { Button, Input, Loading };
 
 // Modules Imports
 
