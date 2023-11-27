@@ -1,40 +1,28 @@
 import L from "leaflet";
 import { mapPopup } from "@/utils/map/mapPopup";
+import { useMemo } from "react";
 
 const Marker = ({ game, markerGroup }) => {
   const { game_location, games } = game;
-  // console.log(games);
 
-  let markerIcon = L.icon({
-    iconUrl: "/images/map/map_marker.svg",
-    iconSize: [32, 32],
-  });
-
-  const newMarker = L.marker(game_location, { icon: markerIcon }).addTo(
-    markerGroup,
+  let markerIcon = useMemo(
+    () =>
+      L.icon({
+        iconUrl: "/images/map/map_marker.svg",
+        iconSize: [32, 32],
+      }),
+    [],
   );
 
-  const test = L.popup().setContent(mapPopup(games));
+  console.log(games);
+  if (!!game_location[0] && !!game_location[1]) {
+    const newMarker = L.marker(game_location, { icon: markerIcon }).addTo(
+      markerGroup,
+    );
 
-  newMarker.bindPopup(test);
-
-  // newMarker.on("mouseover", function (e) {
-  //   newMarker.openPopup();
-  // });
-  //
-  newMarker.on("click", function (e) {
-    this.openPopup();
-    // setIsClicked(true);
-  });
-  //
-  // {
-  //   !isClicked &&
-  //     newMarker.on("mouseout", function (e) {
-  //       this.closePopup();
-  //     });
-  // }
-
+    const markerPopUp = L.popup().setContent(mapPopup(games));
+    newMarker.bindPopup(markerPopUp);
+  }
   return null;
 };
-
 export default Marker;

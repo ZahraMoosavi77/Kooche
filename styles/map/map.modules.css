@@ -14,8 +14,10 @@
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    width: 400px !important;
-    height: 400px !important;
+    @apply w-[200px];
+    @apply h-[200px];
+    @apply md:w-[400px];
+    @apply md:h-[400px];
     border-radius: 50% !important;
     border: 1px solid  #A77AF2 !important;
     background: rgba(109, 33, 233, 0.07) !important;
@@ -44,6 +46,12 @@
     background-color: #dcdcdc;
     border-radius: 8px;
     margin-left: 16px;
+    overflow: hidden ;
+}
+
+.popup-image_url {
+    width: 100%;
+    height: 100% !important;
 }
 
 .popup-content {

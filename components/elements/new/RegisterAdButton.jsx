@@ -37,7 +37,7 @@ export default function RegisterAdButton({ text }) {
     phonenumber,
     sellername,
   } = values;
-   
+
 
   const handleInsertData = async (e) => {
     e.preventDefault();
@@ -61,7 +61,7 @@ export default function RegisterAdButton({ text }) {
     if (!provinceId) setIsValidProvince(false);
     if (!cityId) setIsValidCity(false);
     if(!platformId) setIsValidPlatform(false)
-       
+
 
     if ((isValidName && isValidPrice && isValidPhoneNumber && isValidSellerName ) === true) {
       const { data, error } = await supabase
@@ -73,19 +73,19 @@ export default function RegisterAdButton({ text }) {
         if(data){
           // router.push('/')
           let valuesArray = Object.values(values);
-          for (let value of valuesArray) { 
+          for (let value of valuesArray) {
             // console.log(values);
            setValues({...values, [value]:null})
-             
 
-        } 
+
+        }
         // if(error) console.log(error);
-        }  
+        }
     }
   }
   return (
     <form onSubmit={handleInsertData}>
-    
+
       <button  className='font-peyda-medium text-white bg-primary leading-leading-3 rounded-xl px-4 py-2 w-[72%] sm:w-[184px]  h-12 hover:bg-primary-600'>{text}</button>
     </form>
   )

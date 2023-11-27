@@ -17,7 +17,7 @@ export const MapProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    setUserLocation(JSON.parse(localStorage.getItem("userLocation")));
+    setUserLocation(JSON.parse(localStorage?.getItem("userLocation")));
   }, []);
 
   useEffect(() => {
@@ -34,7 +34,6 @@ export const MapProvider = ({ children }) => {
 
     fetchData();
   }, []);
-
   return (
     <LocationContext.Provider value={userLocation}>
       <ActionLocationContext.Provider value={setUserLocation}>
