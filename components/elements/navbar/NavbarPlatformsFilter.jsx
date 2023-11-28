@@ -1,6 +1,7 @@
-import React, { useCallback, useState } from "react";
-import NavbarFilterPlatform from "./NavbarFilterPlatform";
+"use client";
+import { useCallback, useState } from "react";
 import Image from "next/image";
+import { NavbarFilterPlatform } from "@/index";
 
 const NavbarPlatformsFilter = ({ setFilters, platforms }) => {
   const [platformSearch, setPlatformSearch] = useState("");

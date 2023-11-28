@@ -1,3 +1,4 @@
+"use client";
 import { useContext, useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { LocationContext, UserSearchContext } from "@/context/map/mapContext";
@@ -7,6 +8,8 @@ export function useGetGamesData(gameNameSearch = "") {
   const userSearch = useContext(UserSearchContext);
   const [locations, setLocations] = useState([]);
   const [displayLocations, setDisplayLocations] = useState([]);
+  const [isEmpty, setIsEmpty] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,6 +33,7 @@ export function useGetGamesData(gameNameSearch = "") {
         );
 
       setLocations(data);
+      setIsLoading(false);
     };
 
     fetchData();
@@ -37,6 +41,7 @@ export function useGetGamesData(gameNameSearch = "") {
 
   useEffect(() => {
     if (locations.length) {
+      setIsEmpty(false);
       const { gameNameTerm, platformsTerm, isForExchange, isForSell } =
         userSearch;
       let gameName;
@@ -110,8 +115,10 @@ export function useGetGamesData(gameNameSearch = "") {
       });
 
       setDisplayLocations(newLocations);
+    } else {
+      setIsEmpty(true);
     }
   }, [locations, userSearch, gameNameSearch]);
 
-  return displayLocations;
+  return { displayLocations, isEmpty, isLoading };
 }

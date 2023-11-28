@@ -1,8 +1,7 @@
 "use client";
 import Image from "next/image";
-import NavbarLocationProvince from "@/components/elements/navbar/NavbarLocationProvince";
-import React, { useState } from "react";
-import NavbarLocationCity from "@/components/elements/navbar/NavbarLocationCity";
+import { useState } from "react";
+import { NavbarLocationCity, NavbarLocationProvince } from "@/index";
 
 const NavbarLocationModal = ({ onClose, provinces }) => {
   const [isProvinces, setIsProvinces] = useState(true);
@@ -52,10 +51,11 @@ const NavbarLocationModal = ({ onClose, provinces }) => {
               </h6>
             </div>
             <ul>
-              {cities.citiesList.map(({ id, name }) => (
+              {cities.citiesList.map(({ id, name, center }) => (
                 <NavbarLocationCity
                   key={id}
                   cityName={name}
+                  cityCenter={center}
                   provinceName={cities.province}
                   onClose={onClose}
                   isProvinces={setIsProvinces}

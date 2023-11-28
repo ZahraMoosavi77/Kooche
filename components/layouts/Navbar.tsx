@@ -1,24 +1,23 @@
 "use client";
-import MapSearch from "@/components/elements/navbar/MapSearch";
 import Image from "next/image";
-import NavbarLocation from "@/components/elements/navbar/NavbarLocation";
 import Link from "next/link";
 import "@/styles/navbar/navbar.modules.css";
-import NavbarSearchTags from "@/components/elements/navbar/NavbarSearchTags";
-import NavbarResultNumber from "@/components/elements/navbar/NavbarResultNumber";
 import { usePathname } from "next/navigation";
-import { useWindowSize } from "@/hooks/useWindowSize";
-import SideMenu from "../templates/side-menu";
-import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
-import { UseGlobalContext } from "@/context/AuthContext";
+import { useState } from "react";
+import {
+  MapSearch,
+  NavbarLocation,
+  NavbarResultNumber,
+  NavbarSearchTags,
+  SideMenu,
+  UseGlobalContext,
+} from "@/index";
 
 const Navbar = () => {
   const [isShow, setIsShow] = useState(false);
-  const { width } = useWindowSize();
   const path = usePathname();
   const { id, isLoggedIn, setIsLoggedIn, setId } = UseGlobalContext();
-  
+
   return (
     <div
       className={`px-2.5 py-1 md:px-[56px] xl:px-[108px] ${
@@ -75,7 +74,12 @@ const Navbar = () => {
           )}
           <Link className="bg-primary px-4 py-2 rounded-xl" href={"/new"}>
             <button className="w-full h-full flex gap-2">
-              <Image src={"/images/side-menu/Add_Plus.svg"} height={24} width={24} alt="add / plus" />
+              <Image
+                src={"/images/side-menu/Add_Plus.svg"}
+                height={24}
+                width={24}
+                alt="add / plus"
+              />
               <span className="navbar-link text-white">ثبت آگهی</span>
             </button>
           </Link>

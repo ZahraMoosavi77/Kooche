@@ -1,10 +1,11 @@
+"use client";
 import { useCallback, useContext, useState } from "react";
 import Image from "next/image";
 import {
   ActionUserSearchContext,
+  MapSearchModalSuggestions,
   UserSearchContext,
-} from "@/context/map/mapContext";
-import MapSearchModalSuggestions from "@/components/elements/navbar/MapSearchModalSuggestions";
+} from "@/index";
 
 const MapSearchModal = ({ onClose }) => {
   const { gameNameTerm } = useContext(UserSearchContext);

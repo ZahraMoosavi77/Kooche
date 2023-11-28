@@ -1,6 +1,6 @@
 import { useCallback, useContext } from "react";
 import Image from "next/image";
-import { ActionUserSearchContext } from "@/context/map/mapContext";
+import { ActionUserSearchContext } from "@/index";
 
 const NavbarSearchPlatformsTags = ({ platformName }) => {
   const setSearchTerm = useContext(ActionUserSearchContext);
@@ -14,8 +14,9 @@ const NavbarSearchPlatformsTags = ({ platformName }) => {
     },
     [platformName],
   );
+
   return (
-    <span className="flex gap-1 text-gray-900 font-peyda-regular py-0.5 px-4 border border-gray-300 bg-gray-200 rounded-[80px] items-center mt-4">
+    <span className="flex gap-1 flex-shrink-0 text-gray-900 font-peyda-regular py-0.5 px-4 border border-gray-300 bg-gray-200 rounded-[80px] items-center mt-4">
       <Image
         id={platformName}
         src="images/map/Close_SM.svg"

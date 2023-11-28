@@ -1,6 +1,7 @@
-export const setUserLocation = (cityName, provinceName) => {
+export const setUserLocation = (cityName, provinceName, cityCenter) => {
   const location = JSON.stringify({
     cityName: cityName,
+    cityCenter: cityCenter,
     provinceName: provinceName,
   });
 

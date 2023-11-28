@@ -18,9 +18,13 @@ import {
 
 import { NewContext } from "@/context/NewContext";
 import dynamic from "next/dynamic";
-const MapNewPage = dynamic(() => import("@/components/elements/new/MapNewPage"), {
-  ssr: false, // Disable server-side rendering for Leaflet component
-});
+
+const MapNewPage = dynamic(
+  () => import("@/components/elements/new/MapNewPage"),
+  {
+    ssr: false, // Disable server-side rendering for Leaflet component
+  },
+);
 export default function InfoSellerSection() {
   const [provinces, setProvinces] = useState([]);
   const {
@@ -107,7 +111,7 @@ export default function InfoSellerSection() {
           </div>
         </div>
 
-        <MapNewPage mapCenter ={centerCity} />
+        <MapNewPage mapCenter={centerCity} />
       </div>
 
       <div>

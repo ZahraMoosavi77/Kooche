@@ -1,10 +1,8 @@
 "use client";
 import Image from "next/image";
-import NavbarLocationModal from "@/components/elements/navbar/NavbarLocationModal";
 import { useCallback, useContext, useEffect, useState } from "react";
-import { LocationContext } from "@/context/map/mapContext";
-import { setUserLocation } from "@/utils/map/setUserLocation";
 import { supabase } from "@/lib/supabase";
+import { LocationContext, NavbarLocationModal, setUserLocation } from "@/index";
 
 const NavbarLocation = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,12 +11,12 @@ const NavbarLocation = () => {
 
   useEffect(() => {
     if (!localStorage.getItem("userLocation")) {
-      setUserLocation("تهران", "تهران");
+      setUserLocation("تهران", "تهران", [35.6892523, 51.3896004]);
     }
     const fetchData = async () => {
       let { data } = await supabase
         .from("provinces")
-        .select(`name,id,cities(name,id)`)
+        .select(`name,id,cities(name,id,center)`)
         .order("name");
 
       setProvinces(data);

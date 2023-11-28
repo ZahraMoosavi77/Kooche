@@ -17,7 +17,7 @@ const NavbarFilterPlatform = ({
         type="checkbox"
         name={platformName}
         id={platformName}
-        className="cursor-pointer w-4 h-4"
+        className="cursor-pointer w-4 h-4 filter-checkbox appearance-none border checked:border-0 border-gray-600 rounded-[3px]"
         checked={platformState}
         onChange={handlePlatformChange}
       />

@@ -1,14 +1,15 @@
-'use client'
+"use client";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import SetGameLocation from "./SetGameLocation";
-import SetMapCenter from "./SetMapCenter"
-export default function MapNewPage({ mapCenter }) {
+import SetMapCenter from "./SetMapCenter";
+
+const MapNewPage = ({ mapCenter }) => {
   const mapOptions = {
     center: [35.5834074, 53.3882906],
     zoom: 10,
     scrollWheelZoom: true,
-    attributionControl: false
+    attributionControl: false,
   };
   return (
     <div className="rounded-xl w-full h-[300px]">
@@ -19,4 +20,6 @@ export default function MapNewPage({ mapCenter }) {
       </MapContainer>
     </div>
   );
-}
+};
+
+export default MapNewPage;

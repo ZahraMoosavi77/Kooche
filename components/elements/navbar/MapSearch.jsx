@@ -1,6 +1,4 @@
-"use client";
-import MapSearchInput from "@/components/elements/navbar/MapSearchInput";
-import MapSearchFilter from "@/components/elements/navbar/MapSearchFilter";
+import { MapSearchFilter, MapSearchInput } from "@/index";
 
 const MapSearch = () => {
   return (

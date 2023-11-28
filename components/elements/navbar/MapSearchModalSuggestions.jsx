@@ -1,9 +1,26 @@
-import MapSearchModalSingleSuggestion from "@/components/elements/navbar/MapSearchModalSingleSuggestion";
 import Image from "next/image";
-import { useGetGamesData } from "@/hooks/useGetGamesData";
+import { MapSearchModalSingleSuggestion, useGetGamesData } from "@/index";
 
 const MapSearchModalSuggestions = ({ gameName, setGameName, onClose }) => {
-  const displayGames = useGetGamesData(gameName);
+  const {
+    displayLocations: displayGames,
+    isEmpty,
+    isLoading,
+  } = useGetGamesData(gameName);
+
+  if (isLoading) {
+    return (
+      <p className="absolute top-11 md:top-[52px] flex gap-2 items-center right-0 w-full h-12 rounded-xl border border-gray-200 bg-white z-[403] py-1.5 px-3 font-peyda-regular leading-leading-3 text-gray-900">
+        <Image
+          src="images/map/fi-rr-gamepad.svg"
+          alt="gamepad"
+          width={24}
+          height={24}
+        />
+        Loading...
+      </p>
+    );
+  }
 
   if (!displayGames.length) {
     return (
@@ -14,7 +31,7 @@ const MapSearchModalSuggestions = ({ gameName, setGameName, onClose }) => {
           width={24}
           height={24}
         />
-        Loading...
+        نتیجه ای یافت نشد!
       </p>
     );
   }

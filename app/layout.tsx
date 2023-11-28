@@ -1,8 +1,8 @@
 import "./globals.css";
-import Navbar from "@/components/layouts/Navbar";
 import { MapProvider } from "@/context/map/mapContext";
 import { AuthContextProvider } from "@/context/AuthContext";
 import { NewPageProvider } from "@/context/NewContext";
+import { Navbar } from "@/index";
 
 export const metadata = {
   title: "کوچه جایی برای اشتراک بازی",
