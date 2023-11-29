@@ -1,8 +1,7 @@
+"use client";
 import Image from "next/image";
 import { useContext, useState } from "react";
-import MapSearchModal from "@/components/elements/navbar/MapSearchModal";
-import { UserSearchContext } from "@/context/map/mapContext";
-import { useWindowSize } from "@/hooks/useWindowSize";
+import { MapSearchModal, UserSearchContext, useWindowSize } from "@/index";
 
 const MapSearchInput = () => {
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);

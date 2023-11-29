@@ -1,6 +1,7 @@
+"use client";
 import Image from "next/image";
 import { useCallback, useContext, useEffect, useRef } from "react";
-import { ActionUserSearchContext } from "@/context/map/mapContext";
+import { ActionUserSearchContext } from "@/index";
 
 const MapSearchModalSingleSuggestion = ({
   gameName,

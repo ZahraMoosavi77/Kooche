@@ -1,7 +1,7 @@
+"use client";
 import Image from "next/image";
-import NavbarFilterModal from "./NavbarFilterModal";
 import { useCallback, useState } from "react";
-import { useWindowSize } from "@/hooks/useWindowSize";
+import { NavbarFilterModal, useWindowSize } from "@/index";
 
 const MapSearchFilter = () => {
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
@@ -14,7 +14,7 @@ const MapSearchFilter = () => {
   return (
     <>
       <button
-        className="flex items-center gap-2 rounded-xl md:border-2 border-primary text-primary md:px-2.5 md2:px-4 p-2 font-peyda-semibold order-1 md:order-[0]"
+        className="flex relative items-center gap-2 rounded-xl md:border-2 border-primary text-primary md:px-2.5 md2:px-4 p-2 font-peyda-semibold order-1 md:order-[0]"
         onClick={handleFilterClick}
       >
         <Image
@@ -25,6 +25,7 @@ const MapSearchFilter = () => {
           className="md:w-6 md:h-6"
         />
         <span className="hidden md:inline">فیلتر</span>
+        {/*<span className="md:hidden w-2 h-2 rounded-full bg-accent-error-text absolute top-2.5 right-2.5"></span>*/}
       </button>
       {isFilterModalOpen && (
         <NavbarFilterModal onClose={setIsFilterModalOpen} />

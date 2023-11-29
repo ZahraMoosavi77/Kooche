@@ -31,7 +31,6 @@ export const NewPageProvider = ({ children }) => {
     locId:"",
   });
 
-
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
     if (e.target.name === "name") setIsValidName(true);
@@ -75,9 +74,7 @@ export const NewPageProvider = ({ children }) => {
         gameLocation,
         setGameLocation,
         centerCity,
-        setCenterCity,
-        isValidPlatform,
-        setIsValidPlatform,
+        setCenterCity
       }}
     >
       {children}

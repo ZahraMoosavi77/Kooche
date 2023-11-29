@@ -1,11 +1,10 @@
-"use client";
 import { useCallback, useContext } from "react";
 import {
   ActionUserSearchContext,
+  NavbarSearchPlatformsTags,
   UserSearchContext,
-} from "@/context/map/mapContext";
+} from "@/index";
 import Image from "next/image";
-import NavbarSearchPlatformsTags from "@/components/elements/navbar/NavbarSearchPlatformsTags";
 
 const NavbarSearchTags = () => {
   const { isForSell, isForExchange, platformsTerm } =
@@ -21,9 +20,9 @@ const NavbarSearchTags = () => {
     });
   }, []);
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 overflow-y-auto no-scrollbar">
       {isForSell && (
-        <span className="flex gap-1 text-gray-900 font-peyda-regular py-0.5 px-4 border border-gray-300 bg-gray-200 rounded-[80px] items-center mt-4">
+        <span className="flex gap-1 flex-shrink-0 text-gray-900 font-peyda-regular py-0.5 px-4 border border-gray-300 bg-gray-200 rounded-[80px] items-center mt-4">
           <Image
             id="isForSell"
             src="images/map/Close_SM.svg"
@@ -36,7 +35,7 @@ const NavbarSearchTags = () => {
         </span>
       )}
       {isForExchange && (
-        <span className="flex gap-1 text-gray-900 font-peyda-regular py-0.5 px-4 border border-gray-300 bg-gray-200 rounded-[80px] items-center mt-4">
+        <span className="flex gap-1 flex-shrink-0 text-gray-900 font-peyda-regular py-0.5 px-4 border border-gray-300 bg-gray-200 rounded-[80px] items-center mt-4">
           <Image
             id="isForExchange"
             src="images/map/Close_SM.svg"

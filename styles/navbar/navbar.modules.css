@@ -4,7 +4,44 @@
     @apply bg-gray-200;
 }
 
+.no-scrollbar::-webkit-scrollbar{
+    display: none;
+}
+
 .modal-scrollbar::-webkit-scrollbar-thumb{
     @apply rounded-[176px];
     @apply bg-gray-500;
+}
+
+.filter-checkbox {
+    display: grid;
+    place-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.filter-checkbox::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    transform: scale(0);
+    box-shadow: inset 1em 1em #6D21E9;
+}
+.filter-checkbox::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    display: none;
+    right: 3px;
+    top: 3px;
+    box-shadow: inset 1em 1em #ffffff;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.filter-checkbox:checked::before {
+    transform: scale(1);
+}
+.filter-checkbox:checked::after {
+    display: block;
 }
