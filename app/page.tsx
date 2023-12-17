@@ -1,8 +1,6 @@
 import dynamic from "next/dynamic";
 const MapContent = dynamic(
-  () => {
-     return import("@/components/elements/map/MapContent")
-  },
+  () => import("@/components/elements/map/MapContent"),
   {
     ssr: false, // Disable server-side rendering for Leaflet component
   }
