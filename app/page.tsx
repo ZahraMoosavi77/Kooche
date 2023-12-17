@@ -1,5 +1,6 @@
-'use client'
+
 import dynamic from "next/dynamic";
+import { useState } from 'react'
 const MapContent = dynamic(
   () => import("@/components/elements/map/MapContent"),
   {
@@ -7,10 +8,14 @@ const MapContent = dynamic(
   }
 );
 
+
+
 export default function page() {
+
+  if(typeof window !== undefined) {
   return (
-    <div className="flex flex-grow">
-      <MapContent />
-    </div>
-  );
+   <div className="flex flex-grow">
+   <MapContent />
+ </div>)};
 }
+  
