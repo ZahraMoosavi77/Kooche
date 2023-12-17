@@ -5,7 +5,6 @@ import { SEARCH, infoSeller } from "@/constants/constantNewPage";
 import TitleNewPage from "../elements/new/TitleNewPage";
 import TextNewPage from "../elements/new/TextNewPage";
 import SelectOptionsNewPage from "../elements/new/SelectOptionsNewPage";
-import { SEARCHCITY, SEARCHUNITED } from "@/constants/constantNewPage";
 import { useState, useEffect, useContext } from "react";
 import { supabase } from "@/lib/supabase";
 import { ErrorMessageNameOfSeller } from "@/constants/constantNewPage";
@@ -46,7 +45,7 @@ export default function InfoSellerSection() {
   useEffect(() => {
     getDataProvince();
   }, []);
-  if(typeof window !== undefined){
+  if(typeof window === undefined){
   return (
     <div className=" flex flex-col gap-4">
       <div className=" flex flex-col gap-1">

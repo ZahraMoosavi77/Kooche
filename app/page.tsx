@@ -12,7 +12,7 @@ const MapContent = dynamic(
 
 export default function page() {
 
-  if(typeof window !== undefined) {
+  if(typeof window === undefined) {
   return (
    <div className="flex flex-grow">
    <MapContent />
