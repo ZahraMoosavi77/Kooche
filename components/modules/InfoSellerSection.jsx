@@ -46,6 +46,7 @@ export default function InfoSellerSection() {
   useEffect(() => {
     getDataProvince();
   }, []);
+  if(typeof window !== undefined){
   return (
     <div className=" flex flex-col gap-4">
       <div className=" flex flex-col gap-1">
@@ -110,7 +111,7 @@ export default function InfoSellerSection() {
             />
           </div>
         </div>
-
+        
         <MapNewPage mapCenter={centerCity} />
       </div>
 
@@ -134,4 +135,5 @@ export default function InfoSellerSection() {
       </div>
     </div>
   );
+        }
 }
