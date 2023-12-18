@@ -1,11 +1,18 @@
+"use client";
 import { useMap } from "react-leaflet";
 import L from "leaflet";
-import Marker from "@/components/elements/map/Marker";
-import SetView from "@/components/elements/map/SetView";
-import { useGetGamesData } from "@/hooks/useGetGamesData";
+import {
+  Loading,
+  LocationContext,
+  Marker,
+  SetView,
+  useGetGamesData,
+} from "@/index";
+import { useContext } from "react";
 
 const MarkersContainer = () => {
-  const displayLocations = useGetGamesData();
+  const { displayLocations, isEmpty, isLoading } = useGetGamesData();
+  const { cityCenter: mapCenter } = useContext(LocationContext);
   const map = useMap();
   const markerGroup = L.featureGroup().addTo(map);
   markerGroup.clearLayers();
@@ -15,23 +22,31 @@ const MarkersContainer = () => {
     }
   });
 
+  if (isLoading) {
+    return (
+      <div className="z-[401] bg-white relative w-full h-full">
+        <Loading />
+      </div>
+    );
+  }
+
+  if (isEmpty) {
+    return (
+      <>
+        <SetView markerGroup={markerGroup} map={map} mapCenter={mapCenter} />
+        <span className="relative text-white py-2 top-6 px-6 rounded-xl bg-accent-dark font-peyda-bold leading-leading-3 z-[401]">
+          آگهی در این شهر وجود ندارد
+        </span>
+      </>
+    );
+  }
+
   return (
     <>
       {displayLocations.map((game) => (
         <Marker key={game.id} game={game} markerGroup={markerGroup} />
       ))}
-      {!displayLocations.length && (
-        <div
-          className={
-            "w-full h-full z-[401] bg-gray-900 flex justify-center relative items-center opacity-60"
-          }
-        >
-          <p className={"text-[2.5rem] text-gray-400 font-extrabold"}>
-            بازی مورد نظر یافت نشد
-          </p>
-        </div>
-      )}
-      <SetView markerGroup={markerGroup} map={map}  />
+      <SetView markerGroup={markerGroup} map={map} mapCenter={mapCenter} />
     </>
   );
 };

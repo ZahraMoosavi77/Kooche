@@ -3,10 +3,10 @@ import Image from "next/image";
 import { useCallback, useContext, useState } from "react";
 import {
   ActionUserSearchContext,
+  NavbarKindFilter,
+  NavbarPlatformsFilter,
   UserSearchContext,
-} from "@/context/map/mapContext";
-import NavbarKindFilter from "@/components/elements/navbar/NavbarKindFilter";
-import NavbarPlatformsFilter from "@/components/elements/navbar/NavbarPlatformsFilter";
+} from "@/index";
 
 const NavbarFilterModal = ({ onClose }) => {
   const setSearchTerm = useContext(ActionUserSearchContext);

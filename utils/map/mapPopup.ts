@@ -1,4 +1,11 @@
 export const mapPopup = (games) => {
+  const haveNotPlatforms = games[0].platforms === null;
+  let platformName = "";
+
+  if (!haveNotPlatforms) {
+    platformName = games[0].platforms.name;
+  }
+
   return `<div class="popup-image"><Image
           src=${games[0].imageUrl}
           alt="game image"
@@ -18,7 +25,7 @@ ${!!parseInt(games[0].price) ? "<span class='popup-tag'>فروش</span>" : ""}
 </div>
 <div class="flex items-center">
 <img src="/images/map/Tag.svg" alt="Tag">
-<span class="popup-platform">${games[0].platforms.name}</span>
+<span class="popup-platform">${platformName}</span>
 </div>
 <div class="flex popup-price">${games[0].price} تومان</div>
 </div>`;

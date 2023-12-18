@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Button } from "@/index";
 import { useRouter, usePathname } from "next/navigation";
 import { sideMenuLinks } from "@/constants/Side-Menu/constants";
+import Link from "next/link";
 
 const SideMenu = ({ setIsShow }) => {
   const router = useRouter();
@@ -12,10 +13,6 @@ const SideMenu = ({ setIsShow }) => {
 
   const closeSideMenu = () => {
     setIsShow(false);
-  };
-
-  const onClickHandler = () => {
-    router.push("/new");
   };
 
   const routChanger = (link) => () => {
@@ -28,7 +25,6 @@ const SideMenu = ({ setIsShow }) => {
       {
         <div className="flex lg:hidden w-screen min-h-screen fixed z-[999] left-0 top-0 bottom-0">
           <div className="flex flex-col bg-white w-[70%] max-w-[500px] h-full px-5 ">
-            {/* <div className="w-full px-20 py-5 flex items-center justify-center"> */}
             <Image
               src={"/images/auth/auth-logo-mobile.png"}
               width={104}
@@ -36,12 +32,10 @@ const SideMenu = ({ setIsShow }) => {
               alt="Kooche's logo"
               className="justify-self-center mx-auto my-5"
             />
-            {/* </div> */}
             <div className="flex flex-col">
               {sideMenuLinks.map(
                 ({ title, src, srcActive, link, alt, url }, index) =>
                   primaryPath === url ? (
-                    // <Link href={link} key={index}>
                     <div
                       key={index}
                       onClick={routChanger(link)}
@@ -96,7 +90,7 @@ const SideMenu = ({ setIsShow }) => {
                 iconHeight={24}
                 alt="plus icon"
                 text="ثبت آگهی"
-                onClickHandler={onClickHandler}
+                onClickHandler={routChanger('new')}
               />
             </div>
           </div>

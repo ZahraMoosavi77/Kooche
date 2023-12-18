@@ -23,7 +23,7 @@ const NavbarKindFilter = ({ setFilters, filters }) => {
             id="isForSellFilter"
             checked={isForSellFilter}
             onChange={handleKindFilterChange}
-            className="cursor-pointer w-4 h-4"
+            className="cursor-pointer w-4 h-4 filter-checkbox appearance-none border checked:border-0 border-gray-600 rounded-[3px]"
           />
           <label
             htmlFor="isForSellFilter"
@@ -39,7 +39,7 @@ const NavbarKindFilter = ({ setFilters, filters }) => {
             id="isForExchangeFilter"
             checked={isForExchangeFilter}
             onChange={handleKindFilterChange}
-            className="cursor-pointer w-4 h-4"
+            className="cursor-pointer w-4 h-4 filter-checkbox appearance-none border checked:border-0 border-gray-600 rounded-[3px]"
           />
           <label
             htmlFor="isForExchangeFilter"

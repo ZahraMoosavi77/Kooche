@@ -2,7 +2,7 @@
 import "@/styles/map/map.modules.css";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import MarkersContainer from "@/components/elements/map/MarkersContainer";
+import { MarkersContainer } from "@/index";
 
 const mapOptions = {
   center: [35.68804331563681, 51.38883302970867],
@@ -12,7 +12,10 @@ const mapOptions = {
 const MapContent = () => {
   return (
     <div className={"w-full h-full"}>
-      <MapContainer className={"relative h-full"} {...mapOptions}>
+      <MapContainer
+        className={"relative h-full flex justify-center items-start"}
+        {...mapOptions}
+      >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <MarkersContainer />
       </MapContainer>

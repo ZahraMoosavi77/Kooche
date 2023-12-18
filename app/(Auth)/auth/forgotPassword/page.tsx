@@ -38,8 +38,7 @@ const Page = () => {
       setConfirm("");
       setValue("");
       router.push("/auth");
-      console.log(error);
-      console.log(console.log(data));
+      
     } else {
       setIsConfirmValideted(false);
       setIsValueValideted(false);

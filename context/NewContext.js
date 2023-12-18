@@ -5,12 +5,13 @@ export const NewContext = createContext({});
 export const NewPageProvider = ({ children }) => {
   const [isSale, setIsSale] = useState(false);
   const [isExchange, setIsExchange] = useState(false);
-  const [isValidName, setIsValidName] = useState(true);
-  const [isValidPhoneNumber, setIsValidPhoneNumber] = useState(true);
-  const [isValidSellerName, setIsValidSellerName] = useState(true);
-  const [isValidPrice, setIsValidPrice] = useState(true);
-  const [isValidProvince, setIsValidProvince] = useState(true);
-  const [isValidCity, setIsValidCity] = useState(true);
+  const [isValidName, setIsValidName] = useState('-');
+  const [isValidPhoneNumber, setIsValidPhoneNumber] = useState('-');
+  const [isValidSellerName, setIsValidSellerName] = useState('-');
+  const [isValidPrice, setIsValidPrice] = useState('-');
+  const [isValidProvince, setIsValidProvince] = useState('-');
+  const [isValidCity, setIsValidCity] = useState('-');
+  const [isValidPlatform, setIsValidPlatform] = useState('-');
   const [cities, setCities] = useState([]);
   const [file, setFile] = useState([]);
   const [imageUrl, setImageUrl] = useState('');
@@ -19,7 +20,7 @@ export const NewPageProvider = ({ children }) => {
   const [values, setValues] = useState({
     name: "",
     sellername: "",
-    phonenumber: "",
+    phonenumber: "0",
     price: "",
     preferedExchange: "",
     moreInfo: "",
@@ -74,7 +75,10 @@ export const NewPageProvider = ({ children }) => {
         gameLocation,
         setGameLocation,
         centerCity,
-        setCenterCity
+        setCenterCity,
+        isValidPlatform,
+        setIsValidPlatform,
+        setIsValidPhoneNumber,
       }}
     >
       {children}

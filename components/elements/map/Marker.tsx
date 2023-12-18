@@ -1,6 +1,7 @@
+"use client";
 import L from "leaflet";
-import { mapPopup } from "@/utils/map/mapPopup";
 import { useMemo } from "react";
+import { mapPopup } from "@/index";
 
 const Marker = ({ game, markerGroup }) => {
   const { game_location, games } = game;
