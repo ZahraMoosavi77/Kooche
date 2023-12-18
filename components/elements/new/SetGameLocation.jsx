@@ -8,8 +8,11 @@ import { supabase } from "@/lib/supabase";
 const SetGameLocation = () => {
   const { setGameLocation, gameLocation,values } = useContext(NewContext);
  
-  const game_location = [gameLocation.lat,gameLocation.lng]
+  const game_location = [gameLocation.lat,gameLocation.lng];
+  const isLocation =  gameLocation.lat ?? gameLocation.lng
   const handleInsertLocation = async () => {
+    console.log(isLocation);
+    if(isLocation){
     const { data, error } = await supabase
       .from('locations')
       .insert([
@@ -18,7 +21,9 @@ const SetGameLocation = () => {
       .select()
       if(data) {
         values.locId = data[0].id;
+        console.log('ok');
       };
+    }
   }
   useEffect(() => {
     if(gameLocation) handleInsertLocation();
