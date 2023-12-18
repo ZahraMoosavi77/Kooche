@@ -1,13 +1,17 @@
 'use client'
 import { supabase } from "@/lib/supabase"
 import { useContext } from "react"
+import { useRouter } from "next/navigation";
 import { NewContext } from "@/context/NewContext"
 import { CANCEL } from '@/constants/constantNewPage'
 import CancelButton from '@/components/elements/new/CancelButton'
 import RegisterAdButton from '@/components/elements/new/RegisterAdButton'
 import { REGISTERADVERTISE } from '@/constants/constantNewPage'
+import { REGex } from "@/constants/constantNewPage";
 
 export default function ButtonGroup() {
+    const router = useRouter();
+
     const {
         isValidName,
         isValidSellerName,
@@ -21,17 +25,24 @@ export default function ButtonGroup() {
         setIsValidSellerName,
         setIsValidPrice,
         imageUrl,
-        gameLocation
-      } = useContext(NewContext);
-      const {
+        gameLocation,
+        isValidPlatform,
+        isValidCity,
+        isValidProvince,
+        setIsValidPlatform,
+    } = useContext(NewContext);
+    const {
         name,
         price,
         preferedExchange,
         moreInfo, platformId,
         cityId, provinceId,
-        exchange
-      } = values;
-      const insertData = {
+        exchange,
+        sellername,
+        phonenumber,
+
+    } = values;
+    const insertData = {
         name: name,
         platformId: platformId || null,
         moreInfo: moreInfo || null,
@@ -41,23 +52,36 @@ export default function ButtonGroup() {
         preferedExchange: preferedExchange || null,
         exchange: exchange || null,
         imageUrl: imageUrl || null
-      }
-      const handleInsertData = async () => {
-        if (!values.name.trim()) setIsValidName(false)
-        if (!values.sellername.trim()) setIsValidSellerName(false)
-        if (!values.price.trim()) setIsValidPrice(false);
-        if (!values.phonenumber.trim()) setIsValidPhoneNumber(false);
-        if (!values.platformId) setIsValidProvince(false);
-        if (!values.cityId) setIsValidCity(false);
+    }
+    const handleInsertData = async () => {
+        const result = REGex.test(phonenumber);
+        if (!result && !phonenumber.trim()) setIsValidPhoneNumber(false);
+        if (result && phonenumber.trim()) setIsValidPhoneNumber(true);
+        if (!name.trim()) setIsValidName(false)
+        if (!sellername.trim()) setIsValidSellerName(false)
+        if (!price.trim()) setIsValidPrice(false);
+        if (!provinceId) setIsValidProvince(false);
+        if (!cityId) setIsValidCity(false);
+        if (!platformId) setIsValidPlatform(false)
 
-        if ((isValidName && isValidPrice && isValidPhoneNumber && isValidSellerName ) === true) {
-          const { data, error } = await supabase
-            .from('games')
-            .insert([insertData,
-            ])
-            .select()
+        if ((isValidName && isValidPhoneNumber && isValidSellerName && isValidPlatform && isValidCity && isValidProvince) === true) {
+            const { data, error } = await supabase
+                .from('games')
+                .insert([insertData,
+                ])
+                .select()
+            if (data) {
+                for (let v of Object.keys(values)) {
+                    values[v] = ""
+                }
+            }
+            router.back()
         }
-      }
+
+        else {
+            console.log('not send');
+        }
+    }
     return (
         <>
             <CancelButton text={CANCEL} />

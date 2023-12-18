@@ -9,7 +9,6 @@ import { useState, useEffect, useContext } from "react";
 import { supabase } from "@/lib/supabase";
 import { ErrorMessageNameOfSeller } from "@/constants/constantNewPage";
 import { ErrorMessagePhoneNumber } from "@/constants/constantNewPage";
-import { REGex } from "@/constants/constantNewPage";
 import {
   ErrorMessageCity,
   ErrorMessageProvince,
@@ -117,8 +116,6 @@ export default function InfoSellerSection() {
       <div>
         <TextFieldNewPage
           validate={isValidPhoneNumber}
-          required={true}
-          pattern={REGex}
           errormessage={ErrorMessagePhoneNumber}
           name={"phonenumber"}
           label={
