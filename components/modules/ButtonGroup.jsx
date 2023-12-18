@@ -7,7 +7,6 @@ import { CANCEL } from '@/constants/constantNewPage'
 import CancelButton from '@/components/elements/new/CancelButton'
 import RegisterAdButton from '@/components/elements/new/RegisterAdButton'
 import { REGISTERADVERTISE } from '@/constants/constantNewPage'
-import { REGex } from "@/constants/constantNewPage";
 
 export default function ButtonGroup() {
     const router = useRouter();
@@ -54,16 +53,14 @@ export default function ButtonGroup() {
         imageUrl: imageUrl || null
     }
     const handleInsertData = async () => {
-        const result = REGex.test(phonenumber);
-        if (!result && !phonenumber.trim()) setIsValidPhoneNumber(false);
-        if (result && phonenumber.trim()) setIsValidPhoneNumber(true);
+       
         if (!name.trim()) setIsValidName(false)
         if (!sellername.trim()) setIsValidSellerName(false)
         if (!price.trim()) setIsValidPrice(false);
         if (!provinceId) setIsValidProvince(false);
         if (!cityId) setIsValidCity(false);
         if (!platformId) setIsValidPlatform(false)
-
+        if (isValidPhoneNumber !== true) setIsValidPhoneNumber(false)
         if ((isValidName && isValidPhoneNumber && isValidSellerName && isValidPlatform && isValidCity && isValidProvince) === true) {
             const { data, error } = await supabase
                 .from('games')

@@ -1,14 +1,24 @@
 'use client'
 import { NewContext } from "@/context/NewContext"
-import { useContext} from "react"
+import { useContext, useEffect } from "react"
 import TextError from "./TextError";
 import TextHelper from './TextHelper'
 import { TEXTHELPER } from '@/constants/constantNewPage'
+import { REGex } from "@/constants/constantNewPage";
 
 export default function TextField({ type, label, name, errormessage, helpText, value, validate }) {
 
-  const { onChange } = useContext(NewContext);
+  const { onChange, values, setIsValidPhoneNumber } = useContext(NewContext);
+  const { phonenumber } = values;
+  useEffect(()=>{
+    if (name === "phonenumber") {
+      const result = REGex.test(phonenumber);
+      if (!result && !phonenumber.trim()) setIsValidPhoneNumber(false);
+      if (result && phonenumber.trim()) setIsValidPhoneNumber(true);
+    }
+  },[])
   
+
   return (
     <>
       <label htmlFor={name}>{label} </label>

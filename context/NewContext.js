@@ -20,7 +20,7 @@ export const NewPageProvider = ({ children }) => {
   const [values, setValues] = useState({
     name: "",
     sellername: "",
-    phonenumber: "",
+    phonenumber: "0",
     price: "",
     preferedExchange: "",
     moreInfo: "",
@@ -76,7 +76,8 @@ export const NewPageProvider = ({ children }) => {
         centerCity,
         setCenterCity,
         isValidPlatform,
-        setIsValidPlatform
+        setIsValidPlatform,
+        setIsValidPhoneNumber,
       }}
     >
       {children}
