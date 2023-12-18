@@ -74,7 +74,9 @@ export const NewPageProvider = ({ children }) => {
         gameLocation,
         setGameLocation,
         centerCity,
-        setCenterCity
+        setCenterCity,
+        isValidPlatform,
+        setIsValidPlatform
       }}
     >
       {children}
