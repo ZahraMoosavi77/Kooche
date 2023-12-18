@@ -50,7 +50,7 @@ export default function ButtonGroup() {
         if (!values.platformId) setIsValidProvince(false);
         if (!values.cityId) setIsValidCity(false);
 
-        if (isValidName && isValidPrice && isValidPhoneNumber && isValidSellerName) {
+        if ((isValidName && isValidPrice && isValidPhoneNumber && isValidSellerName ) === true) {
           const { data, error } = await supabase
             .from('games')
             .insert([insertData,
