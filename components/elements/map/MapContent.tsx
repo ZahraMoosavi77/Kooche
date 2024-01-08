@@ -1,14 +1,16 @@
 "use client";
-import "@/styles/map/map.modules.css";
 import { MapContainer, TileLayer } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
 import { MarkersContainer } from "@/index";
+import { LatLngExpression } from "leaflet";
+import "leaflet/dist/leaflet.css";
+import "@/styles/map/map.modules.css";
 
 const mapOptions = {
-  center: [35.68804331563681, 51.38883302970867],
+  center: [35.68804331563681, 51.38883302970867] as LatLngExpression,
   zoom: 10,
   scrollWheelZoom: true,
 };
+
 const MapContent = () => {
   return (
     <div className={"w-full h-full"}>

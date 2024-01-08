@@ -4,11 +4,10 @@ import { useContext, useState } from "react";
 import { MapSearchModal, UserSearchContext, useWindowSize } from "@/index";
 
 const MapSearchInput = () => {
-  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState<boolean>(false);
   const searchTerm = useContext(UserSearchContext);
   const { gameNameTerm } = searchTerm;
   const { width } = useWindowSize();
-
   return (
     <>
       <div

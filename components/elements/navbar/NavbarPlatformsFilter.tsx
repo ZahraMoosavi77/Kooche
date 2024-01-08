@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useState } from "react";
 import Image from "next/image";
-import { NavbarFilterPlatform } from "@/index";
+import { NavbarSinglePlatformFilter } from "@/index";
 
 const NavbarPlatformsFilter = ({ setFilters, platforms }) => {
   const [platformSearch, setPlatformSearch] = useState("");
@@ -45,7 +45,7 @@ const NavbarPlatformsFilter = ({ setFilters, platforms }) => {
                 .includes(platformSearch.toLowerCase().trim()),
             )
             .map((name, index) => (
-              <NavbarFilterPlatform
+              <NavbarSinglePlatformFilter
                 key={index}
                 platformName={name}
                 setPlatformState={setFilters}

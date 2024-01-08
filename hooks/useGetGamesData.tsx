@@ -3,11 +3,11 @@ import { useContext, useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { LocationContext, UserSearchContext } from "@/context/map/mapContext";
 
-export function useGetGamesData(gameNameSearch = "") {
+export function useGetGamesData(gameNameSearch: string = "") {
   const userLocation = useContext(LocationContext);
   const userSearch = useContext(UserSearchContext);
-  const [locations, setLocations] = useState([]);
-  const [displayLocations, setDisplayLocations] = useState([]);
+  const [locations, setLocations] = useState<any[]>([]);
+  const [displayLocations, setDisplayLocations] = useState<any[]>([]);
   const [isEmpty, setIsEmpty] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,7 +29,7 @@ export function useGetGamesData(gameNameSearch = "") {
         )
         .eq(
           "games.cities.name",
-          JSON.parse(localStorage.getItem("userLocation")).cityName,
+          JSON.parse(localStorage.getItem("userLocation")!).cityName,
         );
 
       setLocations(data);
@@ -44,7 +44,7 @@ export function useGetGamesData(gameNameSearch = "") {
       setIsEmpty(false);
       const { gameNameTerm, platformsTerm, isForExchange, isForSell } =
         userSearch;
-      let gameName;
+      let gameName: string;
 
       if (gameNameSearch) {
         gameName = gameNameSearch;

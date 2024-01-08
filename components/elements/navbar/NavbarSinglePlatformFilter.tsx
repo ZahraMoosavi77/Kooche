@@ -1,4 +1,4 @@
-const NavbarFilterPlatform = ({
+const NavbarSinglePlatformFilter = ({
   setPlatformState,
   platformName,
   platformState,
@@ -31,4 +31,4 @@ const NavbarFilterPlatform = ({
   );
 };
 
-export default NavbarFilterPlatform;
+export default NavbarSinglePlatformFilter;

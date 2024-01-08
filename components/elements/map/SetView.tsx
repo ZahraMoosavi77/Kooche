@@ -1,4 +1,4 @@
-const SetView = ({ map, markerGroup, mapCenter }) => {
+const SetView = ({ map, markerGroup, mapCenter }): null => {
   if (!!Object.keys(markerGroup.getBounds()).length) {
     map.flyToBounds(markerGroup.getBounds(), {
       animate: true,
