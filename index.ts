@@ -51,13 +51,13 @@ import Loading from "@/components/modules/Loading";
 export { Button, Input, Loading };
 
 // Elements map Imports
-import MapContent from "@/components/elements/map/MapContent";
-import Marker from "@/components/elements/map/Marker";
-import MarkersContainer from "@/components/elements/map/MarkersContainer";
+// import MapContent from "@/components/elements/map/MapContent";
+// import Marker from "@/components/elements/map/Marker";
+// import MarkersContainer from "@/components/elements/map/MarkersContainer";
 import SetView from "@/components/elements/map/SetView";
 
 // Elements map Exports
-export { MapContent, Marker, MarkersContainer, SetView };
+export {  SetView };
 
 // Elements navbar Imports
 import MapSearch from "@/components/elements/navbar/MapSearch";
