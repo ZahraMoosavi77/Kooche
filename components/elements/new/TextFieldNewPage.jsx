@@ -5,9 +5,8 @@ import TextError from "./TextError";
 import TextHelper from './TextHelper'
 import { TEXTHELPER } from '@/constants/constantNewPage'
 import { REGex } from "@/constants/constantNewPage";
-
-export default function TextField({ type, label, name, errormessage, helpText, value, validate }) {
-
+import { useForm } from "react-hook-form";
+export default function TextField({ type, label, name, errormessage, helpText, value, validate ,register,errors}) {
   const { onChange, values, setIsValidPhoneNumber } = useContext(NewContext);
   const { phonenumber } = values;
   useEffect(()=>{
@@ -17,14 +16,17 @@ export default function TextField({ type, label, name, errormessage, helpText, v
       if (result && phonenumber.trim()) setIsValidPhoneNumber(true);
     }
   },[])
-  
+   {/* {!validate ? <TextError text={errormessage} /> : ''} */}
 
   return (
     <>
       <label htmlFor={name}>{label} </label>
-      <input id={name} type={type} onChange={onChange} value={value} name={name} className={` ${validate ? 'bg-gray-200' : 'bg-accent-error'}  text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`} />
-      {!validate ? <TextError text={errormessage} /> : ''}
-      {helpText && <TextHelper specialClass={'pr-3'} text={TEXTHELPER} />}
+      <input {...register(name, {required:errormessage})} id={name} type={type}   name={name} className={` ${errors.name?.type === "required" ? 'bg-accent-error' :'bg-gray-200' }  text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`}  />
+      {/* <input {...register(name,{required:errormessage})} id={name} type={type}   name={name} className={` ${validate ? 'bg-gray-200' : 'bg-accent-error'}  text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`} /> */}
+      {errors.name?.type === "required" && (
+        <TextError text={errormessage} />
+      )}
+      {/* {helpText && <TextHelper specialClass={'pr-3'} text={TEXTHELPER} />} */}
     </>
 
 

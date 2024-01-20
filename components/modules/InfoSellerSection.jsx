@@ -47,7 +47,7 @@ export default function InfoSellerSection() {
   
   return (
     <div className=" flex flex-col gap-4">
-      <div className=" flex flex-col gap-1">
+      {/* <div className=" flex flex-col gap-1">
         <TitleNewPage text={infoSeller.INFOSELLERTITLE} />
         <SubTitleNewPage text={infoSeller.INFOSELLERSUBTITLE} />
       </div>
@@ -128,7 +128,7 @@ export default function InfoSellerSection() {
             </div>
           }
         />
-      </div>
+      </div> */}
     </div>
   );
         

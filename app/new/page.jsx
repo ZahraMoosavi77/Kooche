@@ -16,7 +16,7 @@ export default function Page() {
           <InfoSaleSection />
         </div>
         <div className='flex justify-center sm:justify-end gap-6  w-full '>
-          <ButtonGroup />
+          {/* <ButtonGroup /> */}
         </div>
       </div>
     </div>

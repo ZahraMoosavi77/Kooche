@@ -17,7 +17,7 @@ export default function InfoSaleSection() {
 
     return (
         <div className=' flex flex-col gap-4'>
-            <TitleNewPage text={infoSale.INFOSALETITLE} />
+            {/* <TitleNewPage text={infoSale.INFOSALETITLE} />
             <SubTitleNewPage text={infoSale.INFOSALESUBTITLE} />
             <div >
                 <div onClick={() => { setIsSale(!isSale); }} className='flex items-center gap-2 mb-2'>
@@ -42,7 +42,7 @@ export default function InfoSaleSection() {
                         <Optional />
                     </div>} />
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
