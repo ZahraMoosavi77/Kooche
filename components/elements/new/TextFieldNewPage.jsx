@@ -25,13 +25,13 @@ export default function TextField({ type, label, name, errormessage, helpText, v
       <label htmlFor={name}>{label} </label>
       <input 
        {...register(name, {required:errormessage})} id={name} type={type}   name={name}
-        className={` ${errors[name]?. type === "required"? twMerge('text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1  bg-gray-200','bg-accent-error') :'bg-gray-200' } 
-        text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1`}
+        className={` ${errors[name]?. type === "required"? 'bg-accent-error' :'bg-gray-200' } 
+        text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`}
         onFocus={(e) => {}}
         
         />
       
-      {errors.name?.type === "required" && (
+      {errors[name]?.type === "required"&& (
         <TextError text={errormessage} />
       )}
       {/* {helpText && <TextHelper specialClass={'pr-3'} text={TEXTHELPER} />} */}
