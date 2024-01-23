@@ -17,11 +17,11 @@ export default function TextField({ type, label, name, errormessage, helpText, v
     }
   },[])
    {/* {!validate ? <TextError text={errormessage} /> : ''} */}
-
+console.log(errors.name?.type,'name');
   return (
     <>
       <label htmlFor={name}>{label} </label>
-      <input {...register(name, {required:errormessage})} id={name} type={type}   name={name} className={` ${errors.name?.type === "required" ? 'bg-accent-error' :'bg-gray-200' }  text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`}  />
+      <input {...register(name, {required:errormessage})} id={name} type={type}   name={name} className={` ${errors.name?.type ? 'bg-accent-error' :'bg-gray-200' }  text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`}  />
       {/* <input {...register(name,{required:errormessage})} id={name} type={type}   name={name} className={` ${validate ? 'bg-gray-200' : 'bg-accent-error'}  text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`} /> */}
       {errors.name?.type === "required" && (
         <TextError text={errormessage} />

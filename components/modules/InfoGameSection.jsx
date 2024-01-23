@@ -38,7 +38,7 @@ export default function InfoGameSection() {
         <TitleNewPage text={infoGame.INFOGAMETITLE} />
         <SubTitleNewPage text={infoGame.INFOGAMESUBTITLE} />
       </div>
-      <form onSubmit={handleSubmit((data)=>{console.log(data);console.log(errors);})} >
+      <form onSubmit={handleSubmit((data)=>{console.log(data,'data');console.log(errors);})} >
         <div>
           <TextFieldNewPage 
             errors={errors}
