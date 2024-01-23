@@ -54,6 +54,20 @@ export default function InfoGameSection() {
               <TextNewPage specialClass={"pr-3"} text={infoGame.GAMENAME} />
             }
           />
+           <TextFieldNewPage 
+            errors={errors}
+            register={register}
+            value={values.moreInfo}
+            validate={isValidName}
+            required={true}
+            errormessage={'gfghghj'}
+            helpText={true}
+            name="moreInfo"
+            type={"text"}
+            label={
+              <TextNewPage specialClass={"pr-3"} text={infoGame.GAMENAME} />
+            }
+            />
         </div>
 
         {/* <div className="relative">

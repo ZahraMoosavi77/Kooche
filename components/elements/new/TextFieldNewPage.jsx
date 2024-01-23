@@ -6,6 +6,8 @@ import TextHelper from './TextHelper'
 import { TEXTHELPER } from '@/constants/constantNewPage'
 import { REGex } from "@/constants/constantNewPage";
 import { useForm } from "react-hook-form";
+import { twMerge } from 'tailwind-merge'
+
 export default function TextField({ type, label, name, errormessage, helpText, value, validate ,register,errors}) {
   const { onChange, values, setIsValidPhoneNumber } = useContext(NewContext);
   const { phonenumber } = values;
@@ -17,13 +19,19 @@ export default function TextField({ type, label, name, errormessage, helpText, v
     }
   },[])
    {/* {!validate ? <TextError text={errormessage} /> : ''} */}
-console.log(errors.name?.type,'name');
+  //  focus:bg-white focus:border focus:border-primary focus:text-primary  bg-accent-error 
   return (
     <>
       <label htmlFor={name}>{label} </label>
-      <input {...register(name, {required:errormessage})} id={name} type={type}   name={name} className={` ${errors.name?.type ? 'bg-accent-error' :'bg-gray-200' }  text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`}  />
-      {/* <input {...register(name,{required:errormessage})} id={name} type={type}   name={name} className={` ${validate ? 'bg-gray-200' : 'bg-accent-error'}  text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`} /> */}
-      {errors.name?.type === "required" && (
+      <input 
+       {...register(name, {required:errormessage})} id={name} type={type}   name={name}
+        className={` ${errors[name]?. type === "required"? 'bg-accent-error' :'bg-gray-200' } 
+        text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`}
+        onFocus={(e) => {}}
+        
+        />
+      
+      {errors[name]?.type === "required"&& (
         <TextError text={errormessage} />
       )}
       {/* {helpText && <TextHelper specialClass={'pr-3'} text={TEXTHELPER} />} */}
