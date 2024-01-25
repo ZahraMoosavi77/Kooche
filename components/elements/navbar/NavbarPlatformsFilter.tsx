@@ -1,14 +1,20 @@
 "use client";
-import { useCallback, useState } from "react";
+import { ChangeEvent, FC, useCallback, useState } from "react";
 import Image from "next/image";
 import { NavbarSinglePlatformFilter } from "@/index";
 
-const NavbarPlatformsFilter = ({ setFilters, platforms }) => {
+const NavbarPlatformsFilter: FC<NavbarPlatformsFilterProps> = ({
+  updatePlatformsFilters,
+  platforms,
+}) => {
   const [platformSearch, setPlatformSearch] = useState("");
 
-  const handlePlatformSearchChange = useCallback((e) => {
-    setPlatformSearch(() => e.target.value);
-  }, []);
+  const handlePlatformSearchChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      setPlatformSearch(() => e.target.value);
+    },
+    []
+  );
 
   return (
     <>
@@ -42,13 +48,13 @@ const NavbarPlatformsFilter = ({ setFilters, platforms }) => {
             .filter((platform) =>
               platform
                 .toLowerCase()
-                .includes(platformSearch.toLowerCase().trim()),
+                .includes(platformSearch.toLowerCase().trim())
             )
             .map((name, index) => (
               <NavbarSinglePlatformFilter
                 key={index}
                 platformName={name}
-                setPlatformState={setFilters}
+                setPlatformState={updatePlatformsFilters}
                 platformState={platforms[name]}
               />
             ))}

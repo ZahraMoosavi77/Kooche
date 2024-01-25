@@ -1,3 +1,4 @@
+import { FC } from "react";
 import dynamic from "next/dynamic";
 
 const MapContent = dynamic(
@@ -7,7 +8,7 @@ const MapContent = dynamic(
   },
 );
 
-const Page = () => {
+const Page: FC = () => {
   return (
     <div className="flex flex-grow">
       <MapContent />

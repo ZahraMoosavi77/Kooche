@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { MapSearchModalSingleSuggestion, useGetGamesData } from "@/index";
+import { FC } from "react";
 
-const MapSearchModalSuggestions = ({ gameName, setGameName, onClose }) => {
+const MapSearchModalSuggestions: FC<MapSearchModalSuggestionsProps> = ({ gameName, setGameName, onClose }) => {
   const {
     displayLocations: displayGames,
-    isEmpty,
     isLoading,
   } = useGetGamesData(gameName);
 

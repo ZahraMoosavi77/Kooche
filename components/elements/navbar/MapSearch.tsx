@@ -1,6 +1,7 @@
 import { MapSearchFilter, MapSearchInput } from "@/index";
+import { FC } from "react";
 
-const MapSearch = () => {
+const MapSearch:FC = () => {
   return (
     <>
       <MapSearchInput />

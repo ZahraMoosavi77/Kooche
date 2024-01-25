@@ -1,12 +1,12 @@
-import { useCallback, useContext } from "react";
+import { FC, useCallback, useContext } from "react";
 import {
   ActionLocationContext,
   ActionUserSearchContext,
-  setUserLocation,
   UserSearchContext,
+  setUserLocation,
 } from "@/index";
 
-const NavbarLocationCity = ({
+const NavbarLocationCity: FC<NavbarLocationCityProps> = ({
   cityName,
   onClose,
   isProvinces,
@@ -18,16 +18,19 @@ const NavbarLocationCity = ({
   const setSearchTerms = useContext(ActionUserSearchContext);
 
   const handleClick = useCallback(
-    (cityName, cityCenter) => {
-      setLocation({
+    (cityName: string, cityCenter: Center) => {
+      const defaultLocation: UserLocation = {
         cityName,
         provinceName,
         cityCenter,
-      });
-      setUserLocation(cityName, provinceName, cityCenter);
+      };
+
+      setLocation(defaultLocation);
+      setUserLocation(defaultLocation);
+
       const newplatformsTerm = Object.keys(platformsTerm).reduce(
         (prev, curr) => ({ ...prev, [curr]: false }),
-        {},
+        {}
       );
       setSearchTerms((prev) => ({
         gameNameTerm: "",
@@ -35,10 +38,17 @@ const NavbarLocationCity = ({
         isForSell: false,
         isForExchange: false,
       }));
-      isProvinces(true);
-      onClose(false);
+      isProvinces();
+      onClose();
     },
-    [cityName],
+    [
+      isProvinces,
+      onClose,
+      platformsTerm,
+      provinceName,
+      setLocation,
+      setSearchTerms,
+    ]
   );
 
   return (

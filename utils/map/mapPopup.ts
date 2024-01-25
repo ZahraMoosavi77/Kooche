@@ -1,16 +1,6 @@
-interface Game {
-  imageUrl: string;
-  name: string;
-  platforms: {
-    name: string;
-  } | null;
-  exchange: boolean;
-  price: number;
-}
-
 export const mapPopup = (games: Game[]): string => {
   const haveNotPlatforms = games[0].platforms === null;
-  let platformName = "";
+  let platformName: string = "";
 
   if (!haveNotPlatforms) {
     platformName = games[0].platforms!.name;

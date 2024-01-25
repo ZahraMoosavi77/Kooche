@@ -11,7 +11,12 @@ const NavbarLocation = () => {
 
   useEffect(() => {
     if (!localStorage.getItem("userLocation")) {
-      setUserLocation("تهران", "تهران", [35.6892523, 51.3896004]);
+      const defaultLocation:UserLocation = {
+        cityName: "تهران",
+        provinceName: "تهران",
+        cityCenter: [35.6892523, 51.3896004],
+      };
+      setUserLocation(defaultLocation);
     }
     const fetchData = async () => {
       let { data } = await supabase
@@ -25,8 +30,12 @@ const NavbarLocation = () => {
     fetchData();
   }, []);
 
-  const handleClick = useCallback(() => {
+  const handleOpen = useCallback(() => {
     setIsModalOpen(true);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setIsModalOpen(false);
   }, []);
 
   if (!provinces) {
@@ -37,7 +46,7 @@ const NavbarLocation = () => {
     <>
       <button
         className="flex p-2 md:gap-2 items-center md:px-4 "
-        onClick={handleClick}
+        onClick={handleOpen}
         title={`${location.provinceName}, ${location.cityName}`}
       >
         <Image
@@ -53,7 +62,7 @@ const NavbarLocation = () => {
         </span>
       </button>
       {isModalOpen && (
-        <NavbarLocationModal onClose={setIsModalOpen} provinces={provinces} />
+        <NavbarLocationModal onClose={handleClose} provinces={provinces} />
       )}
     </>
   );

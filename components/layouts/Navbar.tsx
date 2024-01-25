@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import "@/styles/navbar/navbar.modules.css";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { FC, useState } from "react";
 import {
   MapSearch,
   NavbarLocation,
@@ -13,7 +13,7 @@ import {
   UseGlobalContext,
 } from "@/index";
 
-const Navbar = () => {
+const Navbar:FC = () => {
   const [isShow, setIsShow] = useState(false);
   const path = usePathname();
   const { id, isLoggedIn, setIsLoggedIn, setId } = UseGlobalContext();

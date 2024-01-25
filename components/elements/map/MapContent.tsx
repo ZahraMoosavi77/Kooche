@@ -1,4 +1,6 @@
 "use client";
+import { FC, useEffect, useContext } from "react";
+import { ActionUserSearchContext } from "@/index";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -14,7 +16,17 @@ const mapOptions = {
   scrollWheelZoom: true,
 };
 
-const MapContent = () => {
+const MapContent: FC = () => {
+  const setSearchTerms = useContext(ActionUserSearchContext);
+
+  useEffect(() => {
+    setSearchTerms({
+      gameNameTerm: "",
+      platformsTerm: {},
+      isForSell: false,
+      isForExchange: false,
+    });
+  }, []);
   return (
     <div className={"w-full h-full"}>
       <MapContainer

@@ -6,8 +6,8 @@ import { LocationContext, UserSearchContext } from "@/context/map/mapContext";
 export function useGetGamesData(gameNameSearch: string = "") {
   const userLocation = useContext(LocationContext);
   const userSearch = useContext(UserSearchContext);
-  const [locations, setLocations] = useState<any[]>([]);
-  const [displayLocations, setDisplayLocations] = useState<any[]>([]);
+  const [locations, setLocations] = useState<Location[] | any[]>([]);
+  const [displayLocations, setDisplayLocations] = useState<Location[]>([]);
   const [isEmpty, setIsEmpty] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -25,11 +25,11 @@ export function useGetGamesData(gameNameSearch: string = "") {
         cities!inner(name),
         status(name)
         )
-        `,
+        `
         )
         .eq(
           "games.cities.name",
-          JSON.parse(localStorage.getItem("userLocation")!).cityName,
+          JSON.parse(localStorage.getItem("userLocation")!).cityName
         );
 
       setLocations(data);
@@ -53,7 +53,7 @@ export function useGetGamesData(gameNameSearch: string = "") {
       }
 
       const selectedPlatforms = Object.keys(platformsTerm).filter(
-        (key) => platformsTerm[key] === true,
+        (key) => platformsTerm[key] === true
       );
 
       const newLocations = locations.filter(({ games }) => {
@@ -64,7 +64,7 @@ export function useGetGamesData(gameNameSearch: string = "") {
               games[0].name.toLowerCase().includes(gameName.toLowerCase()) &&
               !!parseInt(games[0].price) === isForSell &&
               !!selectedPlatforms.filter((platform) =>
-                platform.includes(games[0].platforms.name),
+                platform.includes(games[0].platforms.name)
               ).length
             );
           } else if (isForSell && !isForExchange) {
@@ -72,7 +72,7 @@ export function useGetGamesData(gameNameSearch: string = "") {
               games[0].name.toLowerCase().includes(gameName) &&
               !!parseInt(games[0].price) === isForSell &&
               !!selectedPlatforms.filter((platform) =>
-                platform.includes(games[0].platforms.name),
+                platform.includes(games[0].platforms.name)
               ).length
             );
           } else if (!isForSell && isForExchange) {
@@ -80,14 +80,14 @@ export function useGetGamesData(gameNameSearch: string = "") {
               games[0].exchange === isForExchange &&
               games[0].name.toLowerCase().includes(gameName.toLowerCase()) &&
               !!selectedPlatforms.filter((platform) =>
-                platform.includes(games[0].platforms.name),
+                platform.includes(games[0].platforms.name)
               ).length
             );
           } else {
             return (
               games[0].name.toLowerCase().includes(gameName.toLowerCase()) &&
               !!selectedPlatforms.filter((platform) =>
-                platform.includes(games[0].platforms.name),
+                platform.includes(games[0].platforms.name)
               ).length
             );
           }

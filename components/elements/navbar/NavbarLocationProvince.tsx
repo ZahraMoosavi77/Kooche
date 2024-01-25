@@ -1,16 +1,20 @@
-import { useCallback } from "react";
+import { FC, useCallback } from "react";
 import Image from "next/image";
 
-const NavbarLocationProvince = ({ province, isProvinces, setCities }) => {
+const NavbarLocationProvince: FC<NavbarLocationProvinceProps> = ({
+  province,
+  isProvinces,
+  setCities,
+}) => {
   const { name, cities } = province;
 
   const handleCities = useCallback(() => {
-    isProvinces(false);
+    isProvinces();
     setCities({
       citiesList: cities,
       province: name,
     });
-  }, [cities]);
+  }, [cities, isProvinces, name, setCities]);
 
   return (
     <li

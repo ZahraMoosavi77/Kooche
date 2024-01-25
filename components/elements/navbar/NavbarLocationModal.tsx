@@ -1,11 +1,26 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { FC, useCallback, useState } from "react";
 import { NavbarLocationCity, NavbarLocationProvince } from "@/index";
 
-const NavbarLocationModal = ({ onClose, provinces }) => {
-  const [isProvinces, setIsProvinces] = useState(true);
-  const [cities, setCities] = useState({});
+const NavbarLocationModal: FC<NavbarLocationModalProps> = ({
+  onClose,
+  provinces,
+}) => {
+  const [isProvinces, setIsProvinces] = useState<boolean>(true);
+  const [cities, setCities] = useState<LocationState>({ province: "", citiesList: [] });
+
+  const handleIsProvinces = useCallback(() => {
+    setIsProvinces(true);
+  }, []);
+
+  const handleNotProvinces = useCallback(() => {
+    setIsProvinces(false);
+  }, []);
+
+  const handleCities = useCallback((locationDetail:LocationState) => {
+    setCities(locationDetail);
+  }, []);
 
   return (
     <div className="absolute w-full h-full top-0 right-0 z-[402] bg-gradient-to-b from-[rgba(0,0,0,0.6)] to-[rgba(0,0,0,0.6)] flex items-center justify-center">
@@ -17,7 +32,7 @@ const NavbarLocationModal = ({ onClose, provinces }) => {
             alt="Close"
             width={24}
             height={24}
-            onClick={() => onClose(false)}
+            onClick={onClose}
             className="cursor-pointer md:w-4 md:h-4"
           />
         </div>
@@ -28,8 +43,8 @@ const NavbarLocationModal = ({ onClose, provinces }) => {
                 <NavbarLocationProvince
                   key={province.id}
                   province={province}
-                  setCities={setCities}
-                  isProvinces={setIsProvinces}
+                  setCities={handleCities}
+                  isProvinces={handleNotProvinces}
                 />
               ))}
             </ul>
@@ -43,7 +58,7 @@ const NavbarLocationModal = ({ onClose, provinces }) => {
                 alt="Close"
                 width={24}
                 height={24}
-                onClick={() => setIsProvinces(true)}
+                onClick={handleIsProvinces}
                 className="cursor-pointer ml-2"
               />
               <h6 className="text-gray-900 font-peyda-bold">
@@ -58,7 +73,7 @@ const NavbarLocationModal = ({ onClose, provinces }) => {
                   cityCenter={center}
                   provinceName={cities.province}
                   onClose={onClose}
-                  isProvinces={setIsProvinces}
+                  isProvinces={handleIsProvinces}
                 />
               ))}
             </ul>
