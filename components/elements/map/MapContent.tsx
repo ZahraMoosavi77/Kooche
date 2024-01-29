@@ -1,18 +1,32 @@
 "use client";
-import "@/styles/map/map.modules.css";
+import { FC, useEffect, useContext } from "react";
+import { ActionUserSearchContext } from "@/index";
 import { MapContainer, TileLayer } from "react-leaflet";
+import { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
+import "@/styles/map/map.modules.css";
 import dynamic from "next/dynamic";
 const MarkersContainer = dynamic(() => import("@/components/elements/map/MarkersContainer"), {
-  ssr: false, // Disable server-side rendering for Leaflet component
+    ssr: false, // Disable server-side rendering for Leaflet component
 });
 
 const mapOptions = {
-  center: [35.68804331563681, 51.38883302970867],
+  center: [35.68804331563681, 51.38883302970867] as LatLngExpression,
   zoom: 10,
   scrollWheelZoom: true,
 };
-const MapContent = () => {
+
+const MapContent: FC = () => {
+  const setSearchTerms = useContext(ActionUserSearchContext);
+
+  useEffect(() => {
+    setSearchTerms({
+      gameNameTerm: "",
+      platformsTerm: {},
+      isForSell: false,
+      isForExchange: false,
+    });
+  }, []);
   return (
     <div className={"w-full h-full"}>
       <MapContainer

@@ -1,4 +1,4 @@
-import { useCallback, useContext } from "react";
+import { FC, MouseEvent, useCallback, useContext } from "react";
 import {
   ActionUserSearchContext,
   NavbarSearchPlatformsTags,
@@ -6,19 +6,23 @@ import {
 } from "@/index";
 import Image from "next/image";
 
-const NavbarSearchTags = () => {
+const NavbarSearchTags: FC = () => {
   const { isForSell, isForExchange, platformsTerm } =
     useContext(UserSearchContext);
   const setSearchTerm = useContext(ActionUserSearchContext);
 
-  const handleTagClick = useCallback((e) => {
-    setSearchTerm((prevState) => {
-      return {
-        ...prevState,
-        [e.target.id]: false,
-      };
-    });
-  }, []);
+  const handleTagClick = useCallback(
+    (e: MouseEvent<HTMLImageElement>) => {
+      setSearchTerm((prevState) => {
+        return {
+          ...prevState,
+          [e.currentTarget.id]: false,
+        };
+      });
+    },
+    [setSearchTerm]
+  );
+
   return (
     <div className="flex items-center gap-2 overflow-y-auto no-scrollbar">
       {isForSell && (

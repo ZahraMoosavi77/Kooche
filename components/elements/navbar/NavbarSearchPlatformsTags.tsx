@@ -1,18 +1,20 @@
-import { useCallback, useContext } from "react";
+import { FC, MouseEvent, useCallback, useContext } from "react";
 import Image from "next/image";
 import { ActionUserSearchContext } from "@/index";
 
-const NavbarSearchPlatformsTags = ({ platformName }) => {
+const NavbarSearchPlatformsTags: FC<NavbarSearchPlatformsTagsProps> = ({
+  platformName,
+}) => {
   const setSearchTerm = useContext(ActionUserSearchContext);
 
   const handleTagClick = useCallback(
-    (e) => {
+    (e: MouseEvent<HTMLImageElement>) => {
       setSearchTerm((prevState) => ({
         ...prevState,
         platformsTerm: { ...prevState.platformsTerm, [platformName]: false },
       }));
     },
-    [platformName],
+    [platformName, setSearchTerm]
   );
 
   return (

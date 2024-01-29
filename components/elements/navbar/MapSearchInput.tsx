@@ -1,13 +1,17 @@
 "use client";
 import Image from "next/image";
-import { useContext, useState } from "react";
+import { FC, useCallback, useContext, useState } from "react";
 import { MapSearchModal, UserSearchContext, useWindowSize } from "@/index";
 
-const MapSearchInput = () => {
-  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+const MapSearchInput:FC = () => {
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState<boolean>(false);
   const searchTerm = useContext(UserSearchContext);
   const { gameNameTerm } = searchTerm;
   const { width } = useWindowSize();
+
+  const onClose = useCallback(() => {
+    setIsSearchModalOpen(() => false);
+  }, []);
 
   return (
     <>
@@ -27,7 +31,7 @@ const MapSearchInput = () => {
         <span className="whitespace-nowrap text-ellipsis overflow-hidden hidden md:inline">
           {gameNameTerm || "جستجو"}
         </span>
-        {isSearchModalOpen && <MapSearchModal onClose={setIsSearchModalOpen} />}
+        {isSearchModalOpen && <MapSearchModal onClose={onClose} />}
       </div>
       {isSearchModalOpen && (
         <div

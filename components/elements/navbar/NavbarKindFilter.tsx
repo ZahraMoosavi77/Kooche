@@ -1,14 +1,18 @@
-import { useCallback } from "react";
+import { ChangeEvent, FC, ReactElement, useCallback } from "react";
 
-const NavbarKindFilter = ({ setFilters, filters }) => {
+const NavbarKindFilter: FC<NavbarKindFilterProps> = ({
+  updateFilters,
+  filters,
+}): ReactElement => {
   const { isForExchangeFilter, isForSellFilter } = filters;
 
-  const handleKindFilterChange = useCallback((e) => {
-    const { name, checked } = e.target;
-    setFilters((prevState) => {
-      return { ...prevState, [name]: checked };
-    });
-  }, []);
+  const handleKindFilterChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>): void => {
+      const { name, checked } = e.target;
+      updateFilters(name, checked);
+    },
+    [updateFilters]
+  );
 
   return (
     <div className="border-b border-gray-300">

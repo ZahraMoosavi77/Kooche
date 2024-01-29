@@ -1,9 +1,9 @@
-export const mapPopup = (games) => {
+export const mapPopup = (games: Game[]): string => {
   const haveNotPlatforms = games[0].platforms === null;
-  let platformName = "";
+  let platformName: string = "";
 
   if (!haveNotPlatforms) {
-    platformName = games[0].platforms.name;
+    platformName = games[0].platforms!.name;
   }
 
   return `<div class="popup-image"><Image
@@ -21,7 +21,11 @@ ${games[0].name}
 </div>
 <div class="flex">
 ${games[0].exchange ? "<span class='popup-tag' >تبادل</span>" : ""}
-${!!parseInt(games[0].price) ? "<span class='popup-tag'>فروش</span>" : ""}
+${
+  !!parseInt(games[0].price.toString())
+    ? "<span class='popup-tag'>فروش</span>"
+    : ""
+}
 </div>
 <div class="flex items-center">
 <img src="/images/map/Tag.svg" alt="Tag">

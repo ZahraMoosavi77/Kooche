@@ -1,15 +1,30 @@
 "use client";
-import { createContext, useEffect, useState } from "react";
+import { FC, createContext, useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 
-export const UserSearchContext = createContext();
-export const LocationContext = createContext();
-export const ActionUserSearchContext = createContext();
-export const ActionLocationContext = createContext();
+export const UserSearchContext = createContext<SearchTerms>({
+  gameNameTerm: "",
+  platformsTerm: {},
+  isForSell: false,
+  isForExchange: false,
+});
 
-export const MapProvider = ({ children }) => {
-  const [userLocation, setUserLocation] = useState("");
-  const [searchTerms, setSearchTerms] = useState({
+export const LocationContext = createContext<UserLocation | null>(null);
+
+export const ActionUserSearchContext = createContext<React.Dispatch<
+  React.SetStateAction<SearchTerms>
+> | null>(null);
+export const ActionLocationContext = createContext<React.Dispatch<
+  React.SetStateAction<UserLocation | null>
+> | null>(null);
+
+export const MapProvider: FC<ChildrenProp> = ({ children }) => {
+  const [userLocation, setUserLocation] = useState<UserLocation>({
+    cityName: "",
+    provinceName: "",
+    cityCenter: [0, 0],
+  });
+  const [searchTerms, setSearchTerms] = useState<SearchTerms>({
     gameNameTerm: "",
     platformsTerm: {},
     isForSell: false,
@@ -17,14 +32,14 @@ export const MapProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    setUserLocation(JSON.parse(localStorage?.getItem("userLocation")));
+    setUserLocation(JSON.parse(localStorage?.getItem("userLocation") ?? ""));
   }, []);
 
   useEffect(() => {
     const fetchData = async () => {
       let { data } = await supabase.from("platforms").select("*");
 
-      data.forEach((item) => {
+      data.forEach((item: { name: string }) => {
         setSearchTerms((prevState) => ({
           ...prevState,
           platformsTerm: { ...prevState.platformsTerm, [item.name]: false },
@@ -34,6 +49,7 @@ export const MapProvider = ({ children }) => {
 
     fetchData();
   }, []);
+ 
   return (
     <LocationContext.Provider value={userLocation}>
       <ActionLocationContext.Provider value={setUserLocation}>

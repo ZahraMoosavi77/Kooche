@@ -1,14 +1,13 @@
-const NavbarFilterPlatform = ({
+import { ChangeEvent, FC } from "react";
+
+const NavbarSinglePlatformFilter:FC<NavbarSinglePlatformFilterProps> = ({
   setPlatformState,
   platformName,
   platformState,
 }) => {
-  const handlePlatformChange = (e) => {
+  const handlePlatformChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
-    setPlatformState((prevState) => ({
-      ...prevState,
-      platforms: { ...prevState.platforms, [name]: checked },
-    }));
+    setPlatformState(name, checked);
   };
 
   return (
@@ -31,4 +30,4 @@ const NavbarFilterPlatform = ({
   );
 };
 
-export default NavbarFilterPlatform;
+export default NavbarSinglePlatformFilter;

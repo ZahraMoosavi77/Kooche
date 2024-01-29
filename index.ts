@@ -67,7 +67,7 @@ import MapSearchModal from "@/components/elements/navbar/MapSearchModal";
 import MapSearchModalSingleSuggestion from "@/components/elements/navbar/MapSearchModalSingleSuggestion";
 import MapSearchModalSuggestions from "@/components/elements/navbar/MapSearchModalSuggestions";
 import NavbarFilterModal from "@/components/elements/navbar/NavbarFilterModal";
-import NavbarFilterPlatform from "@/components/elements/navbar/NavbarFilterPlatform";
+import NavbarSinglePlatformFilter from "@/components/elements/navbar/NavbarSinglePlatformFilter";
 import NavbarKindFilter from "@/components/elements/navbar/NavbarKindFilter";
 import NavbarLocation from "@/components/elements/navbar/NavbarLocation";
 import NavbarLocationCity from "@/components/elements/navbar/NavbarLocationCity";
@@ -87,7 +87,7 @@ export {
   MapSearchModalSingleSuggestion,
   MapSearchModal,
   NavbarFilterModal,
-  NavbarFilterPlatform,
+  NavbarSinglePlatformFilter,
   NavbarKindFilter,
   NavbarLocation,
   NavbarLocationCity,

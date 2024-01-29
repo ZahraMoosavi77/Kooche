@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useCallback, useContext, useState } from "react";
+import { FC, useCallback, useContext, useState } from "react";
 import {
   ActionUserSearchContext,
   NavbarKindFilter,
@@ -8,11 +8,11 @@ import {
   UserSearchContext,
 } from "@/index";
 
-const NavbarFilterModal = ({ onClose }) => {
+const NavbarFilterModal: FC<NavbarFilterModalProp> = ({ onClose }) => {
   const setSearchTerm = useContext(ActionUserSearchContext);
   const { platformsTerm, isForSell, isForExchange } =
     useContext(UserSearchContext);
-  const [filters, setFilters] = useState({
+  const [filters, setFilters] = useState<FilterState>({
     isForExchangeFilter: isForExchange,
     isForSellFilter: isForSell,
     platforms: platformsTerm,
@@ -29,12 +29,24 @@ const NavbarFilterModal = ({ onClose }) => {
         platformsTerm: platforms,
       };
     });
-    onClose(() => false);
-  }, [isForExchangeFilter, isForSellFilter, platforms]);
+    onClose();
+  }, [isForExchangeFilter, isForSellFilter, onClose, platforms, setSearchTerm]);
 
-  const handleClose = useCallback(() => {
-    onClose(() => false);
+  const updateKindsFilters = useCallback((name: string, checked: boolean) => {
+    setFilters((prevState) => {
+      return { ...prevState, [name]: checked };
+    });
   }, []);
+
+  const updatePlatformsFilters = useCallback(
+    (name: string, checked: boolean) => {
+      setFilters((prevState) => ({
+        ...prevState,
+        platforms: { ...prevState.platforms, [name]: checked },
+      }));
+    },
+    []
+  );
 
   return (
     <div className="absolute w-full h-full top-0 right-0 z-[402] bg-gradient-to-b from-[rgba(0,0,0,0.6)] to-[rgba(0,0,0,0.6)] flex items-center justify-center">
@@ -46,20 +58,23 @@ const NavbarFilterModal = ({ onClose }) => {
             alt="Close"
             width={24}
             height={24}
-            onClick={handleClose}
+            onClick={onClose}
             className="cursor-pointer md:w-4 md:h-4"
           />
         </div>
 
         <NavbarKindFilter
-          setFilters={setFilters}
+          updateFilters={updateKindsFilters}
           filters={{ isForExchangeFilter, isForSellFilter }}
         />
-        <NavbarPlatformsFilter setFilters={setFilters} platforms={platforms} />
+        <NavbarPlatformsFilter
+          updatePlatformsFilters={updatePlatformsFilters}
+          platforms={platforms}
+        />
 
         <div className="flex justify-end mt-4 gap-4 items-center">
           <button
-            onClick={handleClose}
+            onClick={onClose}
             className="text-gray-800 py-2 px-4 font-peyda-semibold leading-leading-3 rounded-xl"
           >
             لغو

@@ -1,5 +1,12 @@
 "use client";
-import { useCallback, useContext, useState } from "react";
+import {
+  ChangeEvent,
+  FC,
+  FormEvent,
+  useCallback,
+  useContext,
+  useState,
+} from "react";
 import Image from "next/image";
 import {
   ActionUserSearchContext,
@@ -7,24 +14,28 @@ import {
   UserSearchContext,
 } from "@/index";
 
-const MapSearchModal = ({ onClose }) => {
+const MapSearchModal: FC<MapSearchModalProp> = ({ onClose }) => {
   const { gameNameTerm } = useContext(UserSearchContext);
   const setSearchTerms = useContext(ActionUserSearchContext);
-  const [gameName, setGameName] = useState(gameNameTerm);
+  const [gameName, setGameName] = useState<string>(gameNameTerm);
 
-  const handleSearchChange = useCallback((e) => {
+  const handleSearchChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setGameName(() => e.target.value);
   }, []);
 
+  const handleGameName = useCallback((gameName) => {
+    setGameName(() => gameName);
+  }, []);
+
   const handleSearchSubmit = useCallback(
-    (e) => {
+    (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       setSearchTerms((prevState) => {
         return { ...prevState, gameNameTerm: gameName.trim() };
       });
-      onClose(() => false);
+      onClose();
     },
-    [gameName],
+    [gameName, onClose, setSearchTerms]
   );
 
   return (
@@ -57,7 +68,7 @@ const MapSearchModal = ({ onClose }) => {
         {!!gameName && (
           <MapSearchModalSuggestions
             gameName={gameName}
-            setGameName={setGameName}
+            setGameName={handleGameName}
             onClose={onClose}
           />
         )}

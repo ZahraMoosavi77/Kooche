@@ -1,50 +1,57 @@
 "use client";
 import Image from "next/image";
-import { useCallback, useContext, useEffect, useRef } from "react";
+import {
+  FC,
+  MouseEvent,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+} from "react";
 import { ActionUserSearchContext } from "@/index";
 
-const MapSearchModalSingleSuggestion = ({
-  gameName,
-  searchTerm,
-  setGameName,
-  onClose,
-}) => {
+const MapSearchModalSingleSuggestion: FC<
+  MapSearchModalSingleSuggestionProps
+> = ({ gameName, searchTerm, setGameName, onClose }) => {
   const setSearchTerms = useContext(ActionUserSearchContext);
-  const itemRef = useRef();
-  const imageRef = useRef();
+  const itemRef = useRef<HTMLLIElement>();
+  const imageRef = useRef<HTMLImageElement>();
 
   useEffect(() => {
+    const LiRef = itemRef.current;
+    const ImageRef = imageRef.current;
+
     const handleHover = () => {
-      imageRef.current.src = "images/map/fi-rr-gamepad-blue.svg";
+      ImageRef.src = "images/map/fi-rr-gamepad-blue.svg";
     };
 
     const handleHoverEnd = () => {
-      imageRef.current.src = "images/map/fi-rr-gamepad.svg";
+      ImageRef.src = "images/map/fi-rr-gamepad.svg";
     };
 
-    if (itemRef.current) {
-      itemRef.current.addEventListener("mouseover", handleHover);
-      itemRef.current.addEventListener("mouseleave", handleHoverEnd);
+    if (LiRef) {
+      LiRef.addEventListener("mouseover", handleHover);
+      LiRef.addEventListener("mouseleave", handleHoverEnd);
     }
 
     return () => {
-      if (itemRef.current) {
-        itemRef.current.removeEventListener("mouseover", handleHover);
-        itemRef.current.removeEventListener("mouseleave", handleHoverEnd);
+      if (LiRef) {
+        LiRef.removeEventListener("mouseover", handleHover);
+        LiRef.removeEventListener("mouseleave", handleHoverEnd);
       }
     };
   }, []);
 
   const handleSearchItemClick = useCallback(
-    (e) => {
+    (e: MouseEvent<HTMLLIElement>) => {
       e.stopPropagation();
-      onClose(() => false);
+      onClose();
       setSearchTerms((prevState) => {
         return { ...prevState, gameNameTerm: gameName };
       });
-      setGameName(() => gameName);
+      setGameName(gameName);
     },
-    [gameName, onClose, setGameName, setSearchTerms],
+    [gameName, onClose, setGameName, setSearchTerms]
   );
 
   return (
@@ -66,13 +73,13 @@ const MapSearchModalSingleSuggestion = ({
         <span className="font-semibold">
           {gameName.substring(
             gameName.toLowerCase().indexOf(searchTerm),
-            gameName.toLowerCase().indexOf(searchTerm) + searchTerm.length,
+            gameName.toLowerCase().indexOf(searchTerm) + searchTerm.length
           )}
         </span>
 
         {gameName.substring(
           gameName.toLowerCase().indexOf(searchTerm) + searchTerm.length,
-          gameName.toLowerCase().length,
+          gameName.toLowerCase().length
         )}
       </p>
     </li>

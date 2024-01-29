@@ -1,10 +1,12 @@
 "use client";
+import { FC, useMemo } from "react";
 import L from "leaflet";
-import { useMemo } from "react";
 import { mapPopup } from "@/index";
 
-const Marker = ({ game, markerGroup }) => {
-  const { game_location, games } = game;
+
+
+const Marker: FC<MarkerProps> = ({ location, markerGroup }) => {
+  const { game_location, games } = location;
 
   let markerIcon = useMemo(
     () =>

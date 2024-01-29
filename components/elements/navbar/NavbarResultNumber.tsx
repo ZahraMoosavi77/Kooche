@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import { FC, useContext } from "react";
 import { useGetGamesData, UserSearchContext } from "@/index";
 
-const NavbarResultNumber = () => {
+const NavbarResultNumber:FC = () => {
   const { gameNameTerm } = useContext(UserSearchContext);
   const { displayLocations } = useGetGamesData();
 
