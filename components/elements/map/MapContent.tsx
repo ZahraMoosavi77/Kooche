@@ -2,7 +2,14 @@
 import "@/styles/map/map.modules.css";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { MarkersContainer } from "@/index";
+// import { MarkersContainer } from "@/index";
+import dynamic from "next/dynamic";
+const MarkersContainer = dynamic(
+  () => import("@/components/elements/map/MarkersContainer"),
+  {
+    ssr: false, // Disable server-side rendering for Leaflet component
+  },
+);
 
 const mapOptions = {
   center: [35.68804331563681, 51.38883302970867],

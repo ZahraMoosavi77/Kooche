@@ -1,14 +1,12 @@
 "use client";
 import { useMap } from "react-leaflet";
 import L from "leaflet";
-import {
-  Loading,
-  LocationContext,
-  Marker,
-  SetView,
-  useGetGamesData,
-} from "@/index";
+import { Loading, LocationContext, SetView, useGetGamesData } from "@/index";
 import { useContext } from "react";
+import dynamic from "next/dynamic";
+const Marker = dynamic(() => import("@/components/elements/map/Marker"), {
+  ssr: false, // Disable server-side rendering for Leaflet component
+});
 
 const MarkersContainer = () => {
   const { displayLocations, isEmpty, isLoading } = useGetGamesData();
