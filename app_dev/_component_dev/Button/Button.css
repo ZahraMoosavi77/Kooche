@@ -1,0 +1,7 @@
+.button {
+  @apply flex justify-center items-center w-full rounded-[12px] bg-secondary py-2 ffont-peyda-semibold text-base text-scales-default cursor-pointer text-white active:bg-primary;
+}
+
+.button-disabled {
+    @apply bg-white text-primary
+}
