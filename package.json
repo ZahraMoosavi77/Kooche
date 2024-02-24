@@ -13,6 +13,7 @@
     "@supabase/supabase-js": "^2.36.0",
     "autoprefixer": "10.4.16",
     "clsx": "^2.1.0",
+    "colord": "^2.9.3",
     "eslint": "8.49.0",
     "eslint-config-next": "13.5.2",
     "formik": "^2.4.5",
