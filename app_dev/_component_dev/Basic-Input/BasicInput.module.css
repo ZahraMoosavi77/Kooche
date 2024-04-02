@@ -1,18 +1,18 @@
 .basic-input__label {
-    @apply flex flex-col items-start gap-2 font-medium  text-black
+    @apply flex flex-col items-start gap-2   text-black
 }
 
 .basic-input__input {
-    @apply w-full p-3 rounded-[12px] border  font-normal outline-none text-right
+    @apply w-full p-3 rounded-[12px] border   outline-none text-right
 }
 
 .basic-input__input::placeholder {
-    @apply text-sm
+    @apply 
 }
 
 .basic-input__input-readonly {
     @apply }
 
 .basic-input__error{
-    @apply  text-sm font-normal self-start
+    @apply   font-normal self-start
 }

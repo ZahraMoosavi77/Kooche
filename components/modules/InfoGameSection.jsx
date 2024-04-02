@@ -19,6 +19,7 @@ import BasicInput from '@/app_dev/_component_dev/Basic-Input/BasicInput'
 
 
 export default function InfoGameSection() {
+    
     const [platforms, setPlatforms] = useState([]);
     const { values, isValidName, isValidPlatform } = useContext(NewContext)
     const getData = async () => {
