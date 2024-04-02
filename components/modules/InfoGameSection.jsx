@@ -14,6 +14,7 @@ import { useContext, useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import { ErrorMessageNameOfGame,ErrorMessagePlatform } from '@/constants/constantNewPage'
 import { NewContext } from "@/context/NewContext"
+import BasicInput from '@/app_dev/_component_dev/Basic-Input/BasicInput'
 
 
 
@@ -37,7 +38,8 @@ export default function InfoGameSection() {
                 <SubTitleNewPage text={infoGame.INFOGAMESUBTITLE} />
             </div>
             <div>
-                <TextFieldNewPage value={values.name} validate={isValidName} required={true} errormessage={ErrorMessageNameOfGame} helpText={true} name={'name'} type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} />
+                <BasicInput/>
+                {/* <TextFieldNewPage value={values.name} validate={isValidName} required={true} errormessage={ErrorMessageNameOfGame} helpText={true} name={'name'} type={'text'} label={<TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />} /> */}
             </div>
 
             <div className='relative'>
