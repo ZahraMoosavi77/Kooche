@@ -23,7 +23,6 @@ const SetGameLocation = () => {
 
     setGameLocation(e.latlng);
     let marker = new L.marker(e.latlng, { icon: markerIcon }).addTo(map);
-   console.log(gameLocation);
   });
   return null;
 };

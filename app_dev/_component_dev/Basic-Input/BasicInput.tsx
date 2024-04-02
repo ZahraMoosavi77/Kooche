@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import { basicInputType } from "./BasicInput.type";
 
@@ -12,6 +12,8 @@ const BasicInput: React.FC = ({
   disabled,
   type = "text",
   autocomplete,
+  register,
+
 }: basicInputType) => {
   const inputClassNames = clsx(
     "basic-input__input",
@@ -19,18 +21,23 @@ const BasicInput: React.FC = ({
     className
   );
 
+  
+  
   return (
     <input
       autoComplete={autocomplete}
       className={inputClassNames}
       type={type}
       placeholder={placeholder}
-      onChange={onChangeHandler}
+      // onChange={onChangeHandler}
+
       name={name}
-      value={value || ""}
+      // value={value || ""}
       readOnly={readOnly}
       disabled={disabled}
+      {...register(name,{required:'الزامی'})}
     />
+
   );
 };
 

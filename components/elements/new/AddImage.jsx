@@ -36,7 +36,7 @@ export default function AddImage() {
   useEffect(() => {
     if(file) {
       handleSubmitImage();
-      console.log('send');
+      
     }
    
   }, [file])
