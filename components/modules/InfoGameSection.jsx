@@ -57,7 +57,7 @@ export default function InfoGameSection() {
           <BasicInput
             register={register}
             name={"name"}
-            className="text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary bg-gray-200 cls2 "
+            // className="text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary bg-gray-200 cls2 "
           />
           {errors.name && <span className={cls}>{errors.name.message}</span>}
         </div>
