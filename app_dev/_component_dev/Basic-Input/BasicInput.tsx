@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import { basicInputType } from "./BasicInput.type";
-
+import styles from './BasicInput.module.css'
 const BasicInput: React.FC = ({
   placeholder,
   onChangeHandler,
@@ -12,12 +12,11 @@ const BasicInput: React.FC = ({
   disabled,
   type = "text",
   autocomplete,
-  register,
-
+  register
 }: basicInputType) => {
   const inputClassNames = clsx(
-    "basic-input__input",
-    { "basic-input__input-readonly": readOnly },
+    styles["basic-input__input"],
+    { [styles["basic-input__input-readonly"]]: readOnly },
     className
   );
 
