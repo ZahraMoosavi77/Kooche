@@ -51,7 +51,7 @@ module.exports = {
       "accent-error-text":"#C30000",
       "accent-success": "#00BA88",
       "accent-warning": "#F4B740",
-      "accent-error":"#FFE5E5",
+      "accent-error":"#FFE5E5 " , 
       transparent: "transparent",
       black: "#000",
     },

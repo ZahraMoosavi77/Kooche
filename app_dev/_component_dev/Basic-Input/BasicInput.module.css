@@ -3,7 +3,7 @@
 }
 
 .basic-input__input {
-    @apply w-full p-3 rounded-[12px] border font-normal outline-none text-right 
+    @apply w-full py-[9.5px] px-3 rounded-[12px] border font-normal outline-none text-right 
 }
 
 /* .basic-input__input::placeholder {
