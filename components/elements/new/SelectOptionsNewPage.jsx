@@ -12,10 +12,7 @@ export default function SelectOptionsNewPage({ label, optionsGroup, placeholderS
     const [isOpen, setIsOpen] = useState(false);
     const { values, setIsValidProvince, setIsValidCity, setCities, setCenterCity,setIsValidPlatform } = useContext(NewContext)
     values[column] = selected.id;
-    const searchStyle = {
-        color: 'red'
-
-    }
+   
     return (
         <>
             <label>{label}</label>

@@ -40,17 +40,18 @@ export default function InfoGameSection() {
     console.log("data", data);
     
   };
-
+  `${errors.name ? "bg-accent-error" : "bg-gray-200"} text-gray-900  border-gray-200  mt-1 focus:text-primary focus:bg-white  focus:border-primary`
   const c2 = clsx({
     'bg-accent-error': errors.name,
     'bg-gray-200': !errors.name,
-    'text-gray-900': true, // These classes are applied regardless of condition
+    'text-gray-900': true, 
     'border-gray-200': true,
     'mt-1': true,
     'focus:text-primary': true,
     'focus:bg-white': true,
     'focus:border-primary': true
   });
+  console.log(Object.keys(errors).length);
   const cls = clsx({ "text-accent-error-text": errors });
   return (
     <div className=" flex flex-col gap-4 ">
@@ -89,6 +90,7 @@ export default function InfoGameSection() {
                     </div>} />
             </div>
             <div >
+           
                 <TextAreaNewPage name={'moreInfo'} value={values.moreInfo} label={<div className='flex  '>
                     <TextNewPage specialClass={'pr-3'} text={infoGame.GAMEDESCRIPTION} type={'textarea'} />
                     <Optional />
