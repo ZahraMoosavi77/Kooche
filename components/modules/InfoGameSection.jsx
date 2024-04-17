@@ -20,6 +20,7 @@ import { NewContext } from "@/context/NewContext";
 import BasicInput from "@/app_dev/_component_dev/Basic-Input/BasicInput";
 import { useForm } from "react-hook-form";
 import clsx from "clsx";
+import BaicTextArea from "@/app_dev/_component_dev/BasicTextArea/BasicTextArea";
 
 export default function InfoGameSection() {
   const {
@@ -40,19 +41,11 @@ export default function InfoGameSection() {
     console.log("data", data);
     
   };
-  `${errors.name ? "bg-accent-error" : "bg-gray-200"} text-gray-900  border-gray-200  mt-1 focus:text-primary focus:bg-white  focus:border-primary`
   const c2 = clsx({
-    'bg-accent-error': errors.name,
+    'bg-accent-bgerror': errors.name,
     'bg-gray-200': !errors.name,
-    'text-gray-900': true, 
-    'border-gray-200': true,
-    'mt-1': true,
-    'focus:text-primary': true,
-    'focus:bg-white': true,
-    'focus:border-primary': true
   });
-  console.log(Object.keys(errors).length);
-  const cls = clsx({ "text-accent-error-text": errors });
+ 
   return (
     <div className=" flex flex-col gap-4 ">
       <div className=" flex flex-col gap-2">
@@ -61,22 +54,25 @@ export default function InfoGameSection() {
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-        <TextNewPage specialClass={'pr-3'} text={infoGame.GAMENAME} />
           <BasicInput
             register={register}
-            name={"name"}
+            name={"firstname"}
             className={c2}
+            errors={errors}
+            label={infoGame.GAMENAME}
+            helpText={'متن کمکی'}
+            errorText={'الزامی'}
           />
-          {errors.name && <span className={cls}>{errors.name.message}</span>}
+         
           <BasicInput
             register={register}
             name={"family"}
             className={c2}
+            errors={errors}
           />
-           {errors.family && <span className={cls}>{errors.family.message}</span>}
         </div>
-        <button>send</button>
-      </form>
+       
+     
       <div className='relative'>
                 <SelectOptionsNewPage 
                 column={'platformId'}
@@ -90,15 +86,22 @@ export default function InfoGameSection() {
                     </div>} />
             </div>
             <div >
-           
-                <TextAreaNewPage name={'moreInfo'} value={values.moreInfo} label={<div className='flex  '>
+            <div className='flex  '>
                     <TextNewPage specialClass={'pr-3'} text={infoGame.GAMEDESCRIPTION} type={'textarea'} />
                     <Optional />
-                </div>} />
+                </div> 
+           <BaicTextArea register={register} name="description"/>
+                {/* <TextAreaNewPage name={'moreInfo'} value={values.moreInfo} label={<div className='flex  '>
+                    <TextNewPage specialClass={'pr-3'} text={infoGame.GAMEDESCRIPTION} type={'textarea'} />
+                    <Optional />
+                </div>} /> */}
 
             </div>
             <TextNewPage text={infoGame.GAMEIMAGES} />
             <AddImage />
+            <button>send</button>
+            </form>
+            
     </div>
   );
 }

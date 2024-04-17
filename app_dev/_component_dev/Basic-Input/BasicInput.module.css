@@ -1,19 +1,21 @@
+.basic-input{
+    
+}
+
+
 .basic-input__label {
     @apply flex flex-col items-start gap-2 font-medium  text-black
 }
 
 .basic-input__input {
-    @apply w-full py-[9.5px] px-3 rounded-[12px] border font-normal outline-none text-right 
+    @apply font-normal text-right outline-none w-full py-[9.5px] px-3 rounded-[12px] border  border-gray-200  focus:bg-white focus:border-primary focus:text-primary
 }
 
-/* .basic-input__input::placeholder {
-    @apply 
-} */
 
 .basic-input__input-readonly {
     @apply text-gray-200
 }
 
 .basic-input__error{
-    @apply  font-normal self-start
+    @apply   self-start bg-accent-bgerror
 }

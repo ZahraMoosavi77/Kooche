@@ -72,7 +72,7 @@ const Auth = () => {
         <div
           className={`${
             isValidate ? "hidden" : "flex"
-          } gap-1 items-center text-accent-error-text m-1 font-peyda-regular text-scales-default`}
+          } gap-1 items-center text-accent-error m-1 font-peyda-regular text-scales-default`}
         >
           <Image
             src="/images/Auth/Circle_Warning.svg"
