@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import { basicInputType } from "./BasicInput.type";
 import styles from "./BasicInput.module.css";
@@ -30,6 +30,7 @@ const BasicInput: React.FC = ({
     //?? component & order of classname type placeholder
     return (
       <div>
+        <div className="flex flex-col gap-1">
         <label className="text-scales-default font-peyda-regular leading-leading-3 text-gray-900 pr-3">
           {label}
         </label>
@@ -45,6 +46,7 @@ const BasicInput: React.FC = ({
         />
         <TextHelper className={'pr-3'} text={helpText} />
         {errors[name] && <TextError text={errorText} />}
+        </div>
       </div>
     );
   } else {

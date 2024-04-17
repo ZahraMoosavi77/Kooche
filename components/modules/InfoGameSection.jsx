@@ -10,7 +10,7 @@ import TextAreaNewPage from "../elements/new/TextAreaNewPage";
 import SelectOptionsNewPage from "../elements/new/SelectOptionsNewPage";
 import { CHOOSECONSOLE } from "@/constants/constantNewPage";
 
-import {  useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import {
   ErrorMessageNameOfGame,
@@ -27,7 +27,7 @@ export default function InfoGameSection() {
     register,
     handleSubmit,
     formState: { errors },
-    } = useForm();
+  } = useForm();
   const [platforms, setPlatforms] = useState([]);
   const { values, isValidName, isValidPlatform } = useContext(NewContext);
   const getData = async () => {
@@ -39,13 +39,12 @@ export default function InfoGameSection() {
   }, []);
   const onSubmit = (data) => {
     console.log("data", data);
-    
   };
   const c2 = clsx({
-    'bg-accent-bgerror': errors.name,
-    'bg-gray-200': !errors.name,
+    "bg-accent-bgerror": errors.name,
+    "bg-gray-200": !errors.name,
   });
- 
+
   return (
     <div className=" flex flex-col gap-4 ">
       <div className=" flex flex-col gap-2">
@@ -60,48 +59,48 @@ export default function InfoGameSection() {
             className={c2}
             errors={errors}
             label={infoGame.GAMENAME}
-            helpText={'متن کمکی'}
-            errorText={'الزامی'}
-          />
-         
-          <BasicInput
-            register={register}
-            name={"family"}
-            className={c2}
-            errors={errors}
+            helpText={"اسم بازی را مطابق با مشخصات مندرج روی بسته کامل کنید."}
+            errorText={"الزامی"}
           />
         </div>
-       
-     
-      <div className='relative'>
-                <SelectOptionsNewPage 
-                column={'platformId'}
-                 validate={isValidPlatform}
-                    defualtValue={CHOOSECONSOLE}
-                     placeholderSearch={SEARCH} 
-                     optionsGroup={platforms} 
-                     errormessage={ErrorMessagePlatform}
-                     label={<div className='flex  '>
-                        <TextNewPage specialClass={'pr-3'} text={infoGame.GAMECONSOLE} />
-                    </div>} />
-            </div>
-            <div >
-            <div className='flex  '>
-                    <TextNewPage specialClass={'pr-3'} text={infoGame.GAMEDESCRIPTION} type={'textarea'} />
-                    <Optional />
-                </div> 
-           <BaicTextArea register={register} name="description"/>
-                {/* <TextAreaNewPage name={'moreInfo'} value={values.moreInfo} label={<div className='flex  '>
+
+        <div className="relative">
+          <SelectOptionsNewPage
+            column={"platformId"}
+            validate={isValidPlatform}
+            defualtValue={CHOOSECONSOLE}
+            placeholderSearch={SEARCH}
+            optionsGroup={platforms}
+            errormessage={ErrorMessagePlatform}
+            label={
+              <div className="flex  ">
+                <TextNewPage
+                  specialClass={"pr-3"}
+                  text={infoGame.GAMECONSOLE}
+                />
+              </div>
+            }
+          />
+        </div>
+        <div>
+          <div className="flex  ">
+            <TextNewPage
+              specialClass={"pr-3"}
+              text={infoGame.GAMEDESCRIPTION}
+              type={"textarea"}
+            />
+            <Optional />
+          </div>
+          <BaicTextArea register={register} name="description" />
+          {/* <TextAreaNewPage name={'moreInfo'} value={values.moreInfo} label={<div className='flex  '>
                     <TextNewPage specialClass={'pr-3'} text={infoGame.GAMEDESCRIPTION} type={'textarea'} />
                     <Optional />
                 </div>} /> */}
-
-            </div>
-            <TextNewPage text={infoGame.GAMEIMAGES} />
-            <AddImage />
-            <button>send</button>
-            </form>
-            
+        </div>
+        <TextNewPage text={infoGame.GAMEIMAGES} />
+        <AddImage />
+        <button>send</button>
+      </form>
     </div>
   );
 }
