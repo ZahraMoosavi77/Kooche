@@ -2,7 +2,6 @@
 import { NewContext } from "@/context/NewContext"
 import { useContext, useEffect } from "react"
 import TextError from "./TextError";
-import TextHelper from './TextHelper'
 import { TEXTHELPER } from '@/constants/constantNewPage'
 import { REGex } from "@/constants/constantNewPage";
 
@@ -24,7 +23,7 @@ export default function TextField({ type, label, name, errormessage, helpText, v
       <label htmlFor={name}>{label} </label>
       <input id={name} type={type} onChange={onChange} value={value} name={name} className={` ${validate ? 'bg-gray-200' : 'bg-accent-bgerror'}  text-gray-900 rounded-xl  outline-none px-3 py-[9.5px] w-full mt-1 focus:bg-white focus:border focus:border-primary focus:text-primary`} />
       {!validate ? <TextError text={errormessage} /> : ''}
-      {helpText && <TextHelper specialClass={'pr-3'} text={TEXTHELPER} />}
+      {/* {helpText && <TextHelper specialClass={'pr-3'} text={TEXTHELPER} />} */}
     </>
 
 

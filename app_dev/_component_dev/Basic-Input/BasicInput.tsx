@@ -4,6 +4,7 @@ import { basicInputType } from "./BasicInput.type";
 import styles from "./BasicInput.module.css";
 import TextError from "@/components/elements/new/TextError";
 import HelpText from "@/app/new/_components/Help-Text/HelpText";
+import ErrorText from "@/app/new/_components/Error-Text/ErrorText";
 const BasicInput: React.FC = ({
   placeholder,
   onChangeHandler,
@@ -45,7 +46,8 @@ const BasicInput: React.FC = ({
           {...register(name, { required: errorText })}
         />
         <HelpText className={'pr-3'} text={helpText}/>
-        {errors[name] && <TextError text={errorText} />}
+        {errors[name] && <ErrorText  text={errorText}/>}
+        
         </div>
       </div>
     );
