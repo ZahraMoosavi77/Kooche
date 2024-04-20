@@ -40,10 +40,7 @@ export default function InfoGameSection() {
   const onSubmit = (data) => {
     console.log("data", data);
   };
-  const c2 = clsx({
-    "bg-accent-bgerror": errors.name,
-    "bg-gray-200": !errors.name,
-  });
+  
 
   return (
     <div className=" flex flex-col gap-4 ">
@@ -56,7 +53,6 @@ export default function InfoGameSection() {
           <BasicInput
             register={register}
             name={"firstname"}
-            className={c2}
             errors={errors}
             label={infoGame.GAMENAME}
             helpText={"اسم بازی را مطابق با مشخصات مندرج روی بسته کامل کنید."}
