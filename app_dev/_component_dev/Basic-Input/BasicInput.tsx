@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { basicInputType } from "./BasicInput.type";
 import styles from "./BasicInput.module.css";
 import TextError from "@/components/elements/new/TextError";
-import TextHelper from "@/components/elements/new/TextHelper";
+import HelpText from "@/app/new/_components/Help-Text/HelpText";
 const BasicInput: React.FC = ({
   placeholder,
   onChangeHandler,
@@ -44,7 +44,7 @@ const BasicInput: React.FC = ({
           disabled={disabled}
           {...register(name, { required: errorText })}
         />
-        <TextHelper className={'pr-3'} text={helpText} />
+        <HelpText className={'pr-3'} text={helpText}/>
         {errors[name] && <TextError text={errorText} />}
         </div>
       </div>
