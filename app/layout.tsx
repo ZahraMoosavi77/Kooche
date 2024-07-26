@@ -14,7 +14,7 @@ export default function RootLayout({
   children,
 }: ChildrenProp) {
   return (
-    <AuthContextProvider>
+    // <AuthContextProvider>
       <MapProvider>
         <NewPageProvider>
           <html lang="en" dir="rtl">
@@ -25,6 +25,6 @@ export default function RootLayout({
           </html>
         </NewPageProvider>
       </MapProvider>
-    </AuthContextProvider>
+    // </AuthContextProvider>
   );
 }
